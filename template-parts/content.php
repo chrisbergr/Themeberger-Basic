@@ -46,6 +46,7 @@ $current = $post->post_name;
 	<?php endif;*/ ?>
 	
 	<header class="entry-header">
+		UPDATED!
 		<?php if ( is_singular() ) : ?>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php else : ?>
