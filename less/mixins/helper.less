@@ -1,0 +1,65 @@
+.font-smoothing(){
+    //-webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    text-rendering: optimizeLegibility;
+}
+
+//.transition(@prop: all, @time: 1s, @ease: linear){
+//    -webkit-transition: @prop @time @ease;
+//    -moz-transition:    @prop @time @ease;
+//    -ms-transition:     @prop @time @ease;
+//    -o-transition:      @prop @time @ease;
+//    transition:         @prop @time @ease;
+//}
+
+.transition(@transition){
+	-webkit-transition: @transition;
+	-moz-transition:    @transition;
+	-ms-transition:     @transition;
+	-o-transition:      @transition;
+	transition:         @transition;
+}
+
+.inline(){	
+	overflow-wrap: break-word;
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
+.text-truncate(){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hide-text(){
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.border-radius(@radius: 5px){
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip:    padding;
+	background-clip:         padding-box;
+}
+
+.opacity(@opacity: 0.5) when (isnumber(@opacity)) and not (@opacity < 0) and not (@opacity > 1){
+    opacity: @opacity;
+    @opacity-ie: @opacity * 100;
+    filter: ~"alpha(opacity=@{opacity-ie})"; // IE8
+}
+
+
+.gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes)) when (@index > 0) {
+	.gradient(@type; @colors; @dir; @prefixes; (@index - 1));
+	@prefix  : extract(@prefixes, @index);
+	@dir-old : 90 - (@dir);
+	background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+	& when (@index = length(@prefixes)) {
+		background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+	}
+}

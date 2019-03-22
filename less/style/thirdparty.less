@@ -1,0 +1,29 @@
+.page-breadcrumb{
+	.site > &{
+		background-color: var(--breadcrumb-area-background);
+		.wrapper{
+			.wrapper_spacing();
+		}
+	}
+	.site-main > &{
+		//padding-top: @default-spacing * 0.5;
+		margin-bottom: -@default-spacing * 2.5 !important;
+	}
+	p{
+		margin-bottom: 0;
+		line-height: 40px;
+		font-size: @font-size-small;
+	}
+	a{
+		text-decoration: none;
+		color: var(--breadcrumb-link-color);
+		&:hover,
+		&:active,
+		&:focus{
+			color: var(--breadcrumb-hover-color);
+		}
+	}
+	.breadcrumb_last{
+		color: var(--breadcrumb-active-color);
+	}
+}

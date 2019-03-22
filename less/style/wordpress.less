@@ -1,0 +1,88 @@
+a.detail-link{
+	position: relative;
+	width: auto;
+	text-decoration: none;
+	color: #fff;
+	&::after{
+		content: "\2192";
+		display: inline-block;
+		//float: left;
+		margin-left: 100%;
+		position: absolute;
+		right: -20px;
+		//color: lighten( @link-color-1, 38% );
+		color: rgba(255, 255, 255, 0.3);
+		.transition(all .3s cubic-bezier(1,0.1,0.1,1));
+	}
+	&:hover,
+	&:focus,
+	&:active{
+		text-decoration: none;
+		color: #fff;
+		&::after{
+			right: -40px;
+			color: #fff;
+		}
+	}
+}
+a.more-link{
+	position: relative;
+	width: auto;
+	&::after{
+		content: "\2192";
+		display: inline-block;
+		//float: left;
+		margin-left: 100%;
+		position: absolute;
+		right: -20px;
+		//color: lighten( @link-color-1, 38% );
+		color: rgba(0, 0, 0, 0.3);
+		.transition(all .3s cubic-bezier(1,0.1,0.1,1));
+	}
+	&:hover,
+	&:focus,
+	&:active{
+		&::after{
+			right: -40px;
+			color: #000;
+		}
+	}
+}
+
+a.post-thumbnail{
+	text-decoration: none !important;
+	.box-shadow-i(inset 0 0 0 0 transparent);
+	border-bottom: 0px solid transparent !important;
+	&:hover,
+	&:focus,
+	&:active{
+		background-color: transparent !important;
+		//color: #000;
+	}
+}
+
+div.post-thumbnail{
+	width: 100% !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+
+.heropage-sidebar .widget_search{
+	padding-bottom: @default-spacing * 3;
+	.widget-title{
+		margin-bottom: @default-spacing;
+	}
+	.search-field{
+		width: 200px;
+		line-height: 20px;
+		padding-top: @default-spacing * 0.5;
+		padding-bottom: @default-spacing * 0.5;
+		margin-right: @default-spacing * 0.5;
+	}
+	.search-submit{
+		line-height: 20px;
+		padding-top: @default-spacing * 0.5;
+		padding-bottom: @default-spacing * 0.5;
+	}
+}

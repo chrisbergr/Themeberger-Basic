@@ -1,0 +1,32 @@
+.sidebar-disabled{
+	
+	.m1-sm({
+		display: block;
+	});
+	
+	.content-area{
+        .m1-sm({
+            position: relative;
+            .site-main{
+				background-color: var(--content-area-background);
+				& > .page-header,
+				& > nav,
+				& > section,
+				& > article,
+				& .entry-footer{
+					margin: 0;
+					& > *{
+						text-align: left;
+						margin: 0;
+						.wrapper_spacing();
+					}
+				}
+            }
+        });
+    }
+	
+    .widget-area{
+		display: none;
+    }
+	
+}

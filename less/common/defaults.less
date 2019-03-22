@@ -1,0 +1,130 @@
+@operator:              1.6180339887;
+@operator-down:         0.6180339887 * 2;
+
+// Responsive breakpoints
+// ------------------------------------------------
+
+@screen-xs:				0px;
+@screen-sm:				666px;
+@screen-md:				992px;
+@screen-lg:				1200px;
+@screen-xl:				1600px;
+
+@media-xs-min:			@screen-xs;
+@media-xs-max:			(@screen-sm - 1);
+@media-sm-min:			@screen-sm;
+@media-sm-max:			(@screen-md - 1);
+@media-md-min:			@screen-md;
+@media-md-max:			(@screen-lg - 1);
+@media-lg-min:			@screen-lg;
+@media-lg-max:			(@screen-xl - 1);
+@media-xl-min:			@screen-xl;
+
+
+// Typography
+// ------------------------------------------------
+
+@default-font:			"Bahnschrift", sans-serif; //"Roboto", sans-serif; //Varela Round; //Bree Serif;
+@default-fontbase:		10px * 1.2;
+@default-fontbase-sm:	@default-fontbase * 1.2;
+@default-fontbase-md:	@default-fontbase * 1.4;
+@default-fontbase-lg:	@default-fontbase * 1.4;
+@default-fontbase-xl:	@default-fontbase * 1.4;
+@default-fontsize:      1rem;
+
+@heading-font:			@default-font; //Bree Serif;
+@special-font:			"Playfair Display"; //Bree Serif;
+@mono-font:		       	"Monaco", "Consolas", "Andale Mono", "DejaVu Sans Mono" "Courier", monospace;
+
+@font-size-default:		@default-fontsize;
+@font-size-large:		1.66rem;
+@font-size-small:		(@default-fontsize * 0.85);
+@font-size-ultra:		(@default-fontsize * (3.5 * @operator));
+
+@font-size-h1:			(@default-fontsize * (1.3 * @operator));
+@font-size-h2:			(@default-fontsize * (1.2 * @operator));
+@font-size-h3:			(@default-fontsize * (1.1 * @operator));
+@font-size-h4:			(@default-fontsize * (1 * @operator));
+@font-size-h5:			(@default-fontsize * 1.1);
+@font-size-h6:			(@default-fontsize * 1.1);
+
+@default-lineheight:	1.66rem;
+@lineheight-h1:         1.66rem;
+@lineheight-h2:         @operator / 1.7;
+@lineheight-h3:         @operator / 1.7;
+@lineheight-h4:         @operator / 1.5;
+@lineheight-h5:         @operator / 1.5;
+@lineheight-h6:         @operator / 1.5;
+@lineheight-large:      1.66rem;
+@default-fontweight:	400;
+@fontweight-bold:   	700;
+@fontweight-thin:   	200;
+
+@default-spacing:       1rem;
+
+
+// Components
+// ------------------------------------------------
+
+@default-margin:        1.78rem;
+@margin-xs:	        	@default-margin * 1;
+@margin-sm:	        	@default-margin * 2;
+@margin-md:	        	@default-margin * 3;
+@margin-lg:	        	@default-margin * 4;
+
+@margin-blockquote:		2.0rem;
+@margin-large: 			2.2rem;
+@margin-h1: 			1.95rem;
+@margin-h2: 			@default-margin;
+@margin-h3: 			@default-margin;
+@margin-h4: 			@default-margin;
+@margin-h5: 			@default-margin;
+@margin-h6: 			@default-margin;
+
+@padding-blockquote: 	1.35rem;
+@padding-large: 		0.16rem;
+@padding-h1: 			1.18rem;
+
+@default-radius:		3px;
+
+//@default-content-width: 900px;
+@default-content-width: 1120px;
+@content-width-xl: 1120px;
+@max-content-width: 100%;
+
+
+// Grid
+// ------------------------------------------------
+
+@grid-columns:          12;
+@grid-column-padding:   0px;
+@grid-float-breakpoint: @screen-sm;
+
+
+// Colors
+// ------------------------------------------------
+
+@layout-color-default:  #ededed; //darken(#fff, 2%); //brown; //#e2e3df; //darken(#fff, 2%);                              //Site Background
+@layout-color-1:        darken(#e2e3df, 20%);                          //Content Background
+@layout-color-2:        @link-color-1;                                 //Leftborder Quote
+@layout-color-3:        #f5f6f7;                                       //Header Background
+@layout-color-4:        darken(#f5f6f7, 10%);                          //borders
+
+@text-color-default:    #969696; //#757575;
+@text-color-1:          #313131; //#5f5f5d; //#66595c; //#637f94;      //paragraph text
+@text-color-2:          darken(@link-color-1, 20%); //#008977;         //headlines
+@text-color-3:          #000;                                          //intro text
+@text-color-4:          desaturate(@link-color-1, 50%); //#00ac95;     //special like quotes
+@text-color-footer:     #FFCC66; //#bcbcbc;
+
+//@text-color-i-1:        #fff; //#66595c; //#637f94;
+//@text-color-i-2:        darken(@text-color-i-1, 20%); //#666699;
+
+@link-color-1:          darken(#59f, 10%);
+@link-color-1-hover:    darken(@link-color-1, 20%);
+
+//@link-color-2:          @text-color-default;
+//@link-color-2-hover:    darken(@link-color-2, 20%);
+
+//@link-color-i-1:        #fff;
+//@link-color-i-1-hover:  darken(@link-color-i-1, 20%);

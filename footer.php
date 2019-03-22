@@ -18,7 +18,7 @@
 			<div class="helper--lg">LG</div>
 			<div class="helper--xl">XL</div>
 		</aside>
-	
+
 		<?php wp_footer(); ?>
 
 		<script>

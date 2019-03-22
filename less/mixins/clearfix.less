@@ -1,0 +1,29 @@
+// Clearfix
+// ------------------------------------------------
+
+.clearfix(){
+    &:before,
+    &:after{
+        content: " ";
+        display: table;
+    }
+    &:after{ clear: both; }
+    .ie6 &,
+    .ie7 &{
+        *zoom: 1;
+    }
+}
+
+.inline-break(){
+//    &:before,
+//    &:after{
+//        content: " ";
+//        display: table;
+//    }
+    &:before{
+        content: " ";
+        display: block;
+        clear: both;
+	   margin-bottom: @default-spacing;
+    }
+}

@@ -1,0 +1,105 @@
+.site-header{
+	position: relative;
+	width: 100%;
+	height: auto;
+	color: #666;
+	&.header-layout-1{
+		
+	}
+	&.header-layout-2{
+		
+	}
+	&.header-layout-3{
+		width: 360px;
+		height: 100vh;
+		float: left;
+		.site-branding{
+			.make-column(12);
+		}
+		.site-header-aside{
+			.make-column(12);
+		}
+	}
+	.site-header-content{
+		.wrapper();
+		.make-row();
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	.site-branding{
+		.make-column(4);
+		line-height: 28px;
+		text-align: center;
+		.m1-sm({
+			height: 50px;
+			padding-left: @default-spacing;
+			text-align: left;
+		});
+		.custom-logo-link{
+			width: 50px;
+			height: 50px;
+			font-size: 0;
+			line-height: 0;
+			.m1-sm({
+				float: left;
+				margin-right: @default-spacing;
+			});
+		}
+		.site-title{
+			font-size: @font-size-large;
+			line-height: inherit;
+			margin: 0;
+			margin-bottom: 0;
+			padding: 0;
+   			letter-spacing: -0.05em;
+			a,
+			a:hover,
+			a:focus,
+			a:active,
+			a:link,
+			a:visited{
+				//color: inherit;
+				text-decoration: none;
+			}
+		}
+		.site-description{
+			font-size: @default-fontsize;
+			line-height: inherit;
+			margin: 0;
+			margin-bottom: 0;
+			padding: 0;
+		}
+	}
+	.site-header-aside{
+		.make-column(8);
+		text-align: center;
+		.m1-sm({
+			height: 50px;
+			padding-right: @default-spacing;
+			line-height: 50px;
+			text-align: right;
+		});
+		.header-widgets{
+			display: inline-block;
+		}
+		.search-form{
+			display: inline-block;
+			.m1-sm({
+				margin-left: @default-spacing;
+			});
+		}
+		.dldld{
+
+		}
+		.search-submit{
+			display: none;
+		}
+	}
+}
+
+.site-title a{
+	color: #212121;
+}
+.site-description{
+	color: #666;
+}

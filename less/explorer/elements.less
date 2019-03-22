@@ -1,0 +1,158 @@
+.explorer-author,
+.explorer-comment-author,
+.explorer-context-author{
+	a{
+		border-bottom: none !important;
+		line-height: 22px * @golden * @size;
+	}
+	.name{
+		font-size: 22px * @size;
+		color: var(--explorer-hero-textcolor);
+		font-weight: bold;
+		width: 220px;
+		display: inline-block;
+		.m1-sm({
+			display: inline;
+			width: auto;
+		});
+	}
+	.avatar{
+		.square(40px);
+		border-radius: 50%;
+		vertical-align: top;
+		margin-right: 10px;
+	}
+	position: relative;
+	z-index: 5;
+}
+.explorer-date,
+.explorer-comment-date{
+	font-size: 16px * @size;
+	color: var(--explorer-hero-textcolor);
+	margin-left: 7px;
+	display: inline-block;
+	padding-left: 44px;
+	margin-top: -28px;
+    position: relative;
+    top: -20px;
+	.m1-sm({
+		display: inline;
+		padding-left: 0;
+		margin-top: 0;
+		top: 0;
+	});
+	&::before{
+		display: inline;
+		content: "\A";
+		white-space: pre; 
+		margin-right: 7px;
+		font-weight: bold;
+		.m1-sm({
+			content: "\00b7";
+			white-space: normal;
+		});
+	}
+}
+.edit-comment{
+	display: none;
+	.m1-sm({
+		display: inline;
+	});
+}
+
+.layout-right{
+	.content-header,
+	.content-page{
+		.comments-form{
+			label{
+				display: block;
+			}
+			textarea{
+				width: 100%;
+			}
+			.comment-reply-title{
+				margin-bottom: 22px * @golden * @size;
+				.m1-sm({
+					width: 50%;
+				});
+				.m1-md({
+					padding-left: 206px * @size;
+					padding-right: 100px * @size;
+				});
+			}
+		}
+		.comments-form{
+			margin-top: 80px;
+		}
+	}
+}
+.layout-left{
+	.content-header,
+	.content-page{
+		.comments-form{
+			label{
+				display: block;
+			}
+			textarea{
+				width: 100%;
+			}
+			.comment-reply-title{
+				.m1-sm({
+					width: 50%;
+					clear: both;
+					float: right;
+					padding-left: 20px;
+				});
+				.m1-md({
+					padding-right: 206px * @size;
+					padding-left: 100px * @size;
+				});
+			}
+		}
+		.comments-form{
+			margin-top: 80px;
+		}
+	}
+}
+.layout-full{
+	.content-header,
+	.content-page{
+		.comments-form{
+			label{
+				display: block;
+			}
+			textarea{
+				width: 100%;
+			}
+			.comment-reply-title{
+				margin-left: auto;
+				margin-right: auto;
+				.m1-sm({
+					width: 50%;
+				});
+			}
+		}
+		.comments-form{
+			margin-top: 80px;
+		}
+	}
+}
+
+.comment-respond{
+	.clearfix();
+}
+#webmention-form{
+	margin-top: 80px;
+	&,
+	p,
+	#webmention-submit{
+		font-size: 16px * @size;
+		line-height: 16px * @golden * @size;
+	}
+	#webmention-submit{
+		padding: 0.5rem 1rem;
+	}
+	#webmention-source{
+		margin-top: 20px;
+	}
+}

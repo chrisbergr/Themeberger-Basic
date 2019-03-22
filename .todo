@@ -1,0 +1,28 @@
+{
+	"regex": {
+		"prefix": "(?:<!--|\\/\\*|\\/\\/|#|--) *@?(",
+		"suffix": "):? *(.*?) ?(?=\\/\\*|-->|\\*\\/|\\r\\n|\\n|\\r|$)"
+	},
+	"tags": [
+		"TODO",
+		"NOTE",
+		"FIX ?ME",
+		"CHANGES",
+		"FUTURE"
+	],
+	"case": false,
+	"search": {
+		"scope": "project",
+		"excludeFolders": [
+			"vendor",
+			"node_modules"
+		],
+		"excludeFiles": []
+	},
+	"sort": {
+		"done": true
+	},
+	"hide": {
+		"done": false
+	}
+}

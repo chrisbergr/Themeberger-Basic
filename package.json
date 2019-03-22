@@ -1,0 +1,59 @@
+{
+	"name": "themebergertest",
+	"themeName": "Themeberger Test",
+	"textdomain": "themeberger-test",
+	"version": "1.0.4",
+	"year": "2019",
+	"description": "WordPress Theme",
+	"tags": "custom-background, custom-colors, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, sticky-post",
+	"author": {
+		"name": "Christian Hockenberger",
+		"url": "https://christian.hockenberger.us"
+	},
+	"license": {
+		"name": "GNU General Public License",
+		"version": "v2 or later",
+		"url": "http://www.gnu.org/licenses/gpl-2.0.html"
+	},
+	"homepage": "https://github.com/chrisbergr/Themeberger-Test",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chrisbergr/Themeberger-Test.git"
+	},
+	"bugs": {
+		"url": "https://github.com/chrisbergr/Themeberger-Test/issues"
+	},
+	"main": "Gruntfile.js",
+	"private": true,
+	"devDependencies": {
+		"coffee-script": "^1.7.1",
+		"grunt": "^0.4.5",
+		"grunt-contrib-less": "^1.4.1",
+		"grunt-text-replace": "^0.4.0",
+		"less-plugin-clean-css": "^1.5.1"
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"node": true
+		},
+		"rules": {
+			"no-console": "off",
+			"no-restricted-syntax": [
+				"error",
+				{
+					"selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace|debug)$/]",
+					"message": "Unexpected property on console object was called"
+				}
+			]
+		},
+		"globals": {
+			"jQuery": true,
+			"TweenMax": true,
+			"Power2": true,
+			"window": true,
+			"navigator": true,
+			"console": true
+		}
+	}
+}

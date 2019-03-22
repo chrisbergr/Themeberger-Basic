@@ -1,0 +1,27 @@
+.print(@rules){
+    @media print{
+        @rules();
+    }
+}
+.not-print(@rules){
+    @media not print{
+        @rules();
+    }
+}
+
+.not-printable(){
+	.print({
+        display: none;
+    });
+}
+
+.do-print(){
+	.print({
+        display: block;
+    });
+}
+
+.only-print(){
+    display: none;
+    .do-print();
+}

@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-		<?php do_action ( 'themeberger_before_page' ); ?>
+		<?php do_action( 'themeberger_before_page' ); ?>
 
 		<div id="page" class="site">
 
@@ -22,10 +22,10 @@ get_header(); ?>
 
 			<div id="content" class="site-content">
 
-				<?php do_action ( 'themeberger_before_primary' ); ?>
+				<?php do_action( 'themeberger_before_primary' ); ?>
 				<div id="primary" class="content-area">
 					<main id="main" class="site-main">
-					<?php do_action ( 'themeberger_before_content' ); ?>
+					<?php do_action( 'themeberger_before_content' ); ?>
 
 					<?php
 					if ( have_posts() ) :
@@ -43,7 +43,7 @@ get_header(); ?>
 							get_template_part( 'template-parts/content', get_post_type() );
 						endwhile;
 
-						//the_posts_navigation();
+						the_posts_navigation();
 
 					else :
 
@@ -56,19 +56,20 @@ get_header(); ?>
 						<?php do_action( 'themeberger_homepage' ); ?>
 					<?php endif; ?>
 
-					<?php do_action ( 'themeberger_after_content' ); ?>
+					<?php do_action( 'themeberger_after_content' ); ?>
 					</main><!-- #main -->
 				</div><!-- #primary -->
-				<?php do_action ( 'themeberger_after_primary' ); ?>
+				<?php do_action( 'themeberger_after_primary' ); ?>
 
 				<?php get_sidebar(); ?>
 
 			</div><!-- #content -->
-			
+
 			<?php get_template_part( 'template-parts/footer' ); ?>
 
 		</div><!-- #page -->
 
-		<?php do_action ( 'themeberger_after_page' ); ?>
+		<?php do_action( 'themeberger_after_page' ); ?>
 
-<?php get_footer();
+<?php
+get_footer();

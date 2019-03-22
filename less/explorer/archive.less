@@ -1,0 +1,122 @@
+.post-list{
+	position: relative;
+	z-index: 5;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+	margin-top: 80px;
+	li{
+		margin-bottom: 50px;
+	}
+}
+
+.post-list-item{
+	--explorer-color-primary: #000;
+	--explorer-hero-textcolor: #000;
+	--explorer-textcolor: #000;
+	--explorer-hero-background: #fff;
+	
+	.border-radius();
+	
+	position: relative;
+	padding: 20px @cardspacing;
+	
+	background-color: #fff;
+	
+	.m1-md({
+		margin-left: 200px * @size;
+		margin-right: 200px * @size;
+		max-width: 50%;
+	});
+	
+	/*
+	&:first-child{
+		max-width: none;
+	}
+	*/
+	
+	.entry-kicker,
+	.entry-subtitle,
+	.entry-title,
+	p,
+	.layout-left & p,
+	.layout-full & p,
+	.layout-right & p{
+		position: relative;
+		top: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-left: 0;
+		width: auto;
+	}
+	.entry-title,
+	.layout-left & .entry-title,
+	.layout-full & .entry-title,
+	.layout-right & .entry-title{
+		margin-left: 0;
+		margin-right: 0;
+		max-width: none;
+		font-size: 60px * @size;
+		line-height: 60px * @size;
+	}
+	.entry-subtitle{
+		width: 75%;
+		font-size: 30px * @size;
+		line-height: 30px * @golden * @size;
+		
+		margin-top: 20px;
+	}
+	.entry-kicker{
+		width: 75%;
+		font-size: 20px * @size;
+		line-height: 20px * @golden * @size;
+	}
+	p,
+	.layout-left & p,
+	.layout-full & p,
+	.layout-right & p{
+		padding-right: 0;
+	}
+	a,
+	a:not(.invisible){
+		color: inherit;
+		&:hover,
+		&:focus,
+		&:active{
+			color: inherit;
+		}
+	}
+	.more-link,
+	p.post-list-meta{
+		display: inline-block;
+		margin-top: 20px;
+	}
+	.post-list-item-image{
+		margin-left: -@cardspacing;
+		margin-right: -@cardspacing;
+		padding-bottom: 20px;
+		img{
+			width: 100%;
+		}
+	}
+	.post-list-item-header{
+		padding-bottom: 20px;
+	}
+	.post-list-item-content{
+		
+	}
+	
+	.wp-block-themeberger-container{
+		margin-top: -20px;
+		margin-left: -@cardspacing;
+		margin-right: -@cardspacing;
+		padding-top: @cardspacing;
+		padding-bottom: @cardspacing;
+		.themeberger-container-inner{
+			margin-left: @cardspacing;
+			margin-right: @cardspacing;
+		}
+	}
+	
+}

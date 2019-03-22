@@ -1,0 +1,23 @@
+// Wrapper
+// ------------------------------------------------
+
+.wrapper(){
+    width: @default-content-width;
+    max-width: 100%;
+    .center-block();
+    .m1-xl({
+        width: @content-width-xl;
+    });
+}
+
+.wrapper-klein(){
+    width: @default-content-width * 0.7;
+    max-width: 100%;
+    .center-block();
+}
+
+.wrapper_spacing(){
+    .wrapper();
+    padding-left: @default-spacing;
+    padding-right: @default-spacing;
+}

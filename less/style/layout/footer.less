@@ -1,0 +1,327 @@
+.site-footer{
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: @default-spacing * 2 0;
+	padding-bottom: 0;
+	z-index: 1;
+	.site-info{
+		.wrapper_spacing();
+		font-size: @font-size-small;
+		text-align: center;
+		padding-bottom: @default-spacing * 2;
+	}
+}
+
+#logo-footer{
+    width: 150px;
+    max-width: 100%;
+    .m1-sm({
+        width: 200px;
+    });
+    .logo-footer-hockenberger path{
+        fill: var(--brand-color-secondary);
+    }
+    .logo-footer-christian path{
+        fill: var(--brand-color-secondary);
+    }
+    .logo-footer-crest circle{
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: rgba( 255, 255, 255, 0);
+    }
+    .logo-footer-crest path{
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: var(--brand-color-primary);
+    }
+    &:hover{
+        .logo-footer-crest path{
+            fill: var(--brand-color-secondary);
+        }
+    }
+}
+
+.footer-navigation-container{
+    background-color: var(--brand-color-background);
+    padding-top: @default-margin * 1.5;
+    padding-bottom: @default-margin * 1;
+}
+.footer-navigation{
+    .wrapper_spacing();
+    & ul{
+        font-size: @font-size-default;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        .m1-sm({
+            font-size: @font-size-small;
+            text-align: left;
+        });
+    }
+    & li{
+        display: block;
+        .m1-sm({
+            display: inline-block;
+        });
+        //border-left: #000 1px solid;
+        & a{
+            display: inline-block;
+            margin: 0 (@default-margin * 0.05);
+            padding: (@default-margin * 0.05);
+			text-decoration: none;
+			color: var(--brand-color-primary);
+			&:hover,
+			&:focus,
+			&:active{
+				color: var(--brand-color-secondary);
+			}
+            .m1-sm({
+                margin: 0 (@default-margin * 0.5);
+                padding: 0;
+            });
+        }
+        .m1-sm({
+            &:first-child{
+                a{
+                    padding-left: 0;
+                    margin-left: 0;
+                }
+            }
+            &:last-child{
+                a{
+                    padding-right: 0;
+                    margin-right: 0;
+                }
+            }
+        });
+    }
+}
+
+.footer-info{
+	background-color: var(--brand-color-background);
+    color: var(--brand-color-secondary);
+    padding-top: @default-margin * 0.5;
+    padding-bottom: @default-margin * 1.5;
+    text-align: center;
+    .m1-sm({
+        text-align: left;
+    });
+    & .wrapper{
+        .wrapper_spacing();
+        .make-row();
+    }
+    & .footer-info-left{
+        .make-column(4);
+        text-align: center;
+        .m1-sm({
+            text-align: left;
+            padding-right: @default-margin * 2;
+        });
+    }
+    & .footer-info-center{
+        .make-column(8);
+        text-align: center;
+        .m1-sm({
+            text-align: left;
+        });
+    }
+    & .footer-info-right{
+        display: none;
+        .make-column(4);
+        text-align: center;
+        .m1-sm({
+            text-align: right;
+        });
+    }
+}
+
+.footer-backlink{
+    background-color: var(--brand-color-background-alt);
+    padding-top: @default-margin * 1.5;
+    padding-bottom: @default-margin * 1.5;
+    //margin-top: @default-margin * 1;
+    text-align: center;
+    .m1-sm({
+        text-align: left;
+    });
+    & .backlink-nav{
+        .wrapper_spacing();
+        .make-row();
+    }
+    & p{
+        font-size: @font-size-small;
+		margin-bottom: 0;
+    }
+    & .left{
+        .make-column(6);
+    }
+    & .gototop{
+        .make-column(6);
+        display: none;
+        text-align: right;
+        .m1-sm({
+            display: block;
+            & p{
+                text-align: right;
+            }
+        });
+    }
+    & a{
+        text-decoration: none;
+        text-transform: uppercase;
+		color: var(--brand-color-primary);
+		&:hover,
+		&:focus,
+		&:active{
+			color: var(--brand-color-secondary);
+		}
+        & strong{
+            //font-weight: inherit;
+        }
+    }
+    & i{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2px;
+        margin-top: -3px;
+    }
+}
+
+
+
+
+.profilegrid{
+	.make-row();
+	& a{
+		text-decoration: none;
+		color: var(--brand-color-primary);
+		&:hover,
+		&:focus,
+		&:active{
+			color: var(--brand-color-secondary);
+		}
+	}
+	& .profilegrid-left{
+		.m1-sm({
+			.make-column(9);
+		});
+		p{
+			margin-bottom: 0;
+		}
+	}
+	& .profilegrid-right{
+		font-size: 0;
+		display: none;
+		.m1-sm({
+			display: block;
+			.make-column(3);
+		});
+		& p{
+			margin-left: @default-spacing;
+			margin-bottom: 0;
+		}
+	}
+	& .profilegrid-bottom{
+		.m1-sm({
+			.make-column(12);
+		});
+	}
+	& .profilegrid-inner{
+		.m1-sm({
+			.make-column(6);
+			float: left;
+			min-height: 1px;
+			padding-top: @default-spacing;
+			padding-bottom: @default-spacing;
+		});
+	}
+	& img.avatar{
+		border-radius: 50%;
+		margin-top: -(@default-spacing);
+	}
+	& .external_links{
+		display: block;
+		padding: 0;
+		padding-top: 0;
+		font-size: inherit;
+		margin-left: 0;
+		margin-bottom: 0 !important;
+		.m1-sm({
+			margin-bottom: 0 !important;
+		});
+		.m1-md({
+			margin-bottom: 0 !important;
+		});
+		.m1-lg({
+			margin-bottom: 0 !important;
+		});
+		& li{
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+			font-size: inherit;
+			margin-right: 8px;
+			& a{
+				text-decoration: none;
+			}
+			&.seperator{
+				&::before{
+					display: inline-block;
+					content: "@";
+					width: 12px;
+					text-align: center;
+				}
+			}
+			&.behance,
+			&.github,
+			&.twitter,
+			&.facebook{
+				& a{
+					&::before{
+						content: " ";
+						width: @default-fontsize;
+						height: @default-fontsize;
+						line-height: @default-fontsize;
+						color: var(--brand-color-secondary);
+						display: inline-block;
+						margin-right: 2px;
+						margin-bottom: -1px;
+						//font-family: "FontAwesome";
+						font-family: "iconberger";
+					}
+				}
+			}
+			&.behance{
+				& a{
+					&::before{
+						content: @iconberger-behance;
+					}
+				}
+			}
+			&.github{
+				& a{
+					&::before{
+						content: @iconberger-github;
+					}
+				}
+			}
+			&.twitter{
+				& a{
+					&::before{
+						content: @iconberger-twitter;
+					}
+				}
+			}
+			&.facebook{
+				& a{
+					&::before{
+						content: @iconberger-facebook;
+					}
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,46 @@
+.transform(@value){
+    -webkit-transform: @value;
+    -moz-transform: @value;
+    -ms-transform: @value;
+    -o-transform: @value;
+    transform: @value;
+}
+
+.rotate(@degrees){
+    .transform(rotate(@degrees));
+}
+
+.scale(@ratio){
+    .transform(scale(@ratio));
+}
+
+.scaleZ(@z){
+    .transform(scaleZ(@z));
+}
+
+.translate(@x, @y){
+    .transform(translate(@x, @y));
+}
+.translateX(@x){
+    .transform(translateX(@x));
+}
+.translateY(@y){
+    .transform(translateY(@y));
+}
+.translateZ(@z){
+    .transform(translateZ(@z));
+}
+
+.translate3d(@x, @y, @z){
+    .transform(translate3d(@x, @y, @z));
+}
+
+.skew(@x, @y){
+    .transform(skew(@x, @y));
+    -webkit-backface-visibility: hidden;
+}
+
+
+.translate-scale(@x, @y, @ratio){
+    .transform(translate(@x, @y) scale(@ratio));
+}

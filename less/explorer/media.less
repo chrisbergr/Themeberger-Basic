@@ -1,0 +1,70 @@
+.media-title{
+	margin-bottom: 0;
+    padding: 18px;
+    padding-bottom: 6px;
+    background-color: #fff;
+    font-size: 25px;
+    line-height: 1;
+}
+.post-list-item-context.video,
+.post-list-item-context.audio{
+	margin-bottom: 10px;
+}
+.card-video,
+.card-audio{
+
+	.mejs-container *{
+		font-family: @default-font;
+	}
+	.mejs-container a{
+		border-bottom: none;
+		&:hover,
+		&:focus,
+		&:active{
+			border-bottom: none;
+		}
+	}
+	
+	.mejs-container,
+	.mejs-container .mejs-controls,
+	.mejs-embed,
+	.mejs-embed body {
+		background: #fff;
+	}
+	
+	.mejs-button{
+		button{
+			box-shadow: none;
+		}
+		.mejs-playpause-button>button{
+			background-color: #f03;
+		}
+	} //mejs-play
+	
+	.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total,
+	.mejs-controls .mejs-time-rail .mejs-time-total{
+		background-color: #999;
+	}
+	.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+	.mejs-controls .mejs-time-rail .mejs-time-loaded{
+		background-color: #000;
+	}
+	.mejs-controls .mejs-time-rail .mejs-time-current{
+		background-color: var(--explorer-color-declaration);
+	}
+	.mejs-time{
+		color: #000;
+		font-weight: bold;
+	}
+	.mejs-button>button{
+		-webkit-filter: hue-rotate(220deg) saturate(5);
+		filter: brightness(0);
+		background-color: transparent;
+		&:hover,
+		&:focus,
+		&:active{
+			background-color: transparent;
+		}
+	}
+
+}

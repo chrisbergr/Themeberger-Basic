@@ -1,0 +1,139 @@
+// Classes
+// ------------------------------------------------
+.thewrapper {
+	.wrapper_spacing();
+	margin-top: @default-spacing;
+	//padding-top: @default-margin;
+	//padding-bottom: 2em;
+	//background: linear-gradient(to bottom, transparent 73%, rgba(0,0,200,0.3) 73%, transparent 75%);
+	//background-size: 100% (@default-lineheight * 1em);
+}
+
+.small {
+	font-size: @font-size-small;
+}
+
+.large {
+	font-size: @font-size-large;
+}
+
+.txtrght {
+	text-align: right;
+}
+
+.txtctr {
+	text-align: center;
+}
+
+.nobr {
+	white-space: nowrap !important;
+}
+
+.intro {
+	font-family: @heading-font;
+	color: var(--intro-text-color);
+	font-size: @font-size-large;
+	line-height: @lineheight-large;
+	text-align: justify;
+	letter-spacing: -0.03em;
+	//padding-top: @padding-large;
+	margin-bottom: @margin-large;
+}
+
+.required {
+	color: var(--required-text-color);
+}
+
+.single {
+	margin-bottom: 0;
+}
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: @default-spacing;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: @default-spacing;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.figright {
+	height: 0px;
+	.clearfix();
+	& figure,
+	& blockquote,
+	& aside {
+		float: right;
+		margin-left: @default-spacing;
+		margin-bottom: (@default-spacing / 2);
+	}
+}
+
+.figleft {
+	height: 0px;
+	.clearfix();
+	& figure,
+	& blockquote,
+	& aside {
+		float: left;
+		margin-right: @default-spacing;
+		margin-bottom: (@default-spacing / 2);
+	}
+}
+
+.spacer {
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+	color: var(--spacer-color);
+}
+
+.maps-embed {
+	position: relative;
+	padding-bottom: 65.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	background-color: var(--maps-embed-background);
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.embed-container{
+	margin-bottom: @default-margin;
+}
+.video-embed {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+	&:before {
+		content: "";
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		display: block;
+		overflow: hidden;
+	}
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

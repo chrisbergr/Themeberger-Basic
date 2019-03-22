@@ -1,0 +1,51 @@
+// Grid
+// ------------------------------------------------
+
+.make-row(){
+    @media (min-width: @grid-float-breakpoint){
+        .flex-display();
+        .flex-flow(row wrap);
+        //.clearfix();
+    }
+}
+
+.make-column(@columns){
+    @media (min-width: @grid-float-breakpoint){
+        width: percentage(@columns / @grid-columns);
+        padding-left: @grid-column-padding;
+        padding-right: @grid-column-padding;
+    }
+}
+
+.make-column-order(@order){
+    .flex-order(@order);
+}
+
+.make-print-row(){
+    .print({
+        .flex-display();
+        .flex-flow(row wrap);
+    });
+}
+.make-print-column(@columns){
+    .print({
+        width: percentage(@columns / @grid-columns);
+        padding-left: @grid-column-padding;
+        padding-right: @grid-column-padding;
+    });
+}
+
+
+
+
+.content-columns(@width, @count, @gap) {
+    -webkit-column-width: @width;
+    -moz-column-width: @width;
+    column-width: @width;
+    -webkit-column-count: @count;
+    -moz-column-count: @count;
+    column-count: @count;
+    -webkit-column-gap: @gap;
+    -moz-column-gap: @gap;
+    column-gap: @gap;
+}

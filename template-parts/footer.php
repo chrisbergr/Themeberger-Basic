@@ -4,9 +4,10 @@
  *
  * @package themebergertest
  */
+
 ?>
 
-			<?php do_action ( 'themeberger_before_footer' ); ?>
+			<?php do_action( 'themeberger_before_footer' ); ?>
 			<footer id="colophon" class="site-footer">
 				<div class="site-info">
 					site info
@@ -20,4 +21,4 @@
 					</div>
 				</div>
 			</footer><!-- #colophon -->
-			<?php do_action ( 'themeberger_after_footer' ); ?>
+			<?php do_action( 'themeberger_after_footer' ); ?>

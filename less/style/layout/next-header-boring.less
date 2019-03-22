@@ -1,0 +1,135 @@
+
+.site-header{
+	//background-color: hsla( 150, 50%, 90%, 1 );
+	background-color: #f9f9f9;
+	padding: 20px 0;
+	color: #666;
+	
+	//& > *{
+	//	background-color: hsla( 100, 50%, 90%, 1 );
+	//	& > *{
+	//		background-color: hsla( 50, 50%, 90%, 1 );
+	//		& > *{
+	//			background-color: hsla( 200, 50%, 90%, 1 );
+	//			& > *{
+	//				background-color: hsla( 300, 50%, 90%, 1 );
+	//			}
+	//		}
+	//	}
+	//}
+	
+	.m1-sm({
+		
+	});
+	&.header-layout-1{
+		
+	}
+	&.header-layout-2{
+		
+	}
+	&.header-layout-3{
+		
+	}
+	p{
+		line-height: 1;
+		margin-bottom: 0;
+	}
+	.site-title{
+		font-size: @font-size-h4;
+		line-height: inherit;
+		margin: 0;
+		margin-bottom: 0;
+		padding: 0;
+		letter-spacing: -0.05em;
+		color: #000;
+		a,
+		a:hover,
+		a:focus,
+		a:active,
+		a:link,
+		a:visited{
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+	.site-description{
+		font-size: @default-fontsize;
+		line-height: inherit;
+		margin: 0;
+		margin-bottom: 0;
+		padding: 0;
+	}
+	.site-header-inner{
+		.wrapper_spacing();
+	}
+	.site-header-inner{
+		display: table;
+		width: 100%;
+		.m1-content-width({
+			width: @default-content-width;
+		});
+		//table-layout: fixed;
+		.clearfix();
+	}
+	.site-header-aside{
+		display: table-cell;
+		//display: table-row;
+		vertical-align: middle;
+		height: 100%;
+		.clearfix();
+	}
+	.site-logo{
+		width: 60px;
+		display: table-cell;
+		vertical-align: middle;
+		img{
+			width: 60px;
+		}
+	}
+	.site-branding{
+		display: table-cell;
+		vertical-align: middle;
+		padding-right: @default-spacing;
+		.m1-sm({
+			//width: 60px + 275px;
+		});
+	}
+	.site-logo + .site-branding{
+		padding-left: @default-spacing;
+		.m1-sm({
+			//width: 275px;
+		});
+	}
+	.site-header-special{
+		float: right;
+		display: table-cell;
+		width: 50px;
+		text-align: center;
+	}
+	.site-header-nav{
+		float: right;
+		display: table-cell;
+		.m1-sm({
+
+		});
+	}
+	.site-header-special + .site-header-nav{
+
+	}
+	.site-header-widgets{
+		float: right;
+		display: table-cell;
+		.m1-sm({
+
+		});
+	}
+	.site-header-nav + .site-header-widgets{
+		float: none;
+		display: block;
+	}
+	.site-header-special + .site-header-nav + .site-header-widgets,
+	.site-header-special + .site-header-widgets{
+		float: none;
+		display: block;
+	}
+}
