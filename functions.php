@@ -52,6 +52,10 @@ if ( ! function_exists( 'themebergertest_setup' ) ) :
 
 		add_theme_support( 'post-thumbnails' );
 
+		add_theme_support( 'custom-header' );
+
+		add_theme_support( 'custom-background' );
+
 		set_post_thumbnail_size( 1920 * 2, 720 * 2, true );
 
 		register_nav_menus(
@@ -106,6 +110,43 @@ if ( ! function_exists( 'themebergertest_scripts' ) ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'themebergertest_scripts' );
+
+if ( ! function_exists( 'themebergertest_admin_scripts' ) ) {
+	/**
+	 * Enqueue scripts and styles for backend.
+	 */
+	function themebergertest_admin_scripts() {
+		$current_screen = get_current_screen();
+		if ( 'customize' === $current_screen->id || 'widgets' === $current_screen->id ) {
+			wp_enqueue_style( 'themebergertest-customizer-style', THEME_URI . '/admin.css', null, THEME_VERSION, 'all' );
+		} else {
+			add_editor_style( THEME_URI . '/admin.css' );
+		}
+
+	}
+}
+add_action( 'admin_enqueue_scripts', 'themebergertest_admin_scripts' );
+
+
+if ( ! function_exists( 'themebergertest_widgets_init' ) ) {
+	/**
+	 * Register widget area.
+	 */
+	function themebergertest_widgets_init() {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Sidebar', 'themeberger-test' ),
+				'id'            => 'sidebar-1',
+				'description'   => esc_html__( 'Add widgets here.', 'themeberger-test' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h5 class="widget-title">',
+				'after_title'   => '</h5>',
+			)
+		);
+	}
+}
+add_action( 'widgets_init', 'themebergertest_widgets_init' );
 
 /**
  * Displays Subpages of front page (homepage).

@@ -44,7 +44,8 @@ module.exports = function (grunt) {
 					sourceMap: false
 				},
 				files: {
-					"./rtl.css": "./less/rtl.less"
+					"./rtl.css": "./less/rtl.less",
+					"./admin.css": "./less/admin.less"
 				}
 			},
 			build_style: {
@@ -76,7 +77,7 @@ module.exports = function (grunt) {
 				},
 				files: {
 					"./rtl.css": "./less/rtl.less",
-					"./woocommerce.css": "./less/woocommerce.less"
+					"./admin.css": "./less/admin.less"
 				}
 			}
 		},

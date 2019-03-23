@@ -28,46 +28,6 @@
 				}
 			} );
 		</script>
-		<script>
-			jQuery( '.opening-button' ).click( function() {
-				jQuery( 'body' ).toggleClass( 'opening-open' );
-			} );
-		</script>
-		<script>
-			jQuery( '<div class="quantity-nav"><div class="quantity-button quantity-down">-</div><div class="quantity-button quantity-up">+</div></div>' ).insertAfter( '.shopcontent .input-text.qty' );
-			jQuery( '.shopcontent .quantity' ).each( function() {
-				var spinner = jQuery( this ),
-					input = spinner.find( '.input-text.qty' ),
-					btnUp = spinner.find( '.quantity-up' ),
-					btnDown = spinner.find( '.quantity-down' ),
-					min = input.attr('min'),
-					max = input.attr('max');
-				if( !max || max < 1 ) {
-					max = 9999;
-				}
-				btnUp.click( function() {
-					var oldValue = parseFloat(input.val());
-					if (oldValue >= max) {
-					var newVal = oldValue;
-					} else {
-					var newVal = oldValue + 1;
-					}
-					input.val(newVal);
-					input.trigger("change");
-				} );
-				btnDown.click( function() {
-					var oldValue = parseFloat(input.val());
-					if (oldValue <= min) {
-					var newVal = oldValue;
-					} else {
-					var newVal = oldValue - 1;
-					}
-					input.val(newVal);
-					input.trigger("change");
-				} );
-			} );
-		</script>
-
 
 	</body>
 </html>

@@ -12,11 +12,11 @@
 <article id="post-none" <?php post_class( 'content' ); ?>>
 
 	<header class="entry-header">
-		<h1>Keine Inhalte</h1>
+		<h1>No Contents</h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<p>Zurzeit sind leider keine Inhalte verfügbar.</p>
+		<p>Unfortunately, there is no content available.</p>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

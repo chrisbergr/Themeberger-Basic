@@ -95,5 +95,11 @@ $current = $post->post_name;
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?> 
 	</footer><!-- .entry-footer -->
+
+	<?php if ( comments_open() || get_comments_number() ) : ?>
+		<?php comments_template(); ?>
+	<?php endif; ?>
+
 </article><!-- #post-<?php the_ID(); ?> -->
