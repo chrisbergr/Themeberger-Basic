@@ -1,0 +1,115 @@
+.site-header{
+	background-color: #22272A;
+    padding: 85px 50px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+.site-header--inner{
+	width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+	.clearfix();
+}
+
+.site-branding{
+	width: 100% / 3 * 2;
+}
+
+.site-logo{
+	display: inline-block;
+	width: auto;
+	height: 45px;
+	margin-right: 25px;
+	overflow: hidden;
+	img{
+		vertical-align: middle;
+		max-height: 45px;
+		max-width: 200px;
+		height: auto;
+		width: auto;
+	}
+}
+
+.site-title{
+	color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 45px;
+	margin: 0;
+	margin-bottom: 0;
+	overflow: hidden;
+	a{
+		text-decoration: inherit;
+		color: inherit;
+	}
+}
+
+.site-description{
+	color: #ffffff;
+    font-size: 50px;
+    line-height: 60px;
+	margin: 0;
+	margin-bottom: 0;
+	margin-top: 45px;
+}
+
+.primary-navigation{
+	//width: 100% / 3 * 1;
+	width: 50%;
+	float: right;
+	height: 45px;
+	//background-color: darkviolet;
+	text-align: right;
+	.primary-menu{
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        font-size: 0;
+        display: inline-block;
+        text-align: left;
+	}
+    .menu-item{
+		position: relative;
+        display: inline-block;
+        margin: 0 15px;
+        &:first-child{
+            //margin-left: 0;
+        }
+        &:last-child{
+            //margin-right: 0;
+        }
+        a{
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+			height: 45px;
+			line-height: 45px;
+            &:hover,
+            &:focus,
+            &:active{
+                color: crimson;
+            }
+        }
+        &.current-menu-item,
+        &.current-menu-ancestor,
+        &.current_page_parent{
+			&::after{
+				display: block;
+				content: "";
+				width: 6px;
+				height: 6px;
+				position: absolute;
+				top: 50%;
+				left: -12px;
+				margin-top: -3px;
+				background-color: #fff;
+				border-radius: 50%;
+				opacity: 0.5;
+			}
+        }
+    }
+}

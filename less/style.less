@@ -9,6 +9,9 @@
 // Styling
 // ------------------------------------------------
 
+@import "style/underscores.less";
+@import "themeberger/layout.less";
+/**
 @import "style/wordpress-defaults.less";
 
 :root {
@@ -113,18 +116,7 @@ body{
 @duration: 0.4s;
 @transparency: 0.25;
 @cardspacing: 20px;
-/**
-body.dark{
-	--explorer-ui--maincolor: rgba(255, 255, 255, 1);
-	--explorer-ui--maincolor-transparency: rgba(255, 255, 255, @transparency);
-	//background-color: #2D333F;
-}
-body.bright{
-	--explorer-ui--maincolor: rgba(0, 0, 0, 1);
-	--explorer-ui--maincolor-transparency: rgba(0, 0, 0, @transparency);
-	//background-color: #fff;
-}
-/**/
+
 .content-header.dark,
 .content-page.dark{
 	--explorer-hero-textcolor: rgba(255, 255, 255, 1);
@@ -159,7 +151,7 @@ body.bright{
 @import "explorer/dynamic-cursor.less";
 
 
-
+/**/
 
 .helper{
 	position: fixed;
@@ -252,7 +244,7 @@ body.css-variables.flexbox.css-grid{
 	display: none;
 }
 
-/**/
+/**
 
 
 
@@ -262,7 +254,7 @@ body.css-variables.flexbox.css-grid{
 }
 
 
-
+/**/
 
 
 

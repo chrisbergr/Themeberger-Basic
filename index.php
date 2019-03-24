@@ -40,7 +40,10 @@ get_header(); ?>
 
 						while ( have_posts() ) :
 							the_post();
-							get_template_part( 'template-parts/content', get_post_type() );
+							$type = get_post_type();
+							$format = get_post_format();
+							$template = $type . '-' . $format;
+							get_template_part( 'template-parts/content', $template );
 						endwhile;
 
 						the_posts_navigation();

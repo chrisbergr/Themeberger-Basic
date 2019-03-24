@@ -60,10 +60,9 @@ if ( ! function_exists( 'themebergertest_setup' ) ) :
 
 		register_nav_menus(
 			array(
-				'primary-left' => __( 'Primary Menu Left', 'themeberger-test' ),
-				'secondary'    => __( 'Secondary Menu', 'themeberger-test' ),
-				'footer'       => __( 'Footer Menu', 'themeberger-test' ),
-				'shopmenu'     => __( 'Shop Menu', 'themeberger-test' ),
+				'primary'   => __( 'Primary Menu', 'themeberger-test' ),
+				'secondary' => __( 'Secondary Menu', 'themeberger-test' ),
+				'footer'    => __( 'Footer Menu', 'themeberger-test' ),
 			)
 		);
 
@@ -87,6 +86,19 @@ if ( ! function_exists( 'themebergertest_setup' ) ) :
 				'width'       => 313,
 				'flex-width'  => true,
 				'flex-height' => true,
+			)
+		);
+		
+        add_theme_support(
+			'post-formats',
+			array(
+				'aside',
+				'gallery',
+				'image',
+				'video',
+				'audio',
+				'quote',
+				'status',
 			)
 		);
 
