@@ -66,6 +66,20 @@ if ( ! function_exists( 'header_style' ) ) {
 							<?php endif; ?>
 						<?php endif; ?>
 
+						<?php if ( is_category() || is_archive() ) : ?>
+							<?php the_archive_title( '<h1 class="site-description">', '</h1>' ); ?>
+						<?php endif; ?>
+
+						<?php if ( is_search() ) : ?>
+							<?php 
+							$searchtitle = sprintf( 
+								esc_html__( 'Search Results for &#8220;%s&#8221;', 'themeberger-test' ), 
+								get_search_query() 
+							);
+							?>
+							<h1 class="site-description"><?php echo $searchtitle; ?></h1>
+						<?php endif; ?>
+
 					</div><!-- .site-branding -->
 				</div><!-- .site-header--inner -->
 
