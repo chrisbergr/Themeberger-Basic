@@ -194,3 +194,8 @@ add_action( 'themeberger_homepage', 'homepage_content' );
  * Themeberger Post Functions.
  */
 require THEMEBERGER_DIR . '/themeberger-public-post-functions.php';
+
+/**
+ * Themeberger Comment Walker.
+ */
+require THEMEBERGER_DIR . '/themeberger-public-comment-walker.php';

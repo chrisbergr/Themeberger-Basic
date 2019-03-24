@@ -40,16 +40,16 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
-			<?php
-			wp_list_comments(
-				array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				)
-			);
-			?>
-		</ol><!-- .comment-list -->
+		<?php 
+		wp_list_comments(
+			array(
+				//'style'      => 'ol',
+				'avatar_size' => 50,
+				'short_ping'  => true,
+				'walker'      => new themeberger_comment_walker(),
+			)
+		);
+		?>
 
 		<?php
 		the_comments_navigation();

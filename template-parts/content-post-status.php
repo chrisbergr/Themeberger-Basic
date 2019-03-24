@@ -107,11 +107,13 @@ $approved_comments = $comments_count->approved;
 
 		<?php if ( is_single() ) : ?>
 		<footer class="entry-footer">
-			<p><?php the_title( '<strong>', '</strong> - ' ); ?><?php the_permalink_date( '', '', false ); ?></p>
+			<p><?php the_title( '<strong>', '</strong> - ' ); ?><?php the_permalink_date( 'Published: ', '', false ); ?></p>
 			<p>Short URL: <?php the_shorturl(); ?></p>
 			<p>Categories: <?php the_category( ', ' ); ?></p>
 			<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
-			<p>Comments: <?php echo $approved_comments; ?></p>
+			<?php if ( $approved_comments > 0 ) : ?>
+			<p>Comments: <?php echo esc_attr( $approved_comments ); ?></p>
+			<?php endif; ?>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
 	
