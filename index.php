@@ -24,7 +24,7 @@ get_header(); ?>
 
 				<?php do_action( 'themeberger_before_primary' ); ?>
 				<div id="primary" class="content-area">
-					<main id="main" class="site-main">
+					<main id="main" class="site-main<?php echo is_single() ? ' main-single' : ''; ?>">
 					<?php do_action( 'themeberger_before_content' ); ?>
 
 					<?php
@@ -40,9 +40,9 @@ get_header(); ?>
 
 						while ( have_posts() ) :
 							the_post();
-							$type = get_post_type();
-							$format = get_post_format();
-							$template = $type . '-' . $format;
+							$this_type = get_post_type();
+							$this_format = get_post_format();
+							$template = $this_type . '-' . $this_format;
 							get_template_part( 'template-parts/content', $template );
 						endwhile;
 

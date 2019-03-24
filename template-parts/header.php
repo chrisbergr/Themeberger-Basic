@@ -23,7 +23,7 @@ if ( ! function_exists( 'header_style' ) ) {
 ?>
 
 			<?php do_action( 'themeberger_before_header' ); ?>
-			<header id="masthead" class="site-header" style="<?php header_style(); ?>">
+			<header id="masthead" class="site-header<?php echo is_single() ? ' header-single' : ''; ?>" style="<?php header_style(); ?>">
 
 				<div class="site-header--inner">
 					<?php if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) : ?>

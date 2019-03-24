@@ -50,54 +50,72 @@ if ( has_post_thumbnail() && ! is_archive() ) {
 
 $current = $post->post_name;
 
+$comments_count = wp_count_comments( get_the_ID() );
+$approved_comments = $comments_count->approved;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content' ); ?>>
-	<?php if ( $content_image ) : ?>
-	<div class="entry-image" style="background-image: url(<?php echo esc_url( $content_image ); ?>);"></div>
-	<?php endif; ?>
-
-	<header class="entry-header">
-	status
-		<?php if ( is_singular() ) : ?>
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		<?php else : ?>
-			<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+	<div class="content-card">
+		<?php if ( $content_image ) : ?>
+		<div class="entry-image" style="background-image: url(<?php echo esc_url( $content_image ); ?>);"></div>
 		<?php endif; ?>
-		<?php if ( has_excerpt() ) : ?>
-		<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
+
+		<header class="entry-header">
+			<?php
+			/*
+			<?php if ( is_singular() ) : ?>
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			<?php else : ?>
+				<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+			<?php endif; ?>
+			<?php if ( has_excerpt() ) : ?>
+			<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
+			<?php endif; ?>
+			*/
+			?>
+			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
+		</header><!-- .entry-header -->
+
+		
+
+		<div class="entry-content">
+			<?php
+			the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-test' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
+
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-test' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
+		</div><!-- .entry-content -->
+
+		<?php if ( is_single() ) : ?>
+		<footer class="entry-footer">
+			<p><?php the_title( '<strong>', '</strong> - ' ); ?><?php the_permalink_date( '', '', false ); ?></p>
+			<p>Short URL: <?php the_shorturl(); ?></p>
+			<p>Categories: <?php the_category( ', ' ); ?></p>
+			<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
+			<p>Comments: <?php echo $approved_comments; ?></p>
+		</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-test' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-test' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?> 
-	</footer><!-- .entry-footer -->
+	
+	</div><!-- .content-card -->
 
 	<?php if ( comments_open() || get_comments_number() ) : ?>
 		<?php comments_template(); ?>
