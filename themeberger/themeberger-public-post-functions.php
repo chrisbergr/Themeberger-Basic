@@ -1,5 +1,7 @@
 <?php
 
+// The used class PostFunctions is located in ./themeberger-public-post-functions-class.php
+
 function get_the_author_vcard( $before = '', $after = '', $post_id = false ) {
 
 	if ( ! $post_id )
