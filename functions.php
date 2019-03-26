@@ -191,6 +191,11 @@ add_action( 'themeberger_homepage', 'homepage_content' );
 
 
 /**
+ * Themeberger Post Functions Class.
+ */
+require THEMEBERGER_DIR . '/themeberger-public-post-functions-class.php';
+
+/**
  * Themeberger Post Functions.
  */
 require THEMEBERGER_DIR . '/themeberger-public-post-functions.php';

@@ -72,12 +72,13 @@ if ( ! function_exists( 'header_style' ) ) {
 
 						<?php if ( is_search() ) : ?>
 							<?php 
-							$searchtitle = sprintf( 
+							$searchtitle = sprintf(
+								/* translators: %s: Search term visible in the title */
 								esc_html__( 'Search Results for &#8220;%s&#8221;', 'themeberger-test' ), 
 								get_search_query() 
 							);
 							?>
-							<h1 class="site-description"><?php echo $searchtitle; ?></h1>
+							<h1 class="site-description"><?php echo esc_html( $searchtitle ); ?></h1>
 						<?php endif; ?>
 
 					</div><!-- .site-branding -->

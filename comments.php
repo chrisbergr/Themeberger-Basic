@@ -43,10 +43,10 @@ if ( post_password_required() ) {
 		<?php 
 		wp_list_comments(
 			array(
-				//'style'      => 'ol',
+				'style'      => 'ol',
 				'avatar_size' => 50,
 				'short_ping'  => true,
-				'walker'      => new themeberger_comment_walker(),
+				'walker'      => new themeberger_comment_walker( 'ol' ),
 			)
 		);
 		?>

@@ -7,69 +7,126 @@
 
 
 class themeberger_comment_walker extends Walker_Comment {
-    var $tree_type = 'comment';
-    var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
-    function __construct() {
-        ?>
-        <ol class="comments-list">
-        <?php
+	
+	private $walker_style = 'ul';
+	
+    function __construct( $style = 'ul' ) {
+		$this->walker_style = $style;
+		switch ( $this->walker_style ) {
+			case 'div':
+				?>
+				<div class="comments-list">
+				<?php
+				break;
+			case 'ol':
+				?>
+				<ol class="comments-list">
+				<?php
+				break;
+			case 'ul':
+			default:
+				?>
+				<ul class="comments-list">
+				<?php
+				break;
+		}
     }
-    function start_lvl( &$output, $depth = 0, $args = array() ) {
-        $GLOBALS['comment_depth'] = $depth + 2;
-        ?>
-        <ol class="child-comments comments-list">
-        <?php
+    function __destruct() {
+		switch ( $this->walker_style ) {
+			case 'div':
+				?>
+				</div><!-- .comments-list -->
+				<?php
+				break;
+			case 'ol':
+				?>
+				</ol><!-- .comments-list -->
+				<?php
+				break;
+			case 'ul':
+			default:
+				?>
+				</ul><!-- .comments-list -->
+				<?php
+				break;
+		}
     }
-    function end_lvl( &$output, $depth = 0, $args = array() ) {
-        $GLOBALS['comment_depth'] = $depth + 2;
-        ?>
-        </ol><!-- .child-comments -->
-        <?php
-    }
-    function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
-        $depth++;
-        $GLOBALS['comment_depth'] = $depth;
-        $GLOBALS['comment'] = $comment;
-        $parent_class = '';
-		//$parent_class = ( empty( $args['has_children'] ) ? '' : 'parent' );
-
+ 
+    /**
+     * Outputs a comment in the HTML5 format.
+     *
+     * @since 3.6.0
+     *
+     * @see wp_list_comments()
+     *
+     * @param WP_Comment $comment Comment to display.
+     * @param int        $depth   Depth of the current comment.
+     * @param array      $args    An array of arguments.
+     */
+    protected function html5_comment( $comment, $depth, $args ) {
+        $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
         $add_below = 'comment';
-
+ 
+        $commenter = wp_get_current_commenter();
+        if ( $commenter['comment_author_email'] ) {
+            $moderation_note = __( 'Your comment is awaiting moderation.', 'themeberger-test' );
+        } else {
+            $moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.', 'themeberger-test' );
+        }
+ 
         ?>
-        <li <?php comment_class(empty( $args['has_children'] ) ? '' :'parent') ?> id="comment-<?php comment_ID() ?>" itemscope itemtype="http://schema.org/Comment">
+        <<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
             <div class="comment-meta" role="complementary">
-            <?php 
-			
-			$postet_timestamp = get_comment_date( 'c' );
-			$posted_ago = human_time_diff( get_comment_date( 'U' ), current_time( 'timestamp' ) );
-			$time_out = sprintf(
-				_x( 
-					'<time class="comment-date published" datetime="%2$s" itemprop="datePublished">%1$s ago</time>',
-					'%1$s = human-readable time difference', 'themeberger-test'
-				),
-				$posted_ago,
-				$postet_timestamp
-			);
-			$time_link = '<a href="#comment-' . get_comment_ID() . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out. '</a>';
-			
-			$author_url = get_comment_author_url();
-		
-			if ( $author_url ) {
-				$author = sprintf(
-					esc_html_x( '%s', 'comment author', 'themeberger-test' ),
-					'<span class="comment-author themeberger-comment-author vcard"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></a></span>'
+				<?php 
+
+				$postet_timestamp = get_comment_date( 'c' );
+				$posted_ago = human_time_diff( get_comment_date( 'U' ), current_time( 'timestamp' ) );
+				$time_out = sprintf(
+					/* translators: 1: comment date (human time diff), 2: comment timestamp */
+					_x( 
+						'<time class="comment-date published" datetime="%2$s" itemprop="datePublished">%1$s ago</time>',
+						'%1$s = human-readable time difference', 'themeberger-test'
+					),
+					$posted_ago,
+					$postet_timestamp
 				);
-			} else {
-				$author = sprintf(
-					esc_html_x( '%s', 'comment author', 'themeberger-test' ),
-					'<span class="comment-author themeberger-comment-author vcard"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></span>'
+				$time_link = '<a href="#comment-' . get_comment_ID() . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out. '</a>';
+
+				$author_url = get_comment_author_url();
+
+				if ( $author_url ) {
+					$author = '<span class="comment-author themeberger-comment-author vcard"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
+				} else {
+					$author = '<span class="comment-author themeberger-comment-author vcard"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></span>';
+				}
+		
+				$author_date_html = array(
+					'a' => array(
+						'href' => array(),
+						'title' => array(),
+						'itemprop' => array(),
+						'class' => array(),
+					),
+					'span' => array(
+						'class' => array(),
+					),
+					'img' => array(
+						'class' => array(),
+						'src' => array(),
+						'alt' => array(),
+						'title' => array(),
+						'itemprop' => array(),
+					),
+					'time' => array(
+						'class' => array(),
+						'datetime' => array(),
+						'itemprop' => array(),
+					),
 				);
-			}
-		
-		
-			echo $author . '<span class="themeberger-comment-date">' . $time_link . '</span>';
-		
-			?>
+				?>
+
+				<?php echo wp_kses( $author, $author_date_html ); ?><span class="themeberger-comment-date"><?php echo wp_kses( $time_link, $author_date_html ); ?></span>
+
                 <?php edit_comment_link('edit','<small class="edit-comment">','</small>'); ?>
                 <?php
 				comment_reply_link( array_merge( $args, array(
@@ -82,22 +139,13 @@ class themeberger_comment_walker extends Walker_Comment {
 				?>
             </div>
             <div class="comment-content" itemprop="text">
-                <?php if ($comment->comment_approved == '0') : ?>
-                <p class="comment-meta-item">Your comment is awaiting moderation.</p>
-                <?php endif; ?>
+				<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="comment-meta-item"><em class="comment-awaiting-moderation"><?php echo esc_html( $moderation_note ); ?></em></p>
+				<?php endif; ?>
                 <?php comment_text(); ?>
             </div>
             <?php do_action( 'themeberger_comment_footer' ); ?>
-            <?php
-    }
-    function end_el(&$output, $comment, $depth = 0, $args = array() ) {
-        ?>
-        </li>
         <?php
     }
-    function __destruct() {
-        ?>
-        </ol><!-- .comments-list -->
-        <?php
-    }
+	
 }
