@@ -25,8 +25,8 @@ function the_author_vcard( $before = '', $after = '', $echo = true ) {
 	if ( ! $echo ) {
 		return $output;
 	}
-	
-	$output;
+
+	echo $output;
 
 }
 
