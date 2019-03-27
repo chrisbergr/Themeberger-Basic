@@ -89,8 +89,8 @@ if ( ! function_exists( 'themebergertest_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
-		
-        add_theme_support(
+
+		add_theme_support(
 			'post-formats',
 			array(
 				'aside',
@@ -193,7 +193,7 @@ add_action( 'themeberger_homepage', 'homepage_content' );
 /**
  * Themeberger Post Functions Class.
  */
-require THEMEBERGER_DIR . '/themeberger-public-post-functions-class.php';
+require THEMEBERGER_DIR . '/class-themeberger-post-functions.php';
 
 /**
  * Themeberger Post Functions.
@@ -203,4 +203,4 @@ require THEMEBERGER_DIR . '/themeberger-public-post-functions.php';
 /**
  * Themeberger Comment Walker.
  */
-require THEMEBERGER_DIR . '/themeberger-public-comment-walker.php';
+require THEMEBERGER_DIR . '/class-themeberger-comment-walker.php';

@@ -40,9 +40,9 @@ get_header(); ?>
 
 						while ( have_posts() ) :
 							the_post();
-							$this_type = get_post_type();
+							$this_type   = get_post_type();
 							$this_format = get_post_format();
-							$template = $this_type . '-' . $this_format;
+							$template    = $this_type . '-' . $this_format;
 							get_template_part( 'template-parts/content', $template );
 						endwhile;
 

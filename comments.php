@@ -40,13 +40,13 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<?php 
+		<?php
 		wp_list_comments(
 			array(
-				'style'      => 'ol',
+				'style'       => 'ol',
 				'avatar_size' => 50,
 				'short_ping'  => true,
-				'walker'      => new themeberger_comment_walker( 'ol' ),
+				'walker'      => new Themeberger_Comment_Walker( 'ol' ),
 			)
 		);
 		?>

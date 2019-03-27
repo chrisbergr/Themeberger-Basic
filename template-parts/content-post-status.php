@@ -48,9 +48,8 @@ if ( has_post_thumbnail() && ! is_archive() ) {
 	$content_image = false;
 }
 
-$current = $post->post_name;
-
-$comments_count = wp_count_comments( get_the_ID() );
+$current           = $post->post_name;
+$comments_count    = wp_count_comments( get_the_ID() );
 $approved_comments = $comments_count->approved;
 
 ?>
@@ -62,22 +61,8 @@ $approved_comments = $comments_count->approved;
 		<?php endif; ?>
 
 		<header class="entry-header">
-			<?php
-			/*
-			<?php if ( is_singular() ) : ?>
-				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-			<?php else : ?>
-				<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-			<?php endif; ?>
-			<?php if ( has_excerpt() ) : ?>
-			<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
-			<?php endif; ?>
-			*/
-			?>
 			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
 		</header><!-- .entry-header -->
-
-		
 
 		<div class="entry-content">
 			<?php
@@ -116,7 +101,7 @@ $approved_comments = $comments_count->approved;
 			<?php endif; ?>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	
+
 	</div><!-- .content-card -->
 
 	<?php if ( comments_open() || get_comments_number() ) : ?>
