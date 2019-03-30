@@ -189,6 +189,13 @@ function homepage_content() {
 add_action( 'themeberger_homepage', 'homepage_content' );
 
 
+function sidebar_body_classes( $classes ) {
+	if ( is_active_sidebar( 'sidebar-1' ) ) {
+		$classes[] = 'has-sidebar';
+	}
+	return $classes;
+}
+add_filter( 'body_class','sidebar_body_classes' );
 
 /**
  * Themeberger Post Functions Class.

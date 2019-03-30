@@ -22,6 +22,8 @@ get_header(); ?>
 
 			<div id="content" class="site-content">
 
+				<?php get_sidebar(); ?>
+
 				<?php do_action( 'themeberger_before_primary' ); ?>
 				<div id="primary" class="content-area">
 					<main id="main" class="site-main<?php echo is_single() ? ' main-single' : ''; ?>">
@@ -70,8 +72,6 @@ get_header(); ?>
 					</main><!-- #main -->
 				</div><!-- #primary -->
 				<?php do_action( 'themeberger_after_primary' ); ?>
-
-				<?php get_sidebar(); ?>
 
 			</div><!-- #content -->
 

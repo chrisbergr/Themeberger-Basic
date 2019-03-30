@@ -5,4 +5,20 @@
 	width: 100%;
     max-width: 980px;
     margin: 0 auto;
+	.has-sidebar &{
+		padding-right: 980px - 700px;
+	}
+}
+.widget-area{
+	position: relative;
+	height: 0;
+	overflow: visible;;
+}
+.widget-area--inner{
+	position: absolute;;
+	top: 0;
+	left: 50%;
+	margin-left: 210px;
+	width: 980px - 700px;
+	padding-left: 30px;
 }

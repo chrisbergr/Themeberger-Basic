@@ -14,6 +14,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 <?php do_action( 'themeberger_before_secondary' ); ?>
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<div class="widget-area--inner">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</div>
 </aside><!-- #secondary -->
 <?php do_action( 'themeberger_after_secondary' ); ?>
