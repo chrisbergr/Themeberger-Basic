@@ -48,6 +48,13 @@ get_header(); ?>
 
 						the_posts_navigation();
 
+						the_posts_pagination( array(
+							'mid_size'  => 1,
+							'prev_text' => false,
+							'next_text' => false,
+						) );
+
+
 					else :
 
 						get_template_part( 'template-parts/content', 'none' );
