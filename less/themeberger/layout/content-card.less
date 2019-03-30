@@ -23,11 +23,26 @@
 		padding-top: 0;
 		padding-left: 85px;
 		margin-top: -35px;
+		font-size: 0.8em;
+		color: #a3a7aa;
+		//text-transform: uppercase;
 		.single &{
 			margin-top: 0;
 		}
 		p{
 			margin: 0;
+		}
+		a{
+			color: inherit;
+			text-decoration: none;
+			&:hover,
+			&:focus,
+			&:active{
+				color: crimson;
+			}
+		}
+		.meta-title{
+			color: #000;
 		}
 	}
 	& + .comments-area{
@@ -39,7 +54,7 @@
 		}
 		.comment-respond{
 			position: relative;
-			padding: 30px 20px;
+			padding: 10px 20px;
 			//padding-left: 85px;
 		}
 		.comments-list{
@@ -53,7 +68,13 @@
 		.comment,
 		.webmention{
 			position: relative;
-			background-color: floralwhite;
+			background-color: #f4f5f6;
+			&.depth-1:first-child{
+				padding-top: 10px;
+			}
+			&.depth-1:last-child{
+				padding-bottom: 40px;
+			}
 			p:first-child{
 				margin-top: 0;
 			}
@@ -69,6 +90,7 @@
 			padding-top: 0;
 			padding-left: 85px;
 			margin-top: -50px;
+			padding-bottom: 0;
 		}
 		.comment-footer{
 			padding: 30px 20px;

@@ -93,9 +93,8 @@ $approved_comments = $comments_count->approved;
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
-			<p><?php the_title( '<strong>', '</strong> - ' ); ?><?php the_permalink_date( 'Published: ', '', false ); ?></p>
-			<p>Short URL: <?php the_shorturl(); ?></p>
-			<p>Categories: <?php the_category( ', ' ); ?></p>
+			<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
+			<p>Shortlink: <?php the_shorturl(); ?></p>
 			<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
 			<?php endif; ?>
 			<?php if ( function_exists( 'get_linkbacks_number' ) ) : ?>
