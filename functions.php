@@ -57,7 +57,7 @@ if ( ! function_exists( 'themebergertest_setup' ) ) :
 
 		add_theme_support( 'custom-background' );
 
-		set_post_thumbnail_size( 1920 * 2, 720 * 2, true );
+		set_post_thumbnail_size( 980, 600, true );
 
 		register_nav_menus(
 			array(
