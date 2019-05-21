@@ -38,8 +38,6 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
-
 		<?php
 		wp_list_comments(
 			array(
@@ -51,8 +49,13 @@ if ( post_password_required() ) {
 		);
 		?>
 
+		<?php the_comments_navigation(); ?>
+		
 		<?php
-		the_comments_navigation();
+		paginate_comments_links(array('prev_next' => false,'type' => 'list',));
+		?>
+	
+		<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>

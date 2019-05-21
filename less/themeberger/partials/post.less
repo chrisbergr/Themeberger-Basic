@@ -89,19 +89,140 @@
 }
 
 
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation{
-	width: 100%;
-    max-width: 700px;
-	margin: auto auto;
-	margin-bottom: 0;
+.page-links{
+	color: #a3a7aa;
+	font-size: 0.8em;
+	a{
+		padding: 7px;
+		color: inherit;
+		text-decoration: none;
+		&:hover,
+		&:focus,
+		&:active{
+			color: crimson;
+		}
+	}
+	.current{
+		padding: 7px;
+		color: #000;
+		font-weight: bold;
+	}
 }
-.site-main .pagination{
-	width: 100%;
-    max-width: 700px;
-	margin: auto auto;
-	margin-bottom: 0;
-	margin-top: -24px;
-	text-align: center;
+
+
+.site-main{
+	.comment-navigation,
+	.posts-navigation,
+	.post-navigation{
+		width: 100%;
+		max-width: 700px;
+		margin: auto auto;
+		margin-bottom: 0;
+		& + .pagination{
+			width: 100%;
+			max-width: 700px;
+			margin: auto auto;
+			margin-bottom: 0;
+			height: 50px;
+			line-height: 50px;
+			margin-top: -50px;
+			text-align: center;
+		}
+	}
+}
+
+.posts-navigation{
+	padding: 0 20px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #f4f5f6;
+	font-size: 0.8em;
+	a{
+		color: inherit;
+		text-decoration: none;
+		&:hover,
+		&:focus,
+		&:active{
+			color: crimson;
+		}
+	}
+	& + .pagination{
+		color: #a3a7aa;
+		font-size: 0.8em;
+		a{
+			padding: 7px;
+			pointer-events: auto;
+			color: inherit;
+			text-decoration: none;
+			&:hover,
+			&:focus,
+			&:active{
+				color: crimson;
+			}
+		}
+		.current{
+			padding: 7px;
+			color: #000;
+			font-weight: bold;
+		}
+	}
+}
+
+.comment-navigation{
+	position: relative;
+	margin-top: -20px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #f4f5f6;
+	font-size: 0.8em;
+	color: #a3a7aa;
+	.nav-previous{
+		padding-left: 20px;
+	}
+	.nav-next{
+		padding-right: 20px;
+	}
+	a{
+		color: inherit;
+		text-decoration: none;
+		&:hover,
+		&:focus,
+		&:active{
+			color: crimson;
+		}
+	}
+	& + ul.page-numbers{
+		pointer-events: none;
+		position: relative;
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+		margin-top: -50px;
+		padding: 0 155px;
+		color: #a3a7aa;
+		font-size: 0.8em;
+		li{
+			display: inline-block;
+		}
+		a{
+			padding: 7px;
+			pointer-events: auto;
+			color: inherit;
+			text-decoration: none;
+			&:hover,
+			&:focus,
+			&:active{
+				color: crimson;
+			}
+		}
+		.current{
+			padding: 7px;
+			color: #000;
+			font-weight: bold;
+		}
+	}
 }
