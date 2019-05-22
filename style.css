@@ -1015,11 +1015,51 @@ h1.site-description {
   margin: 0 auto;
   background-color: #fff;
 }
+.content-card.type-article {
+  max-width: 980px;
+}
+.content-card.type-article + .comments-area {
+  max-width: 980px;
+}
+.content-card.type-article + .comments-area .comment-meta {
+  padding-right: 85px;
+}
+.content-card.type-article + .comments-area .comment-content {
+  padding-right: 85px;
+}
+.content-card.type-article + .comments-area .comment-footer {
+  padding-right: 85px;
+}
+.content-card.type-article .entry-header {
+  padding-right: 85px;
+}
+.content-card.type-article .entry-content {
+  padding-right: 85px;
+}
+.content-card.type-article .entry-footer {
+  padding-right: 85px;
+}
 .content-card p:first-child {
   margin-top: 0;
 }
 .content-card p:last-child {
   margin-bottom: 0;
+}
+.content-card .entry-title {
+  padding-left: 65px;
+  margin-top: -22px;
+  margin-bottom: 1em;
+  font-size: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
+}
+.content-card .entry-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.content-card .entry-image {
+  font-size: 0;
 }
 .content-card .entry-header {
   padding: 30px 20px;

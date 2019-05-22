@@ -45,7 +45,7 @@ if ( ! function_exists( 'themebergertest_setup' ) ) :
 	 */
 	function themebergertest_setup() {
 
-		load_theme_textdomain( 'themebergertest', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'themeberger-test', get_template_directory() . '/languages' );
 
 		add_theme_support( 'automatic-feed-links' );
 
