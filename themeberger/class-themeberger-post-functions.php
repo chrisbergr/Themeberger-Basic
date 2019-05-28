@@ -258,16 +258,36 @@ class Themeberger_Post_Functions {
 		);
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
-		$pattern = '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i';
+		$pattern = '/<figure[^>]*>(.)*<\/figure[^>]*>/i';
 		preg_match_all( $pattern, $content, $matches );
 
-		$first_image = $matches[1][0];
-
-		if ( empty( $first_image ) ) {
-			return 'EMPTY IMAGE!!';
+		if( isset( $matches ) && isset( $matches[0] ) && isset( $matches[0][0] ) ) {
+			$first_image = $matches[0][0];
+			$pattern = '/data-src\=\"(.)*\"/U';
+			preg_match_all( $pattern, $first_image, $source );
+			if( isset( $source ) && isset( $source[0] ) && isset( $source[0][0] ) ) {
+				$src = str_replace( '"', '', $source[0][0] );
+				$src = str_replace( 'data-src=', '', $src );
+				$first_image = $first_image . '<data value="' . $src . '" class="photo u-photo" itemprop="image" />';
+			} else {
+				$pattern = '/src\=\"(.)*\"/U';
+				preg_match_all( $pattern, $first_image, $source );
+				if( isset( $source ) && isset( $source[0] ) && isset( $source[0][0] ) ) {
+					$src = str_replace( '"', '', $source[0][0] );
+					$src = str_replace( 'data-src=', '', $src );
+					$first_image = $first_image . '<data value="' . $src . '" class="photo u-photo" itemprop="image" />';
+				}
+			}
 		}
 
-		$first_image = '<img src="' . $first_image . '" class="photo u-photo" itemprop="image">';
+		if ( empty( $matches ) || empty( $matches[0] ) || empty( $matches[0][0] ) ) {
+			$pattern = '/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i';
+			preg_match_all( $pattern, $content, $matches );
+			$first_image = $matches[0][0];
+			$first_image_url = $matches[1][0];
+			$first_image = $first_image . '<data value="' . $first_image_url . '" class="photo u-photo" itemprop="image" />';
+		}
+
 		$image       = apply_filters( 'themeberger_first_image_of_post', $first_image, $this->post );
 		$image       = $args['before'] . $image . $args['after'];
 
@@ -278,8 +298,11 @@ class Themeberger_Post_Functions {
 	public function get_content_without_first_image() {
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
+
 		$content = preg_replace( '/<img[^>]+./', '', $content );
-		$content = preg_replace( '/<figure[^>]*><\\/figure[^>]*>/', '', $content );
+		$content = preg_replace( '/<figure[^>]*><\/figure[^>]*>/', '', $content );
+		$content = str_replace( '<figure class="wp-block-image"><noscript></noscript></figure>', '', $content );
+		$content = str_replace( '<noscript></noscript>', '', $content );
 
 		return $content;
 
