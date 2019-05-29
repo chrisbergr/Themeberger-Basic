@@ -24,7 +24,7 @@ get_header(); ?>
 
 				<?php do_action( 'themeberger_before_primary' ); ?>
 				<div id="primary" class="content-area">
-					<main id="main" class="site-main<?php echo is_single() ? ' main-single' : ''; ?>">
+					<main id="main" class="site-main<?php echo is_single() ? ' main-single' : ' h-feed'; ?>">
 					<?php do_action( 'themeberger_before_content' ); ?>
 
 					<?php

@@ -54,7 +54,7 @@ $approved_comments = $comments_count->approved;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-article' ); ?>>
 	<div class="content-card type-article">
 		<?php /*if ( $content_image ) : ?>
 		<div class="entry-image" style="background-image: url(<?php echo esc_url( $content_image ); ?>);"></div>
@@ -66,16 +66,16 @@ $approved_comments = $comments_count->approved;
 		<header class="entry-header">
 			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
 			<?php if ( is_singular() ) : ?>
-				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
 			<?php else : ?>
-				<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+				<?php the_title( '<h2 class="entry-title p-name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 			<?php endif; ?>
 			<?php if ( has_excerpt() ) : ?>
 			<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content">
+		<div class="entry-content e-content">
 			<?php
 			the_content(
 				sprintf(
