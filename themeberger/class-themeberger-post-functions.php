@@ -363,8 +363,13 @@ class Themeberger_Post_Functions {
 		$content = preg_replace( '/\s*[a-zA-Z\/\/:\.]*vimeo.com\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', '', $content );
 		$content = preg_replace( '/\[video(.*?)\[\/video\]/i', '', $content );
 		$content = preg_replace( '/<figure.+class=[\'"]wp-block-video[\'"].*>(.*?)<\/figure>/i', '', $content );
+		//$content = preg_replace( '/<figure.+class=[\'"]wp-block-embed-youtube(.*?)[\'"].*>(.*?)<\/figure>/i', '', $content );
+		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-youtube[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
+		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-vimeo[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 		$content = do_shortcode( apply_filters( 'the_content', $content ) );
 		// TODO: YouTube???
+		
+		//$pattern = '/<figure[^>]*>(.)*<\/figure[^>]*>/i';
 
 		return $content;
 

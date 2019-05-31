@@ -5,7 +5,7 @@ Github Theme URI: https://github.com/chrisbergr/Themeberger-Test
 Author:         Christian Hockenberger
 Author URI:     https://christian.hockenberger.us
 Description:  	WordPress Theme
-Version:      	1.0.14
+Version:      	1.0.15
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	themeberger-test
@@ -1058,6 +1058,25 @@ h1.site-description {
   color: inherit;
   text-decoration: none;
 }
+.content-card .entry-video {
+  position: relative;
+  height: auto;
+}
+.content-card .entry-video:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+.content-card .entry-video > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
 .content-card .entry-image {
   font-size: 0;
 }
@@ -1434,6 +1453,87 @@ h1.site-description {
   padding: 7px;
   color: #000;
   font-weight: bold;
+}
+.media-title {
+  margin-bottom: 0;
+  padding: 18px;
+  padding-bottom: 6px;
+  background-color: #fff;
+  font-size: 25px;
+  line-height: 1;
+}
+.post-list-item-context.video,
+.post-list-item-context.audio {
+  margin-bottom: 10px;
+}
+.content-card.type-video .mejs-container *,
+.content-card.type-audio .mejs-container * {
+  font-family: "Bahnschrift", sans-serif;
+}
+.content-card.type-video .mejs-container a,
+.content-card.type-audio .mejs-container a {
+  border-bottom: none;
+}
+.content-card.type-video .mejs-container a:hover,
+.content-card.type-audio .mejs-container a:hover,
+.content-card.type-video .mejs-container a:focus,
+.content-card.type-audio .mejs-container a:focus,
+.content-card.type-video .mejs-container a:active,
+.content-card.type-audio .mejs-container a:active {
+  border-bottom: none;
+}
+.content-card.type-video .mejs-container,
+.content-card.type-audio .mejs-container,
+.content-card.type-video .mejs-container .mejs-controls,
+.content-card.type-audio .mejs-container .mejs-controls,
+.content-card.type-video .mejs-embed,
+.content-card.type-audio .mejs-embed,
+.content-card.type-video .mejs-embed body,
+.content-card.type-audio .mejs-embed body {
+  background: #fff;
+}
+.content-card.type-video .mejs-button button,
+.content-card.type-audio .mejs-button button {
+  box-shadow: none;
+}
+.content-card.type-video .mejs-button .mejs-playpause-button > button,
+.content-card.type-audio .mejs-button .mejs-playpause-button > button {
+  background-color: #f03;
+}
+.content-card.type-video .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total,
+.content-card.type-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total,
+.content-card.type-video .mejs-controls .mejs-time-rail .mejs-time-total,
+.content-card.type-audio .mejs-controls .mejs-time-rail .mejs-time-total {
+  background-color: #999;
+}
+.content-card.type-video .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+.content-card.type-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+.content-card.type-video .mejs-controls .mejs-time-rail .mejs-time-loaded,
+.content-card.type-audio .mejs-controls .mejs-time-rail .mejs-time-loaded {
+  background-color: #000;
+}
+.content-card.type-video .mejs-controls .mejs-time-rail .mejs-time-current,
+.content-card.type-audio .mejs-controls .mejs-time-rail .mejs-time-current {
+  background-color: crimson;
+}
+.content-card.type-video .mejs-time,
+.content-card.type-audio .mejs-time {
+  color: #000;
+  font-weight: bold;
+}
+.content-card.type-video .mejs-button > button,
+.content-card.type-audio .mejs-button > button {
+  -webkit-filter: hue-rotate(220deg) saturate(5);
+  filter: brightness(0);
+  background-color: transparent;
+}
+.content-card.type-video .mejs-button > button:hover,
+.content-card.type-audio .mejs-button > button:hover,
+.content-card.type-video .mejs-button > button:focus,
+.content-card.type-audio .mejs-button > button:focus,
+.content-card.type-video .mejs-button > button:active,
+.content-card.type-audio .mejs-button > button:active {
+  background-color: transparent;
 }
 /**
 @import "style/wordpress-defaults.less";
