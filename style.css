@@ -5,7 +5,7 @@ Github Theme URI: https://github.com/chrisbergr/Themeberger-Test
 Author:         Christian Hockenberger
 Author URI:     https://christian.hockenberger.us
 Description:  	WordPress Theme
-Version:      	1.0.15
+Version:      	1.0.16
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	themeberger-test
@@ -1490,7 +1490,7 @@ h1.site-description {
 .content-card.type-audio .mejs-embed,
 .content-card.type-video .mejs-embed body,
 .content-card.type-audio .mejs-embed body {
-  background: #fff;
+  background: #f4f5f6;
 }
 .content-card.type-video .mejs-button button,
 .content-card.type-audio .mejs-button button {
@@ -1534,6 +1534,9 @@ h1.site-description {
 .content-card.type-video .mejs-button > button:active,
 .content-card.type-audio .mejs-button > button:active {
   background-color: transparent;
+}
+.wp-block-embed {
+  margin-bottom: 0;
 }
 /**
 @import "style/wordpress-defaults.less";

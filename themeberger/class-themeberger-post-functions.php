@@ -386,17 +386,34 @@ class Themeberger_Post_Functions {
 		);
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
-		$pattern = '/<audio.+src=[\'"]([^\'"]+)[\'"].*>/i';
+		
+		$pattern = '/<figure.+class="[^"]*?wp-block-audio[^"]*?".*>([^$]+?)<\/figure>/i';
 		preg_match_all( $pattern, $content, $matches );
 		if ( ! empty( $matches ) && ! empty( $matches[0] ) ) {
 			$first_audio = $matches[0][0];
-		}
-
-		if ( empty( $first_audio ) ) {
-			return 'EMPTY AUDIO!!';
-		} else {
-			$first_audio = explode( '?', $first_audio )[0];
+			$pattern = '/src="(.*)"/i';
+			preg_match_all( $pattern, $first_audio, $source );
+			$first_audio = $source[1][0];
 			$first_audio = wp_audio_shortcode( array( 'src' => $first_audio ) );
+		} else {
+			$pattern = '/<audio.+src=[\'"]([^\'"]+)[\'"].*>/i';
+			preg_match_all( $pattern, $content, $matches );
+			if ( ! empty( $matches ) && ! empty( $matches[0] ) ) {
+				$first_audio = $matches[0][0];
+			}
+			if ( empty( $first_audio ) ) {
+				$pattern = '/<figure.+class="[^"]*?wp-block-embed-soundcloud[^"]*?".*>([^$]+?)<\/figure>/i';
+				preg_match_all( $pattern, $content, $matches );
+				if ( ! empty( $matches ) && ! empty( $matches[0] ) ) {
+					$first_audio = $matches[0][0];
+				}
+				if ( empty( $first_audio ) ) {
+					return 'EMPTY AUDIO!!';
+				}
+			} else {
+				$first_audio = explode( '?', $first_audio )[0];
+				$first_audio = wp_audio_shortcode( array( 'src' => $first_audio ) );
+			}
 		}
 
 		$audio = apply_filters( 'themeberger_first_audio_of_post', $first_audio, $this->post );
@@ -412,6 +429,8 @@ class Themeberger_Post_Functions {
 
 		$content = preg_replace( '/\[audio(.*?)\[\/audio\]/i', '', $content );
 		$content = do_shortcode( apply_filters( 'the_content', $content ) );
+		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-audio[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
+		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-soundcloud[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 
 		return $content;
 	}
