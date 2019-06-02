@@ -986,7 +986,7 @@ h1.site-description {
   left: 0;
   width: 100%;
   height: 0;
-  background-color: crimson;
+  background-color: #8b7af5;
   transition: all 0.2s cubic-bezier(1, 0.3, 0.3, 1);
   z-index: -1;
 }
@@ -1048,6 +1048,7 @@ h1.site-description {
   max-width: 700px;
   margin: 0 auto;
   background-color: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
 }
 .content-card.type-article {
   max-width: 980px;
@@ -1123,6 +1124,25 @@ h1.site-description {
   padding-left: 85px;
   margin-top: -50px;
 }
+.content-card .entry-content a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  transition: background 0.2s cubic-bezier(1, 0.3, 0.3, 1);
+  border-bottom: 2px solid #dad4ff;
+  -webkit-box-shadow: inset 0 -4px 0 #dad4ff;
+  -moz-box-shadow: inset 0 -4px 0 #dad4ff;
+  box-shadow: inset 0 -4px 0 #dad4ff;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+.content-card .entry-content a:hover,
+.content-card .entry-content a:focus,
+.content-card .entry-content a:active {
+  background-color: #dad4ff;
+  color: #000;
+}
 .content-card .entry-footer {
   padding: 30px 20px;
   padding-top: 0;
@@ -1144,7 +1164,7 @@ h1.site-description {
 .content-card .entry-footer a:hover,
 .content-card .entry-footer a:focus,
 .content-card .entry-footer a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .content-card .entry-footer .meta-title {
   color: #000;
@@ -1329,7 +1349,7 @@ h1.site-description {
 .themeberger-comment-date a:active,
 .reply-comment a:active,
 .edit-comment a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .entry-interactions {
   position: relative;
@@ -1367,7 +1387,7 @@ h1.site-description {
 .page-links a:hover,
 .page-links a:focus,
 .page-links a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .page-links .current {
   padding: 7px;
@@ -1408,7 +1428,7 @@ h1.site-description {
 .posts-navigation a:hover,
 .posts-navigation a:focus,
 .posts-navigation a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .posts-navigation + .pagination {
   color: #a3a7aa;
@@ -1423,7 +1443,7 @@ h1.site-description {
 .posts-navigation + .pagination a:hover,
 .posts-navigation + .pagination a:focus,
 .posts-navigation + .pagination a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .posts-navigation + .pagination .current {
   padding: 7px;
@@ -1452,7 +1472,7 @@ h1.site-description {
 .comment-navigation a:hover,
 .comment-navigation a:focus,
 .comment-navigation a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .comment-navigation + ul.page-numbers {
   pointer-events: none;
@@ -1481,7 +1501,7 @@ h1.site-description {
 .comment-navigation + ul.page-numbers a:hover,
 .comment-navigation + ul.page-numbers a:focus,
 .comment-navigation + ul.page-numbers a:active {
-  color: crimson;
+  color: #8b7af5;
 }
 .comment-navigation + ul.page-numbers .current {
   padding: 7px;
