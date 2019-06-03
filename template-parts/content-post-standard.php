@@ -54,6 +54,7 @@ $approved_comments = $comments_count->approved;
 
 ?>
 
+<?php if ( is_single() ) : ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-article' ); ?>>
 	<div class="content-card type-article">
 		<?php /*if ( $content_image ) : ?>
@@ -119,3 +120,62 @@ $approved_comments = $comments_count->approved;
 	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
+<?php else : ?>
+
+
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-article' ); ?>>
+	<div class="content-supercard type-article">
+		<?php if ( has_post_thumbnail() ) : ?>
+		<div class="entry-image"><?php the_post_thumbnail(); ?></div>
+		<?php endif; ?>
+
+		<header class="entry-header">
+			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
+			<?php if ( is_singular() ) : ?>
+				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
+			<?php else : ?>
+				<?php the_title( '<h2 class="entry-title p-name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+			<?php endif; ?>
+			<?php if ( has_excerpt() ) : ?>
+			<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
+			<?php endif; ?>
+		</header><!-- .entry-header -->
+
+		<div class="entry-content e-content">
+			<?php
+			the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-test' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
+
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-test' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
+		</div><!-- .entry-content -->
+
+		<?php if ( is_single() || $approved_comments > 0 ) : ?>
+		<footer class="entry-footer">
+			<?php get_template_part( 'template-parts/partial-interactions', 'article' ); ?>
+		</footer><!-- .entry-footer -->
+		<?php endif; ?>
+
+	</div><!-- .content-card -->
+
+
+</article><!-- #post-<?php the_ID(); ?> -->
+
+<?php endif; ?>
