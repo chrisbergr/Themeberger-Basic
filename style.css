@@ -5,7 +5,7 @@ Github Theme URI: https://github.com/chrisbergr/Themeberger-Test
 Author:         Christian Hockenberger
 Author URI:     https://christian.hockenberger.us
 Description:  	WordPress Theme
-Version:      	1.0.16
+Version:      	1.0.17
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	themeberger-test
@@ -1362,18 +1362,37 @@ h1.site-description {
   color: #a3a7aa;
 }
 .entry-interactions .interaction {
-  display: inline;
+  position: relative;
+  display: inline-block;
   margin-right: 15px;
   white-space: nowrap;
+  cursor: default;
 }
 .entry-interactions .interaction:last-child {
   margin-right: 0;
 }
+.entry-interactions .interaction .interaction-symbol {
+  position: relative;
+  top: 0;
+  margin-right: 5px;
+  font-size: 1.2em;
+}
 .entry-interactions .interaction .interaction-key {
-  margin-right: 10px;
+  position: absolute;
+  top: 0;
+  left: 105%;
+  display: block;
+  background-color: #f4f5f6;
+  padding: 2px 7px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
 }
 .entry-interactions .interaction .interaction-value {
   color: #000;
+}
+.entry-interactions .interaction:hover .interaction-key {
+  opacity: 1;
 }
 .page-links {
   color: #a3a7aa;
@@ -1973,5 +1992,87 @@ video.wp-video-shortcode {
   bottom: 0;
   width: 100% !important;
   height: 100% !important;
+}
+[data-reveal="content"] {
+  display: inline-block;
+  position: relative;
+}
+[data-reveal="cover"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: 1;
+}
+[data-reveal="text"] {
+  opacity: 0;
+}
+.entry-content p.loaded [data-reveal="cover"] {
+  -webkit-animation: reveal-cover 1.5s ease-in-out;
+  animation: reveal-cover 1.5s ease-in-out;
+}
+.entry-content p.loaded [data-reveal="text"] {
+  opacity: 1;
+  -webkit-animation: reveal-text 1.5s ease-in-out;
+  animation: reveal-text 1.5s ease-in-out;
+}
+@-webkit-keyframes reveal-cover {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  44% {
+    width: 100%;
+    left: 0;
+  }
+  54% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@keyframes reveal-cover {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  44% {
+    width: 100%;
+    left: 0;
+  }
+  54% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@-webkit-keyframes reveal-text {
+  0% {
+    opacity: 0;
+  }
+  44% {
+    opacity: 0;
+  }
+  54% {
+    opacity: 1;
+  }
+}
+@keyframes reveal-text {
+  0% {
+    opacity: 0;
+  }
+  44% {
+    opacity: 0;
+  }
+  54% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -317,3 +317,90 @@ video.wp-video-shortcode {
 	}
 }
 
+
+
+
+
+
+[data-reveal="content"] {
+  display: inline-block;
+  position: relative;
+}
+[data-reveal="cover"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: 1;
+}
+[data-reveal="text"] {
+  opacity: 0;
+}
+.entry-content p.loaded [data-reveal="cover"] {
+  -webkit-animation: reveal-cover 1.5s ease-in-out;
+          animation: reveal-cover 1.5s ease-in-out;
+}
+.entry-content p.loaded [data-reveal="text"] {
+  opacity: 1;
+  -webkit-animation: reveal-text 1.5s ease-in-out;
+          animation: reveal-text 1.5s ease-in-out;
+}
+@-webkit-keyframes reveal-cover {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  44% {
+    width: 100%;
+    left: 0;
+  }
+  54% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@keyframes reveal-cover {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  44% {
+    width: 100%;
+    left: 0;
+  }
+  54% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@-webkit-keyframes reveal-text {
+  0% {
+    opacity: 0;
+  }
+  44% {
+    opacity: 0;
+  }
+  54% {
+    opacity: 1;
+  }
+}
+@keyframes reveal-text {
+  0% {
+    opacity: 0;
+  }
+  44% {
+    opacity: 0;
+  }
+  54% {
+    opacity: 1;
+  }
+}
