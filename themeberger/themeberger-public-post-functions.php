@@ -387,3 +387,64 @@ function the_content_without_first_quote( $echo = true ) {
 	echo $output;
 
 }
+
+
+/* --- */
+
+
+function get_the_first_gallery_of_post( $before = '', $after = '', $post_id = false ) {
+
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$gallery = new Themeberger_Post_Functions( 'themeberger', '1.0.1', $post_id );
+
+	$output = $gallery->get_first_gallery_of_post(
+		array(
+			'before' => $before,
+			'after'  => $after,
+		)
+	);
+
+	return $output;
+
+}
+
+function the_first_gallery_of_post( $before = '', $after = '', $echo = true ) {
+
+	$output = get_the_first_gallery_of_post( $before, $after, get_the_ID() );
+
+	if ( ! $echo ) {
+		return $output;
+	}
+
+	echo $output;
+
+}
+
+function get_the_content_without_first_gallery( $post_id = false ) {
+
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$content = new Themeberger_Post_Functions( 'themeberger', '1.0.1', $post_id );
+
+	$output = $content->get_content_without_first_gallery();
+
+	return $output;
+
+}
+
+function the_content_without_first_gallery( $echo = true ) {
+
+	$output = get_the_content_without_first_gallery( get_the_ID() );
+
+	if ( ! $echo ) {
+		return $output;
+	}
+
+	echo $output;
+
+}

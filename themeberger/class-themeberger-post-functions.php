@@ -487,5 +487,51 @@ class Themeberger_Post_Functions {
 
 		return $content;
 	}
+	
+	
+	/* --- */
+
+	
+	public function get_first_gallery_of_post( $args = '' ) {
+
+		$args = wp_parse_args(
+			$args,
+			array(
+				'before' => '',
+				'after'  => '',
+			)
+		);
+
+		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
+		
+		
+		print_r('<!--'."\n\r");
+		print_r($content);
+		print_r("\n\r".'-->');
+		
+		$pattern = '/<ul.+class="[^"]*?wp-block-gallery[^"]*?".*>([^$]+?)<\/ul>/i';
+		preg_match_all( $pattern, $content, $matches );
+		$first_gallery = '';
+		
+		if( isset( $matches ) && isset( $matches[0] ) && isset( $matches[0][0] ) ) {
+			$first_gallery = $matches[0][0];
+		}
+
+		$gallery       = apply_filters( 'themeberger_first_gallery_of_post', $first_gallery, $this->post );
+		$gallery       = $args['before'] . $gallery . $args['after'];
+
+		return $gallery;
+
+	}
+
+	public function get_content_without_first_gallery() {
+
+		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
+
+		$content = preg_replace( '/<ul.+class="[^"]*?wp-block-gallery[^"]*?".*>([^$]+?)<\/ul>/i', '', $content );
+
+		return $content;
+
+	}
 
 }

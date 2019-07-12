@@ -1111,6 +1111,12 @@ h1.site-description {
   width: 100%;
   height: 100%;
 }
+.content-card .entry-gallery {
+  font-size: 0;
+}
+.content-card .entry-gallery .blocks-gallery-item {
+  margin: 0 !important;
+}
 .content-card .entry-image {
   font-size: 0;
 }
