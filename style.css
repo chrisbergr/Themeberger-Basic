@@ -1047,7 +1047,7 @@ h1.site-description {
   max-width: 700px;
   margin: 0 auto;
   background-color: #fff;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
 }
 .content-card.type-article {
   max-width: 980px;
@@ -1234,7 +1234,7 @@ h1.site-description {
   max-width: 1200px;
   margin: 0 auto;
   background-color: #fff;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
 }
 .content-supercard p:first-child {
   margin-top: 0;
@@ -1772,6 +1772,216 @@ h1.site-description {
 .wp-block-embed {
   margin-top: 0;
   margin-bottom: 0;
+}
+#webmention-form,
+.content-card + .comments-area .comment-respond,
+.comment-respond {
+  padding-left: 85px;
+  padding-right: 20px;
+  padding-top: 50px;
+  width: 100%;
+  max-width: 700px;
+}
+#webmention-form a,
+.content-card + .comments-area .comment-respond a,
+.comment-respond a {
+  color: inherit;
+  text-decoration: none;
+}
+#webmention-form a:hover,
+.content-card + .comments-area .comment-respond a:hover,
+.comment-respond a:hover,
+#webmention-form a:focus,
+.content-card + .comments-area .comment-respond a:focus,
+.comment-respond a:focus,
+#webmention-form a:active,
+.content-card + .comments-area .comment-respond a:active,
+.comment-respond a:active {
+  color: #8b7af5;
+}
+#webmention-form .comment-form-author label,
+.content-card + .comments-area .comment-respond .comment-form-author label,
+.comment-respond .comment-form-author label,
+#webmention-form .comment-form-email label,
+.content-card + .comments-area .comment-respond .comment-form-email label,
+.comment-respond .comment-form-email label,
+#webmention-form .comment-form-url label,
+.content-card + .comments-area .comment-respond .comment-form-url label,
+.comment-respond .comment-form-url label {
+  display: inline-block;
+  min-width: 100px;
+}
+#webmention-form .comment-form-url + .form-submit,
+.content-card + .comments-area .comment-respond .comment-form-url + .form-submit,
+.comment-respond .comment-form-url + .form-submit {
+  padding-left: 104px;
+}
+#webmention-form input[type="submit"],
+.content-card + .comments-area .comment-respond input[type="submit"],
+.comment-respond input[type="submit"] {
+  border: 0;
+  background-color: #8b7af5;
+  color: #fff;
+  line-height: 1;
+  padding: 15px 20px;
+  font-size: .9em;
+  margin: 0;
+  cursor: pointer;
+}
+#webmention-form input[type="submit"]:hover,
+.content-card + .comments-area .comment-respond input[type="submit"]:hover,
+.comment-respond input[type="submit"]:hover,
+#webmention-form input[type="submit"]:focus,
+.content-card + .comments-area .comment-respond input[type="submit"]:focus,
+.comment-respond input[type="submit"]:focus,
+#webmention-form input[type="submit"]:active,
+.content-card + .comments-area .comment-respond input[type="submit"]:active,
+.comment-respond input[type="submit"]:active {
+  background-color: #212121;
+}
+#webmention-form textarea,
+.content-card + .comments-area .comment-respond textarea,
+.comment-respond textarea,
+#webmention-form input,
+.content-card + .comments-area .comment-respond input,
+.comment-respond input {
+  padding: 5px 10px;
+  background-color: #f4f5f6;
+}
+#webmention-form textarea:focus,
+.content-card + .comments-area .comment-respond textarea:focus,
+.comment-respond textarea:focus,
+#webmention-form input:focus,
+.content-card + .comments-area .comment-respond input:focus,
+.comment-respond input:focus {
+  background-color: #fff;
+}
+#webmention-form .comment-form-cookies-consent,
+.content-card + .comments-area .comment-respond .comment-form-cookies-consent,
+.comment-respond .comment-form-cookies-consent {
+  /*padding-left: 100px;
+		input{
+			//margin-right: 26px;
+			margin-left: -88px;
+			float: left;
+			margin-top: 4px;
+		}
+		*/
+}
+#webmention-form .comment-form-cookies-consent label,
+.content-card + .comments-area .comment-respond .comment-form-cookies-consent label,
+.comment-respond .comment-form-cookies-consent label {
+  display: block;
+  padding-left: 104px;
+  margin-top: -25px;
+}
+input[type=radio],
+input[type=checkbox] {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-block;
+  margin: 0 12px;
+  margin-right: 22px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+}
+input[type=radio]:before,
+input[type=checkbox]:before,
+input[type=radio]:after,
+input[type=checkbox]:after {
+  content: "";
+  position: absolute;
+  -moz-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+  -o-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+  -webkit-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+  transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+}
+input[type=radio]:before,
+input[type=checkbox]:before {
+  height: 100%;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+input[type=radio][type=radio],
+input[type=checkbox][type=radio] {
+  border-radius: 30px;
+}
+input[type=radio][type=radio]:before,
+input[type=checkbox][type=radio]:before {
+  width: 100%;
+  border-radius: 30px;
+  background-color: #2c3f52;
+  box-shadow: 0 0 0 1px #2c3f52;
+}
+input[type=radio][type=radio]::after,
+input[type=checkbox][type=radio]::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #15202a;
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+}
+input[type=radio][type=radio]:checked:after,
+input[type=checkbox][type=radio]:checked:after {
+  -moz-transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75);
+  -webkit-transform: scale(0.75, 0.75);
+  transform: scale(0.75, 0.75);
+}
+input[type=radio][type=radio]:checked::before,
+input[type=checkbox][type=radio]:checked::before {
+  background-color: #85ff7a;
+  box-shadow: 0 0 0 1px #85ff7a;
+}
+input[type=radio][type=checkbox]:before,
+input[type=checkbox][type=checkbox]:before {
+  width: 200%;
+  background-color: #f4f5f6;
+  box-shadow: 0 0 0 1px #ccc;
+  -moz-transform: translate(-25%, 0);
+  -ms-transform: translate(-25%, 0);
+  -webkit-transform: translate(-25%, 0);
+  transform: translate(-25%, 0);
+  border-radius: 30px;
+}
+input[type=radio][type=checkbox]:after,
+input[type=checkbox][type=checkbox]:after {
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+  margin-left: 10%;
+  background-color: #8b7af5;
+  border-radius: 30px;
+  -moz-transform: translate(-60%, 0);
+  -ms-transform: translate(-60%, 0);
+  -webkit-transform: translate(-60%, 0);
+  transform: translate(-60%, 0);
+}
+input[type=radio][type=checkbox]:checked:after,
+input[type=checkbox][type=checkbox]:checked:after {
+  -moz-transform: translate(60%, 0);
+  -ms-transform: translate(60%, 0);
+  -webkit-transform: translate(60%, 0);
+  transform: translate(60%, 0);
+  background-color: #fff;
+}
+input[type=radio][type=checkbox]:checked:before,
+input[type=checkbox][type=checkbox]:checked:before {
+  background-color: #8b7af5;
+  box-shadow: 0 0 0 1px #8b7af5;
 }
 /**
 @import "style/wordpress-defaults.less";
