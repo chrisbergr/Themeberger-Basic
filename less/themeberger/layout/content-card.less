@@ -5,6 +5,16 @@
 	background-color: #fff;
 	//box-shadow: 0px 0px 0px 10px rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.1);
+	&.card-hidden{
+		background-color: transparent;
+		box-shadow: none;
+		.entry-content{
+			padding: 30px 20px;
+			padding-top: 30px;
+			padding-left: 20px;
+			margin-top: 0px;
+		}
+	}
 	&.type-article{
 		max-width: 980px;
 		& + .comments-area{
