@@ -1130,6 +1130,50 @@ h1.site-description {
 .content-card .entry-image {
   font-size: 0;
 }
+.content-card .entry-quote {
+  background-color: #f4f5f6;
+}
+.content-card .entry-quote blockquote {
+  position: relative;
+  margin: 0;
+}
+.content-card .entry-quote blockquote::before,
+.content-card .entry-quote blockquote::after {
+  font-size: 10em;
+  position: absolute;
+  display: block;
+  color: rgba(0, 0, 0, 0.2);
+  font-family: serif;
+  font-weight: bold;
+}
+.content-card .entry-quote blockquote::before {
+  content: "“";
+  top: -67px;
+  left: 20px;
+}
+.content-card .entry-quote blockquote::after {
+  content: "”";
+  bottom: -97px;
+  right: 20px;
+}
+.content-card .entry-quote p {
+  margin-bottom: 0;
+  padding: 30px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.content-card .entry-quote footer {
+  padding: 20px 30px;
+  padding-top: 0;
+  margin-top: -30px;
+  text-align: right;
+}
+.content-card .entry-quote cite {
+  color: #000;
+}
+.content-card .entry-quote cite::before {
+  content: "— ";
+}
 .content-card .entry-header {
   padding: 30px 20px;
 }

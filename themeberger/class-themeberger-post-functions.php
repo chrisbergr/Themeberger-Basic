@@ -446,6 +446,7 @@ class Themeberger_Post_Functions {
 		);
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
+		
 		$pattern = '#<blockquote[^>]*>([^<]+|<(?!/?blockquote)[^>]*>|(?R))+</blockquote>#i';
 		preg_match_all( $pattern, $content, $matches );
 
@@ -453,7 +454,7 @@ class Themeberger_Post_Functions {
 			$first_quote = $matches[0][0];
 		}
 		if ( empty( $first_quote ) ) {
-			return 'EMPTY AUDIO!!';
+			return 'EMPTY QUOTE!!';
 		}
 
 		$cite    = '';
@@ -470,7 +471,7 @@ class Themeberger_Post_Functions {
 
 		$quote = '<blockquote class="themeberger-quote">' . $paragraphs . $cite . '</blockquote>';
 
-		$quote = apply_filters( 'themeberger_first_audio_of_post', $quote, $this->post );
+		$quote = apply_filters( 'themeberger_first_quote_of_post', $quote, $this->post );
 		$quote = $args['before'] . $quote . $args['after'];
 
 		return $quote;
