@@ -102,6 +102,24 @@ $approved_comments = $comments_count->approved;
 			?>
 		</div><!-- .entry-content -->
 
+		<?php 
+		$summary = get_post_meta( $post->ID, 'themeberger-post-summary', true );
+		if( is_single() && $summary ) : ?>
+		<footer class="entry-footer">
+			<p><strong class="meta-title">Summary</strong></p>
+			<p><?php echo $summary; ?></p>
+		</footer>
+		<?php endif; ?>
+		<?php 
+		$credits = get_post_meta( $post->ID, 'themeberger-post-credit', false );
+		if( is_single() && count( $credits ) != 0 ) : ?>
+		<footer class="entry-footer">
+			<p><strong class="meta-title">Credits</strong></p>
+			<?php foreach($credits as $credit) { ?>
+			<p><?php echo $credit; ?></p>
+			<?php } ?>
+		</footer>
+		<?php endif; ?>
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>

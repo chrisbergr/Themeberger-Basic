@@ -1,0 +1,23 @@
+a {
+	background-color: transparent;
+	&,
+	&:link,
+	&:visited{
+		color: inherit;
+		text-decoration: underline;
+	}
+	&:hover,
+	&:focus,
+	&:active{
+		color: blue;
+		color: var(--global-link-color);
+		text-decoration: none;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active{
+		outline: 0;
+	}
+}

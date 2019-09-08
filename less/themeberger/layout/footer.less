@@ -1,5 +1,8 @@
 .site-footer{
-	background-color: #22272A;
+	background-color: black;
+	background-color: var(--footer-background-color);
+	color: grey;
+    color: var(--footer-text-color);
     padding: 50px;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -10,4 +13,40 @@
     max-width: 980px;
     margin: 0 auto;
 	.clearfix();
+    & > div{
+		.m1-sm({
+			width: 100% / 3;
+			float: left;
+		});
+		.max-sm({
+			padding-top: 1em;
+			//text-align: center;
+		});
+    }
+	ul, ol{
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+		& &{
+			margin-left: 0.5em;
+		}
+	}
+	h1, h2, h3, h4, h5, h6{
+		color: grey;
+		color: var(--footer-text-color);
+	}
+	a{
+		color: white;
+		color: var(--footer-menu-color);
+		text-decoration: none;
+		&:hover,
+		&:focus,
+		&:active{
+			color: blue;
+			color: var(--global-link-color);
+		}
+	}
+	.widget-title{
+		text-transform: uppercase;
+	}
 }

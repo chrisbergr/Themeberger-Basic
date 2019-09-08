@@ -64,8 +64,8 @@ input[type=radio], input[type=checkbox] {
 	&[type=checkbox] {
 		&:before {
 			width: 200%;
-			background-color: #f4f5f6;
-			box-shadow: 0 0 0 1px #ccc;
+			background-color: var(--global-section-color);
+			box-shadow: 0 0 0 2px var(--global-border-color);
 			-moz-transform: translate(-25%, 0);
 			-ms-transform: translate(-25%, 0);
 			-webkit-transform: translate(-25%, 0);
@@ -77,24 +77,41 @@ input[type=radio], input[type=checkbox] {
 			height: 80%;
 			margin-top: 10%;
 			margin-left: 10%;
-			background-color: #8b7af5;
+			background-color: var(--global-link-color);
 			border-radius: 30px;
 			-moz-transform: translate(-60%, 0);
 			-ms-transform: translate(-60%, 0);
 			-webkit-transform: translate(-60%, 0);
 			transform: translate(-60%, 0);
 		}
+		&:hover{
+			&:before {
+				background-color: var(--global-section-color);
+			}
+			&:after {
+				background-color: var(--global-link-active);
+			}
+		}
 		&:checked{
+			&:before {
+				background-color: var(--global-link-color);
+				box-shadow: 0 0 0 1px var(--global-link-color);
+			}
 			&:after {
 				-moz-transform: translate(60%, 0);
 				-ms-transform: translate(60%, 0);
 				-webkit-transform: translate(60%, 0);
 				transform: translate(60%, 0);
-				background-color: #fff;
+				background-color: var(--global-link-brighter);
 			}
-			&:before {
-				background-color: #8b7af5;
-				box-shadow: 0 0 0 1px #8b7af5;
+			&:hover{
+				&:before {
+					background-color: var(--global-link-active);
+					box-shadow: 0 0 0 1px var(--global-link-active);
+				}
+				&:after {
+					background-color: var(--global-link-brighter);
+				}
 			}
 		}
 	}

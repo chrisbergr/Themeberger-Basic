@@ -6,7 +6,8 @@
 		text-decoration: none;
 	}
 	.name{
-		color: #000;
+		color: black;
+		color: var(--global-headline-color);
 		font-weight: bold;
 	}
 	.avatar{
@@ -25,7 +26,8 @@
 .reply-comment,
 .edit-comment{
 	font-size: 0.8em;
-	color: #a3a7aa;
+	color: grey;
+	color: var(--global-text-alt);
 	margin-left: 7px;
 	display: block;
 	padding-left: 58px;
@@ -56,7 +58,8 @@
 		&:hover,
 		&:focus,
 		&:active{
-			color: #8b7af5;
+			color: blue;
+			color: var(--global-link-color);
 		}
 	}
 }
@@ -71,7 +74,8 @@
 	margin-left: 0;
 	margin-top: 15px;
 	//font-size: 0.8em;
-	color: #a3a7aa;
+	color: grey;
+	color: var(--global-text-alt);
 	.interaction{
 		position: relative;
 		display: inline-block;
@@ -101,7 +105,8 @@
 			pointer-events: none;
 		}
 		.interaction-value{
-			color: #000;
+			color: black;
+			color: var(--global-headline-color);
 		}
 		&:hover{
 			.interaction-key{
@@ -113,7 +118,8 @@
 
 
 .page-links{
-	color: #a3a7aa;
+	color: grey;
+	color: var(--global-text-alt);
 	font-size: 0.8em;
 	a{
 		padding: 7px;
@@ -122,12 +128,14 @@
 		&:hover,
 		&:focus,
 		&:active{
-			color: #8b7af5;
+			color: blue;
+			color: var(--global-link-color);
 		}
 	}
 	.current{
 		padding: 7px;
-		color: #000;
+		color: black;
+		color: var(--global-headline-color);
 		font-weight: bold;
 	}
 }
@@ -148,45 +156,135 @@
 			margin-bottom: 0;
 			height: 50px;
 			line-height: 50px;
-			margin-top: -50px;
 			text-align: center;
+			.m1-sm({
+				margin-top: -50px;
+			});
 		}
 	}
 }
 
 .posts-navigation{
+	.site-main &{
+		margin-top: 4.4em;
+	}
 	padding: 0 20px;
 	height: 50px;
 	line-height: 50px;
-	background-color: #f4f5f6;
+	//background-color: #f4f5f6;
 	font-size: 0.8em;
+	.nav-previous,
+	.nav-next{
+		a{
+			text-transform: uppercase;
+			font-weight: bold;
+			.m1-sm({
+				&::after{
+					content: "";
+					display: block;
+					position: absolute;
+					top: 50%;
+					height: 40px;
+					width: 40px;
+					.translateY(-50%);
+					background-position: center center;
+					background-size: contain;
+					background-repeat: no-no-repeat;
+					opacity: 0.5;
+					border-radius: 50%;
+					background-color: white;
+				}
+			});
+			&:hover,
+			&:focus,
+			&:active{
+				color: var(--global-headline-color);
+				.m1-sm({
+					&::after{
+						opacity: 1;
+						background-color: var(--global-link-background);
+					}
+				});
+			}
+		}
+	}
+	.nav-previous{
+		.m1-sm({
+			a{
+				margin-right: 40px;
+				padding-right: 10px;
+				&::after{
+					right: -40px;
+					background-image: url(images/navigation-arrow-right.svg);
+				}
+			}
+		});
+	}
+	.nav-next{
+		.m1-sm({
+			a{
+				margin-left: 40px;
+				padding-left: 10px;
+				&::after{
+					left: -40px;
+					background-image: url(images/navigation-arrow-left.svg);
+				}
+			}
+		});
+	}
 	a{
+		display: inline-block;
+		position: relative;
 		color: inherit;
 		text-decoration: none;
 		&:hover,
 		&:focus,
 		&:active{
-			color: #8b7af5;
+			color: blue;
+			color: var(--global-link-color);
 		}
 	}
 	& + .pagination{
-		color: #a3a7aa;
+		.site-main &{
+			margin-bottom: 4.4em;
+		}
 		font-size: 0.8em;
+		font-weight: bold;
 		a{
+			&.prev,
+			&.next{
+				display: none;
+			}
 			padding: 7px;
 			pointer-events: auto;
 			color: inherit;
 			text-decoration: none;
+			background-color: transparent;
+			border-radius: 50%;
+			display: inline-block;
+			line-height: 1;
+			width: 2em;
+			height: 2em;
 			&:hover,
 			&:focus,
 			&:active{
-				color: #8b7af5;
+				color: blue;
+				color: var(--global-headline-color);
+				font-weight: bold;
+				background-color: var(--global-link-background);
 			}
 		}
 		.current{
 			padding: 7px;
-			color: #000;
-			font-weight: bold;
+			color: white;
+			color: var(--header-text-color);
+			background-color: blue;
+			background-color: var(--global-link-color);
+			border-radius: 50%;
+			display: inline-block;
+			line-height: 1;
+			width: 2em;
+			height: 2em;
 		}
 	}
 }
@@ -198,7 +296,8 @@
 	line-height: 50px;
 	background-color: #f4f5f6;
 	font-size: 0.8em;
-	color: #a3a7aa;
+	color: grey;
+	color: var(--global-text-alt);
 	.nav-previous{
 		padding-left: 20px;
 	}
@@ -211,7 +310,8 @@
 		&:hover,
 		&:focus,
 		&:active{
-			color: #8b7af5;
+			color: blue;
+			color: var(--global-link-color);
 		}
 	}
 	& + ul.page-numbers{
@@ -226,7 +326,8 @@
 		line-height: 50px;
 		margin-top: -50px;
 		padding: 0 155px;
-		color: #a3a7aa;
+		color: grey;
+		color: var(--global-text-alt);
 		font-size: 0.8em;
 		li{
 			display: inline-block;
@@ -239,12 +340,14 @@
 			&:hover,
 			&:focus,
 			&:active{
-				color: #8b7af5;
+				color: blue;
+				color: var(--global-link-color);
 			}
 		}
 		.current{
 			padding: 7px;
-			color: #000;
+			color: black;
+			color: var(--global-headline-color);
 			font-weight: bold;
 		}
 	}

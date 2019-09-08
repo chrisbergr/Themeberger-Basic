@@ -1,5 +1,6 @@
 .site-header{
-	background-color: #22272A;
+	background-color: black;
+	background-color: var(--header-background-color);
     padding: 85px 50px;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -35,7 +36,8 @@
 }
 
 .site-title{
-	color: #ffffff;
+	color: white;
+	color: var(--global-brand-color);
     display: inline-block;
     font-weight: bold;
     font-size: 45px;
@@ -46,12 +48,18 @@
 	a{
 		text-decoration: inherit;
 		color: inherit;
+		&:hover,
+		&:focus,
+		&:active{
+			color: var(--global-secondary-color);
+		}
 	}
 }
 
 .site-description,
 h1.site-description{
-	color: #ffffff;
+	color: white;
+	color: var(--header-text-color);
     font-size: 50px;
 	font-weight: normal;
     line-height: 60px;
@@ -94,7 +102,8 @@ h1.site-description{
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
-            color: #fff;
+            color: white;
+			color: var(--global-brand-color);
             text-decoration: none;
     		padding: 0 10px;
 			height: 45px;
@@ -109,7 +118,8 @@ h1.site-description{
 				left: 0;
 				width: 100%;
 				height: 0;
-				background-color: #8b7af5;
+				background-color: blue;
+				background-color: var(--header-menu-color);
 				transition: all 0.2s cubic-bezier(1, .3, .3, 1);
 				z-index: -1;
 			}
@@ -120,7 +130,8 @@ h1.site-description{
 				left: 0;
 				width: 100%;
 				height: 50%;
-				background-color: #fff;
+				background-color: white;
+				background-color: var(--header-text-color);
 				opacity: 0;
 				z-index: -2;
 			}
@@ -128,6 +139,7 @@ h1.site-description{
             &:focus,
             &:active{
                 //color: crimson;
+				color: var(--header-text-color);
 				&::before{
 					height: 50%;
 				}

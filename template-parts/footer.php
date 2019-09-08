@@ -11,13 +11,13 @@
 			<footer id="colophon" class="site-footer">
 				<div class="site-footer--inner">
 					<div class="site-info">
-						site info
+						<?php dynamic_sidebar( 'site-info' ); ?>
 					</div><!-- .site-info -->
 					<div class="site-footer--left">
-						footer left
+						<?php dynamic_sidebar( 'footer-left' ); ?>
 					</div>
 					<div class="site-footer--right">
-						footer right
+						<?php dynamic_sidebar( 'footer-right' ); ?>
 					</div>
 				</div>
 			</footer><!-- #colophon -->

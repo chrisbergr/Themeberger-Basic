@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.0.17' );
+define( 'THEME_VERSION', '1.0.19' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -157,6 +157,39 @@ if ( ! function_exists( 'themebergertest_widgets_init' ) ) {
 				'after_title'   => '</h5>',
 			)
 		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Site Info', 'themeberger-test' ),
+				'id'            => 'site-info',
+				'description'   => esc_html__( 'Add widgets here.', 'themeberger-test' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h5 class="widget-title">',
+				'after_title'   => '</h5>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Left', 'themeberger-test' ),
+				'id'            => 'footer-left',
+				'description'   => esc_html__( 'Add widgets here.', 'themeberger-test' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h5 class="widget-title">',
+				'after_title'   => '</h5>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Right', 'themeberger-test' ),
+				'id'            => 'footer-right',
+				'description'   => esc_html__( 'Add widgets here.', 'themeberger-test' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h5 class="widget-title">',
+				'after_title'   => '</h5>',
+			)
+		);
 	}
 }
 add_action( 'widgets_init', 'themebergertest_widgets_init' );
@@ -204,3 +237,10 @@ require THEMEBERGER_DIR . '/themeberger-public-post-functions.php';
  * Themeberger Comment Walker.
  */
 require THEMEBERGER_DIR . '/class-themeberger-comment-walker.php';
+
+
+/**
+ * Customizer Functions.
+ */
+require THEME_INCLUDES . '/customizer-addons.php';
+require THEME_INCLUDES . '/customizer.php';

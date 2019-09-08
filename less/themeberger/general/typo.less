@@ -1,0 +1,106 @@
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: black;
+	color: var(--global-text-color);
+	font-family: @default-font;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.618;
+}
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	color: var(--global-headline-color);
+	margin-bottom: 1.5em;
+}
+h1 {
+	font-size: 2em;
+}
+p {
+	margin-bottom: 1.5em;
+}
+
+b,
+strong {
+	font-weight: bolder;
+}
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub {
+	bottom: -0.25em;
+}
+sup {
+	top: -0.5em;
+}
+
+big {
+	font-size: 125%;
+}
+small {
+	font-size: 80%;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+	&[title] {
+		border-bottom: none;
+		text-decoration: underline;
+		text-decoration: underline dotted;
+	}
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+
+pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+	background-color: #eee;
+	background-color: var(--global-section-color);
+	font-family: @mono-font;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+code, kbd, tt, var, samp {
+	font-family: @mono-font;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	background-color: var(--global-section-color);
+}
+
+
+details {
+	display: block;
+}
+summary {
+	display: list-item;
+}
