@@ -87,8 +87,8 @@ module.exports = function (grunt) {
 				src: ['functions.php'], // source files array (supports minimatch)
 				dest: 'functions.php', // destination directory or file
 				replacements: [{
-					from: /\'theme_version\'\, \'(.*)\'/g, // regex replacement ('Fooo' to 'Mooo')
-					to: "'theme_version', '<%= pkg.version %>'"
+					from: /\'THEME_VERSION\'\, \'(.*)\'/g,
+					to: "'THEME_VERSION', '<%= pkg.version %>'"
 				}]
 			}
 		}

@@ -17,13 +17,14 @@ function themeberger_customizer_settings( $wp_customize ) {
 		'transport'   => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Range( $wp_customize, 'tbsetting_primary_color', array(
+	$wp_customize->add_control( new WP_Customize_Colorrange( $wp_customize, 'tbsetting_primary_color', array(
 		'label'   => 'Primary Color',
 		'min'     => 0,
 		'max'     => 360,
 		'step'    => 1,
 		'section'    => 'themeberger_settings',
 		'settings'   => 'tbsetting_primary_color',
+		'default'     => 168,
 	) ) );
 
 	$wp_customize->add_setting( 'tbsetting_secondary_color' , array(
@@ -31,13 +32,14 @@ function themeberger_customizer_settings( $wp_customize ) {
 		'transport'   => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Range( $wp_customize, 'tbsetting_secondary_color', array(
+	$wp_customize->add_control( new WP_Customize_Colorrange( $wp_customize, 'tbsetting_secondary_color', array(
 		'label'   => 'Secondary Color',
 		'min'     => 0,
 		'max'     => 360,
 		'step'    => 1,
 		'section'    => 'themeberger_settings',
 		'settings'   => 'tbsetting_secondary_color',
+		'default'     => 330,
 	) ) );
 
 	$wp_customize->add_setting( 'tbsetting_special_color' , array(
@@ -45,13 +47,14 @@ function themeberger_customizer_settings( $wp_customize ) {
 		'transport'   => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Range( $wp_customize, 'tbsetting_special_color', array(
+	$wp_customize->add_control( new WP_Customize_Colorrange( $wp_customize, 'tbsetting_special_color', array(
 		'label'   => 'Special Color',
 		'min'     => 0,
 		'max'     => 360,
 		'step'    => 1,
 		'section'    => 'themeberger_settings',
 		'settings'   => 'tbsetting_special_color',
+		'default'     => 275,
 	) ) );
 
 	$wp_customize->add_setting( 'tbsetting_theme' , array(
