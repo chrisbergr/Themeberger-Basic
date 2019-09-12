@@ -27,6 +27,8 @@ function the_author_vcard( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -58,6 +60,8 @@ function the_post_date( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -89,6 +93,8 @@ function the_human_post_date( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -121,6 +127,8 @@ function the_permalink_date( $before = '', $after = '', $human_readable = false,
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -152,6 +160,8 @@ function the_shorturl( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -184,6 +194,8 @@ function the_first_image_of_post( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -210,6 +222,8 @@ function the_content_without_first_image( $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -242,6 +256,8 @@ function the_first_video_of_post( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -268,6 +284,8 @@ function the_content_without_first_video( $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -300,6 +318,8 @@ function the_first_audio_of_post( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -326,6 +346,8 @@ function the_content_without_first_audio( $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -358,6 +380,8 @@ function the_first_quote_of_post( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -384,6 +408,8 @@ function the_content_without_first_quote( $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -419,6 +445,8 @@ function the_first_gallery_of_post( $before = '', $after = '', $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }
@@ -445,6 +473,8 @@ function the_content_without_first_gallery( $echo = true ) {
 		return $output;
 	}
 
+	//All escaping is done in the class (class-themeberger-post-functions.php)
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $output;
 
 }

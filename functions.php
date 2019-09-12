@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.0.20' );
+define( 'THEME_VERSION', '1.0.21' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -242,5 +242,6 @@ require THEMEBERGER_DIR . '/class-themeberger-comment-walker.php';
 /**
  * Customizer Functions.
  */
-require THEME_INCLUDES . '/customizer-addons.php';
+require THEME_INCLUDES . '/class-wp-customize-colorrange.php';
+require THEME_INCLUDES . '/class-wp-customize-range.php';
 require THEME_INCLUDES . '/customizer.php';

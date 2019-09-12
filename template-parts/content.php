@@ -53,9 +53,11 @@ $current = $post->post_name;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content' ); ?>>
-	<?php /*if ( $content_image ) : ?>
+	<?php
+	/*if ( $content_image ) : ?>
 	<div class="entry-image" style="background-image: url(<?php echo esc_url( $content_image ); ?>);"></div>
-	*/ ?>
+	*/
+	?>
 	<?php if ( has_post_thumbnail() ) : ?>
 	<div class="entry-image"><?php the_post_thumbnail(); ?></div>
 	<?php endif; ?>

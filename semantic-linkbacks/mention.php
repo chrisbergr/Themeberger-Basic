@@ -13,7 +13,7 @@
 			$posted_ago,
 			$postet_timestamp
 		);
-		$time_link = '<a href="#comment-' . get_comment_ID() . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out . '</a>';
+		$time_link  = '<a href="#comment-' . get_comment_ID() . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out . '</a>';
 		$author_url = get_comment_author_url();
 		if ( $author_url ) {
 			$author = '<span class="comment-author themeberger-comment-author vcard h-card u-author"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
@@ -64,15 +64,27 @@
 	</div><!-- .comment-meta -->
 	<div class="comment-content e-content p-name">
 		<?php if ( '0' === $comment->comment_approved ) : ?>
-		<p class="comment-meta-item"><em class="comment-awaiting-moderation"><?php _e( 'Your response is awaiting moderation.', 'semantic-linkbacks' ); ?></em></p>
+		<?php // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch ?>
+		<p class="comment-meta-item"><em class="comment-awaiting-moderation"><?php esc_html_e( 'Your response is awaiting moderation.', 'semantic-linkbacks' ); ?></em></p>
 		<?php endif; ?>
 		<?php comment_text(); ?>
 	</div><!-- .comment-content -->
 	<?php
 	if ( $coins ) {
 		echo '<p>';
-		// translators: Number of Swarm Coins
-		printf( _n( '+%d coin', '+%d coins', (int) $coins, 'semantic-linkbacks' ), $coins );
+		printf(
+			esc_html(
+				// translators: Number of Swarm Coins
+				_n(
+					'+%d coin',
+					'+%d coins',
+					number_format_i18n( $coins ),
+					// phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+					'semantic-linkbacks'
+				)
+			),
+			esc_attr( number_format_i18n( $coins ) )
+		);
 		echo '</p>';
 	}
 	?>

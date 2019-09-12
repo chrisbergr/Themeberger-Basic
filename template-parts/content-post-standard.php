@@ -57,9 +57,11 @@ $approved_comments = $comments_count->approved;
 <?php if ( is_single() ) : ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-article' ); ?>>
 	<div class="content-card type-article">
-		<?php /*if ( $content_image ) : ?>
+		<?php
+		/*if ( $content_image ) : ?>
 		<div class="entry-image" style="background-image: url(<?php echo esc_url( $content_image ); ?>);"></div>
-		*/ ?>
+		*/
+		?>
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-image"><?php the_post_thumbnail(); ?></div>
 		<?php endif; ?>
@@ -102,30 +104,28 @@ $approved_comments = $comments_count->approved;
 			?>
 		</div><!-- .entry-content -->
 
-		<?php 
-		$summary = get_post_meta( $post->ID, 'themeberger-post-summary', true );
-		if( is_single() && $summary ) : ?>
+		<?php $summary = get_post_meta( $post->ID, 'themeberger-post-summary', true ); ?>
+		<?php if ( is_single() && $summary ) : ?>
 		<footer class="entry-footer">
 			<p><strong class="meta-title">Summary</strong></p>
-			<p><?php echo $summary; ?></p>
+			<p><?php echo esc_html( $summary ); ?></p>
 		</footer>
 		<?php endif; ?>
-		<?php 
-		$credits = get_post_meta( $post->ID, 'themeberger-post-credit', false );
-		if( is_single() && count( $credits ) != 0 ) : ?>
+		<?php $credits = get_post_meta( $post->ID, 'themeberger-post-credit', false ); ?>
+		<?php if ( is_single() && count( $credits ) !== 0 ) : ?>
 		<footer class="entry-footer">
 			<p><strong class="meta-title">Credits</strong></p>
-			<?php foreach($credits as $credit) { ?>
-			<p><?php echo $credit; ?></p>
+			<?php foreach ( $credits as $credit ) { ?>
+			<p><?php echo esc_html( $credit ); ?></p>
 			<?php } ?>
 		</footer>
 		<?php endif; ?>
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
-			<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
-			<p>Shortlink: <?php the_shorturl(); ?></p>
-			<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
+				<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
+				<p>Shortlink: <?php the_shorturl(); ?></p>
+				<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
 			<?php endif; ?>
 			<?php get_template_part( 'template-parts/partial-interactions', 'article' ); ?>
 		</footer><!-- .entry-footer -->

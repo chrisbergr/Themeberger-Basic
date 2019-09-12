@@ -261,20 +261,20 @@ class Themeberger_Post_Functions {
 		$pattern = '/<figure[^>]*>(.)*<\/figure[^>]*>/i';
 		preg_match_all( $pattern, $content, $matches );
 
-		if( isset( $matches ) && isset( $matches[0] ) && isset( $matches[0][0] ) ) {
+		if ( isset( $matches ) && isset( $matches[0] ) && isset( $matches[0][0] ) ) {
 			$first_image = $matches[0][0];
-			$pattern = '/data-src\=\"(.)*\"/U';
+			$pattern     = '/data-src\=\"(.)*\"/U';
 			preg_match_all( $pattern, $first_image, $source );
-			if( isset( $source ) && isset( $source[0] ) && isset( $source[0][0] ) ) {
-				$src = str_replace( '"', '', $source[0][0] );
-				$src = str_replace( 'data-src=', '', $src );
+			if ( isset( $source ) && isset( $source[0] ) && isset( $source[0][0] ) ) {
+				$src         = str_replace( '"', '', $source[0][0] );
+				$src         = str_replace( 'data-src=', '', $src );
 				$first_image = $first_image . '<data value="' . $src . '" class="photo u-photo" itemprop="image" />';
 			} else {
 				$pattern = '/src\=\"(.)*\"/U';
 				preg_match_all( $pattern, $first_image, $source );
-				if( isset( $source ) && isset( $source[0] ) && isset( $source[0][0] ) ) {
-					$src = str_replace( '"', '', $source[0][0] );
-					$src = str_replace( 'data-src=', '', $src );
+				if ( isset( $source ) && isset( $source[0] ) && isset( $source[0][0] ) ) {
+					$src         = str_replace( '"', '', $source[0][0] );
+					$src         = str_replace( 'data-src=', '', $src );
 					$first_image = $first_image . '<data value="' . $src . '" class="photo u-photo" itemprop="image" />';
 				}
 			}
@@ -283,13 +283,13 @@ class Themeberger_Post_Functions {
 		if ( empty( $matches ) || empty( $matches[0] ) || empty( $matches[0][0] ) ) {
 			$pattern = '/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i';
 			preg_match_all( $pattern, $content, $matches );
-			$first_image = $matches[0][0];
+			$first_image     = $matches[0][0];
 			$first_image_url = $matches[1][0];
-			$first_image = $first_image . '<data value="' . $first_image_url . '" class="photo u-photo" itemprop="image" />';
+			$first_image     = $first_image . '<data value="' . $first_image_url . '" class="photo u-photo" itemprop="image" />';
 		}
 
-		$image       = apply_filters( 'themeberger_first_image_of_post', $first_image, $this->post );
-		$image       = $args['before'] . $image . $args['after'];
+		$image = apply_filters( 'themeberger_first_image_of_post', $first_image, $this->post );
+		$image = $args['before'] . $image . $args['after'];
 
 		return $image;
 
@@ -363,13 +363,9 @@ class Themeberger_Post_Functions {
 		$content = preg_replace( '/\s*[a-zA-Z\/\/:\.]*vimeo.com\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', '', $content );
 		$content = preg_replace( '/\[video(.*?)\[\/video\]/i', '', $content );
 		$content = preg_replace( '/<figure.+class=[\'"]wp-block-video[\'"].*>(.*?)<\/figure>/i', '', $content );
-		//$content = preg_replace( '/<figure.+class=[\'"]wp-block-embed-youtube(.*?)[\'"].*>(.*?)<\/figure>/i', '', $content );
 		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-youtube[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-vimeo[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 		$content = do_shortcode( apply_filters( 'the_content', $content ) );
-		// TODO: YouTube???
-		
-		//$pattern = '/<figure[^>]*>(.)*<\/figure[^>]*>/i';
 
 		return $content;
 
@@ -386,12 +382,12 @@ class Themeberger_Post_Functions {
 		);
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
-		
+
 		$pattern = '/<figure.+class="[^"]*?wp-block-audio[^"]*?".*>([^$]+?)<\/figure>/i';
 		preg_match_all( $pattern, $content, $matches );
 		if ( ! empty( $matches ) && ! empty( $matches[0] ) ) {
 			$first_audio = $matches[0][0];
-			$pattern = '/src="(.*)"/i';
+			$pattern     = '/src="(.*)"/i';
 			preg_match_all( $pattern, $first_audio, $source );
 			$first_audio = $source[1][0];
 			$first_audio = wp_audio_shortcode( array( 'src' => $first_audio ) );
@@ -446,7 +442,7 @@ class Themeberger_Post_Functions {
 		);
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
-		
+
 		$pattern = '#<blockquote[^>]*>([^<]+|<(?!/?blockquote)[^>]*>|(?R))+</blockquote>#i';
 		preg_match_all( $pattern, $content, $matches );
 
@@ -488,11 +484,11 @@ class Themeberger_Post_Functions {
 
 		return $content;
 	}
-	
-	
+
+
 	/* --- */
 
-	
+
 	public function get_first_gallery_of_post( $args = '' ) {
 
 		$args = wp_parse_args(
@@ -504,22 +500,17 @@ class Themeberger_Post_Functions {
 		);
 
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
-		
-		
-		print_r('<!--'."\n\r");
-		print_r($content);
-		print_r("\n\r".'-->');
-		
+
 		$pattern = '/<ul.+class="[^"]*?wp-block-gallery[^"]*?".*>([^$]+?)<\/ul>/i';
 		preg_match_all( $pattern, $content, $matches );
 		$first_gallery = '';
-		
-		if( isset( $matches ) && isset( $matches[0] ) && isset( $matches[0][0] ) ) {
+
+		if ( isset( $matches ) && isset( $matches[0] ) && isset( $matches[0][0] ) ) {
 			$first_gallery = $matches[0][0];
 		}
 
-		$gallery       = apply_filters( 'themeberger_first_gallery_of_post', $first_gallery, $this->post );
-		$gallery       = $args['before'] . $gallery . $args['after'];
+		$gallery = apply_filters( 'themeberger_first_gallery_of_post', $first_gallery, $this->post );
+		$gallery = $args['before'] . $gallery . $args['after'];
 
 		return $gallery;
 

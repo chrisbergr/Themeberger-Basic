@@ -28,7 +28,7 @@ if ( post_password_required() ) {
 					'<span>' . esc_html( get_the_title() ) . '</span>'
 				);
 			} else {
-				printf( // WPCS: XSS OK.
+				printf(
 					/* translators: 1: comment count number, 2: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'themeberger-test' ) ),
 					esc_html( number_format_i18n( $comment_count ) ),
@@ -50,11 +50,16 @@ if ( post_password_required() ) {
 		?>
 
 		<?php the_comments_navigation(); ?>
-		
+
 		<?php
-		paginate_comments_links(array('prev_next' => false,'type' => 'list',));
+		paginate_comments_links(
+			array(
+				'prev_next' => false,
+				'type'      => 'list',
+			)
+		);
 		?>
-	
+
 		<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :

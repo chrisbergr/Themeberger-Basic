@@ -7,15 +7,15 @@
  * @package themebergertest
  */
 
-$current            = $post->post_name;
-$comments_count     = wp_count_comments( get_the_ID() );
-$approved_comments  = $comments_count->approved;
+$current           = $post->post_name;
+$comments_count    = wp_count_comments( get_the_ID() );
+$approved_comments = $comments_count->approved;
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-status' ); ?>>
 	<div class="content-card type-status">
-	
+
 		<header class="entry-header">
 			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
 		</header><!-- .entry-header -->
@@ -35,9 +35,9 @@ $approved_comments  = $comments_count->approved;
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
-			<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
-			<p>Shortlink: <?php the_shorturl(); ?></p>
-			<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
+				<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
+				<p>Shortlink: <?php the_shorturl(); ?></p>
+				<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
 			<?php endif; ?>
 			<?php get_template_part( 'template-parts/partial-interactions', 'status' ); ?>
 		</footer><!-- .entry-footer -->

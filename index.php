@@ -23,12 +23,13 @@ get_header(); ?>
 			<div id="content" class="site-content">
 
 				<?php do_action( 'themeberger_before_primary' ); ?>
-				<div id="primary" class="content-area">
+				<div id="primary-content" class="content-area">
 					<main id="main" class="site-main<?php echo is_single() ? ' main-single' : ' h-feed'; ?>">
 					<?php do_action( 'themeberger_before_content' ); ?>
 
-					<?php
-					if ( have_posts() ) :
+					<?php if ( have_posts() ) : ?>
+
+						<?php
 
 						if ( is_home() && ! is_front_page() ) :
 							?>
@@ -43,25 +44,24 @@ get_header(); ?>
 							$this_type   = get_post_type();
 							$this_format = get_post_format() ? : 'standard';
 							$template    = $this_type . '-' . $this_format;
-							//print_r( $template );
 							get_template_part( 'template-parts/content', $template );
 						endwhile;
 
 						the_posts_navigation();
 
-						the_posts_pagination( array(
-							'mid_size'  => 2,
-							'prev_text' => false,
-							'next_text' => false,
-						) );
+						the_posts_pagination(
+							array(
+								'mid_size'  => 2,
+								'prev_text' => false,
+								'next_text' => false,
+							)
+						);
 
+						?>
 
-					else :
-
-						get_template_part( 'template-parts/content', 'none' );
-
-					endif;
-					?>
+					<?php else : ?>
+						<?php get_template_part( 'template-parts/content', 'none' ); ?>
+					<?php endif; ?>
 
 					<?php if ( ! is_home() && is_front_page() ) : ?>
 						<?php do_action( 'themeberger_homepage' ); ?>
@@ -69,7 +69,7 @@ get_header(); ?>
 
 					<?php do_action( 'themeberger_after_content' ); ?>
 					</main><!-- #main -->
-				</div><!-- #primary -->
+				</div><!-- #primary-content -->
 				<?php do_action( 'themeberger_after_primary' ); ?>
 
 				<?php get_sidebar(); ?>
