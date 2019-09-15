@@ -11,6 +11,8 @@ $current           = $post->post_name;
 $content           = $post->post_content;
 $content           = str_replace( '<p>', '', $content );
 $content           = str_replace( '</p>', '', $content );
+$content           = str_replace( '<!-- wp:paragraph -->', '', $content );
+$content           = str_replace( '<!-- /wp:paragraph -->', '', $content );
 $comments_count    = wp_count_comments( get_the_ID() );
 $approved_comments = $comments_count->approved;
 
@@ -34,6 +36,9 @@ if ( is_single() ) {
 		</header><!-- .entry-header -->
 	<?php else : ?>
 	<div class="content-card card-hidden type-<?php echo $post_type_slug; ?>">
+		<header class="entry-header-hidden">
+			<?php the_author_vcard(); ?>
+		</header><!-- .entry-header -->
 	<?php endif; ?>
 
 		<div class="entry-content p-name e-content" itemprop="articleBody">
