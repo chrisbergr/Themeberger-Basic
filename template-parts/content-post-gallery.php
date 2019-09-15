@@ -11,17 +11,28 @@ $current           = $post->post_name;
 $comments_count    = wp_count_comments( get_the_ID() );
 $approved_comments = $comments_count->approved;
 
+$post_type_slug = 'gallery';
+
+$collection = 'itemprop="hasPart" ';
+if ( is_single() ) {
+	$collection = '';
+}
+
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-gallery' ); ?>>
-	<div class="content-card type-gallery">
+
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
+
+	<?php the_content_meta(); ?>
+
+	<div class="content-card type-<?php echo $post_type_slug; ?>">
 
 		<div class="entry-gallery"><?php the_first_gallery_of_post(); ?></div>
 
 		<header class="entry-header">
-			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
+			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content p-name e-content">
+		<div class="entry-content p-name e-content" itemprop="articleBody">
 			<?php the_content_without_first_gallery(); ?>
 			<?php
 			wp_link_pages(
@@ -36,11 +47,9 @@ $approved_comments = $comments_count->approved;
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
-				<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
-				<p>Shortlink: <?php the_shorturl(); ?></p>
-				<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
+				<?php get_template_part( 'template-parts/partial-entry-footer-single', $post_type_slug ); ?>
 			<?php endif; ?>
-			<?php get_template_part( 'template-parts/partial-interactions', 'image' ); ?>
+			<?php get_template_part( 'template-parts/partial-interactions', $post_type_slug ); ?>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
 
