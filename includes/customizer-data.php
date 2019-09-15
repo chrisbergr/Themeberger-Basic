@@ -57,3 +57,30 @@ function tb_helper_defaultpublisherlogo( $before = '', $after = '', $echo = true
 	echo $output;
 
 }
+
+function get_tb_helper_defaultpublishername() {
+
+	$default_name = 'Themeberger';
+	$value = esc_attr( get_theme_mod( 'tbsetting_helper_defaultpublishername', $default_name ) );
+
+	if ( ! $value ) {
+		$value = $default_name;
+	}
+
+	return $value;
+
+}
+
+function tb_helper_defaultpublishername( $before = '', $after = '', $echo = true ) {
+
+	$output = $before . get_tb_helper_defaultpublishername() . $after;
+
+	if ( ! $echo ) {
+		return $output;
+	}
+
+	//All escaping is done by the function get_tb_helper_defaultpublishername
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo $output;
+
+}

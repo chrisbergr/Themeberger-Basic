@@ -52,22 +52,28 @@ $current           = $post->post_name;
 $comments_count    = wp_count_comments( get_the_ID() );
 $approved_comments = $comments_count->approved;
 
+$post_type_slug = 'article';
+
+$collection = 'itemprop="hasPart" ';
+if ( is_single() ) {
+	$collection = '';
+}
+
 ?>
 
 <?php if ( is_single() ) : ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-article' ); ?>>
-	<div class="content-card type-article">
-		<?php
-		/*if ( $content_image ) : ?>
-		<div class="entry-image" style="background-image: url(<?php echo esc_url( $content_image ); ?>);"></div>
-		*/
-		?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
+
+		<?php the_content_meta(); ?>
+
+		<div class="content-card type-<?php echo $post_type_slug; ?>">
+
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-image"><?php the_post_thumbnail(); ?></div>
 		<?php endif; ?>
 
 		<header class="entry-header">
-			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
+			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
 			<?php if ( is_singular() ) : ?>
 				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
 			<?php else : ?>
@@ -78,7 +84,7 @@ $approved_comments = $comments_count->approved;
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content e-content">
+		<div class="entry-content e-content" itemprop="articleBody">
 			<?php
 			the_content(
 				sprintf(
@@ -123,11 +129,9 @@ $approved_comments = $comments_count->approved;
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
-				<p><?php the_title( '<strong class="meta-title">', '</strong> | ' ); ?><?php the_category( ', ' ); ?><?php the_permalink_date( ' | ', '', false ); ?></p>
-				<p>Shortlink: <?php the_shorturl(); ?></p>
-				<?php the_tags( '<p>Tags: ', ', ', '</p>' ); ?>
+				<?php get_template_part( 'template-parts/partial-entry-footer-single', $post_type_slug ); ?>
 			<?php endif; ?>
-			<?php get_template_part( 'template-parts/partial-interactions', 'article' ); ?>
+			<?php get_template_part( 'template-parts/partial-interactions', $post_type_slug ); ?>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
 
@@ -139,16 +143,18 @@ $approved_comments = $comments_count->approved;
 
 </article><!-- #post-<?php the_ID(); ?> -->
 <?php else : ?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
 
+		<?php the_content_meta(); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-article' ); ?>>
-	<div class="content-supercard type-article">
+		<div class="content-supercard type-<?php echo $post_type_slug; ?>">
+
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-image"><?php the_post_thumbnail(); ?></div>
 		<?php endif; ?>
 
 		<header class="entry-header">
-			<?php the_author_vcard(); ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
+			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
 			<?php if ( is_singular() ) : ?>
 				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
 			<?php else : ?>
@@ -159,7 +165,7 @@ $approved_comments = $comments_count->approved;
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content e-content">
+		<div class="entry-content e-content" itemprop="articleBody">
 			<?php
 			the_content(
 				sprintf(
@@ -187,7 +193,10 @@ $approved_comments = $comments_count->approved;
 
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
-			<?php get_template_part( 'template-parts/partial-interactions', 'article' ); ?>
+			<?php if ( is_single() ) : ?>
+				<?php get_template_part( 'template-parts/partial-entry-footer-single', $post_type_slug ); ?>
+			<?php endif; ?>
+			<?php get_template_part( 'template-parts/partial-interactions', $post_type_slug ); ?>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
 

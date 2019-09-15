@@ -492,13 +492,15 @@ function get_the_content_meta( $post_id = false ) {
 	<data itemprop="name headline"><?php echo get_the_title( $post_id ); ?></data>
 	<data itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_permalink( $post_id ); ?></data>
 	<data itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-		<data itemprop="name">Christian Hockenberger Online</data>
+		<data itemprop="name"><?php tb_helper_defaultpublishername(); ?></data>
 		<data itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
 			<data itemprop="url"><?php tb_helper_defaultpublisherlogo(); ?></data>
 		</data>
 	</data>
 	<?php if ( ! has_post_thumbnail( $post_id ) ) : ?>
 		<data itemprop="image"><?php tb_helper_defaultcover(); ?></data>
+	<?php else : ?>
+		<data itemprop="image"><?php echo get_the_post_thumbnail_url( $post_id ); ?></data>
 	<?php endif; ?>
 
 	<?php
