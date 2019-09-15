@@ -73,7 +73,7 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.', 'themeberger-test' );
 		}
 		?>
-		<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+		<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'u-comment h-cite parent' : 'u-comment h-cite', $comment ); ?> itemprop="comment" itemscope itemtype="http://schema.org/Comment">
 			<div class="comment-meta" role="complementary">
 				<?php
 
@@ -94,9 +94,9 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 				$author_url = get_comment_author_url();
 
 				if ( $author_url ) {
-					$author = '<span class="comment-author themeberger-comment-author vcard"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
+					$author = '<span class="comment-author themeberger-comment-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
 				} else {
-					$author = '<span class="comment-author themeberger-comment-author vcard"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name">' . esc_html( get_comment_author() ) . '</span></span>';
+					$author = '<span class="comment-author themeberger-comment-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></span>';
 				}
 
 				$author_date_html = array(
@@ -108,6 +108,9 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 					),
 					'span' => array(
 						'class' => array(),
+						'itemprop' => array(),
+						'itemscope' => array(),
+						'itemtype' => array(),
 					),
 					'img'  => array(
 						'class'    => array(),

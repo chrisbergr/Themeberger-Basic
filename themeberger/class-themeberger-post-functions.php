@@ -86,7 +86,7 @@ class Themeberger_Post_Functions {
 			null,
 			esc_html( get_the_author_meta( 'display_name', $author_id ) ),
 			array(
-				'class'      => 'photo u-photo avatar xbergr',
+				'class'      => 'photo u-photo avatar',
 				'extra_attr' => 'itemprop="image"',
 			)
 		);

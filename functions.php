@@ -245,3 +245,4 @@ require THEMEBERGER_DIR . '/class-themeberger-comment-walker.php';
 require THEME_INCLUDES . '/class-wp-customize-colorrange.php';
 require THEME_INCLUDES . '/class-wp-customize-range.php';
 require THEME_INCLUDES . '/customizer.php';
+require THEME_INCLUDES . '/customizer-data.php';

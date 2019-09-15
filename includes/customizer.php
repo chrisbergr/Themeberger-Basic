@@ -8,6 +8,30 @@
 function themeberger_customizer_settings( $wp_customize ) {
 
 	$wp_customize->add_section(
+		'themeberger_helpers',
+		array(
+			'title'    => 'Themeberger Helpers',
+			'priority' => 31,
+		)
+	);
+
+	$wp_customize->add_setting( 'tbsetting_helper_defaultcover' );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'tbsetting_helper_defaultcover',
+			array(
+				'label'    => 'Default Cover',
+				'section'  => 'themeberger_helpers',
+				'settings' => 'tbsetting_helper_defaultcover',
+			)
+		)
+	);
+
+	/**/
+
+	$wp_customize->add_section(
 		'themeberger_settings',
 		array(
 			'title'    => 'Themeberger Settings',

@@ -478,3 +478,48 @@ function the_content_without_first_gallery( $echo = true ) {
 	echo $output;
 
 }
+
+
+function get_the_content_meta( $post_id = false ) {
+
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	ob_start();
+	?>
+
+	<data itemprop="name headline"><?php echo get_the_title( $post_id ); ?></data>
+	<data itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_permalink( $post_id ); ?></data>
+	<data itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+		<data itemprop="name">Christian Hockenberger Online</data>
+		<data itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<data itemprop="url"><?php tb_helper_defaultpublisherlogo(); ?></data>
+		</data>
+	</data>
+	<?php if ( ! has_post_thumbnail( $post_id ) ) : ?>
+		<data itemprop="image"><?php tb_helper_defaultcover(); ?></data>
+	<?php endif; ?>
+
+	<?php
+	$content = ob_get_clean();
+
+	$output = $content;
+
+	return $output;
+
+}
+
+function the_content_meta( $echo = true ) {
+
+	$output = get_the_content_meta( get_the_ID() );
+
+	if ( ! $echo ) {
+		return $output;
+	}
+
+	//All escaping is done in the function get_the_content_meta
+	//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo $output;
+
+}
