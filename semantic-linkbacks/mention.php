@@ -93,3 +93,4 @@
 	?>
 	<?php do_action( 'themeberger_comment_footer' ); ?>
 </article><!-- .comment-body -->
+<div class="background-block full-width-block"></div>

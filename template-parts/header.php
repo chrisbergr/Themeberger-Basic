@@ -23,7 +23,7 @@ if ( ! function_exists( 'header_style' ) ) {
 ?>
 
 			<?php do_action( 'themeberger_before_header' ); ?>
-			<header id="masthead" class="site-header<?php echo is_single() ? ' header-single' : ''; ?>" style="<?php header_style(); ?>">
+			<header id="masthead" class="site-header<?php echo is_singular() ? ' header-single' : ''; ?>" style="<?php header_style(); ?>">
 
 				<div class="site-header--inner">
 					<?php if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) : ?>
@@ -79,6 +79,10 @@ if ( ! function_exists( 'header_style' ) ) {
 							);
 							?>
 							<h1 class="site-description"><?php echo esc_html( $searchtitle ); ?></h1>
+						<?php endif; ?>
+
+						<?php if ( is_page() ) : ?>
+							<h1 class="page-title"><?php single_post_title(); ?></h1>
 						<?php endif; ?>
 
 					</div><!-- .site-branding -->

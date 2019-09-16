@@ -17,6 +17,7 @@
 		}
 	}
 	&.type-article{
+		box-shadow: none;
 		max-width: 980px;
 		& + .comments-area{
 			max-width: 980px;
@@ -40,6 +41,7 @@
 			--global-text-alt: var(--article-text-alt);
 			--global-headline-color: var(--article-headline-color);
 			padding-right: 85px;
+			background-color: lightgrey;
 			background-color: var(--article-section-color);
 			&:first-of-type{
 				padding-top: 30px;
@@ -101,6 +103,9 @@
 	}
 	.entry-image{
 		font-size: 0;
+		img{
+			width: 100%;
+		}
 	}
 	.entry-quote{
 		background-color: #f4f5f6;
@@ -151,15 +156,28 @@
 		display: none;
 	}
 	.entry-header{
+		position: relative;
 		padding: 30px 20px;
+		background-color: inherit;
+		*{
+			position: relative;
+			z-index: 5;
+		}
 	}
 	.entry-content{
+		position: relative;
 		padding: 30px 20px;
 		padding-top: 0;
 		padding-left: 85px;
 		margin-top: -50px;
+		background-color: inherit;
+		*{
+			position: relative;
+			z-index: 5;
+		}
 	}
 	.entry-footer{
+		position: relative;
 		padding: 30px 20px;
 		padding-top: 0;
 		padding-left: 85px;
@@ -168,6 +186,10 @@
 		color: grey;
 		color: var(--global-text-alt);
 		//text-transform: uppercase;
+		*{
+			position: relative;
+			z-index: 5;
+		}
 		.single &{
 			margin-top: 0;
 		}
@@ -192,8 +214,8 @@
 		width: 100%;
 		max-width: 700px;
 		margin: 0 auto;
-		border-top: grey 1px dotted;
-		border-top: var(--global-border-color) 1px dotted;
+		//border-top: grey 1px dotted;
+		//border-top: var(--global-border-color) 1px dotted;
 		.comments-title{
 			display: none;
 		}
@@ -215,6 +237,10 @@
 			position: relative;
 			background-color: lightgrey;
 			background-color: var(--global-section-color);
+			*{
+				position: relative;
+				z-index: 5;
+			}
 			&.depth-1:first-child{
 				padding-top: 10px;
 			}

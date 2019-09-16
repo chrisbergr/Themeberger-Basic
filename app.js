@@ -57,3 +57,45 @@ const onScroll = () => {
 document.addEventListener('DOMContentLoaded', init, false);
 
 */
+
+
+( function() {
+
+	document.addEventListener( 'DOMContentLoaded', function() {
+		var articleContent = document.querySelectorAll( '.full-width-block' );
+
+		if ( ! articleContent ) {
+			return;
+		}
+
+		var siteMain         = document.querySelector( '.content-card' );
+		var htmlDirValue     = document.documentElement.getAttribute( 'dir' );
+		var updateDimensions = function() {
+			if ( updateDimensions._tick ) {
+				cancelAnimationFrame( updateDimensions._tick );
+			}
+
+			updateDimensions._tick = requestAnimationFrame( function() {
+				updateDimensions._tick = null;
+				console.log(articleContent);
+				for (index = 0; index < articleContent.length; ++index) {
+					articleContent[index].style.width = window.innerWidth + 'px';
+					articleContent[index].style.width = '100vw';
+					//articleContent[index].querySelector( 'img' ).style.width = window.innerWidth + 'px';
+
+
+					if ( htmlDirValue !== 'rtl' ) {
+						articleContent[index].style.marginLeft = -siteMain.getBoundingClientRect().left + 'px';
+					} else {
+						articleContent[index].style.marginRight = -siteMain.getBoundingClientRect().left + 'px';
+					}
+				}
+			} );
+		};
+
+		// On window resize, set hero content dimensions / layout.
+		window.addEventListener( 'resize', updateDimensions );
+		updateDimensions();
+	} );
+
+} )();

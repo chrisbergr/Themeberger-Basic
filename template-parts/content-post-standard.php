@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts (Status)
+ * Template part for displaying posts (Article)
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -69,7 +69,7 @@ if ( is_single() ) {
 		<div class="content-card type-<?php echo $post_type_slug; ?>">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-image"><?php the_post_thumbnail(); ?></div>
+		<div class="entry-image xfull-width-block"><?php the_post_thumbnail(); ?></div>
 		<?php endif; ?>
 
 		<header class="entry-header">
@@ -82,6 +82,7 @@ if ( is_single() ) {
 			<?php if ( has_excerpt() ) : ?>
 			<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
 			<?php endif; ?>
+			<div class="background-block full-width-block"></div>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content e-content" itemprop="articleBody">
@@ -108,6 +109,7 @@ if ( is_single() ) {
 				)
 			);
 			?>
+			<div class="background-block full-width-block"></div>
 		</div><!-- .entry-content -->
 
 		<?php $summary = get_post_meta( $post->ID, 'themeberger-post-summary', true ); ?>
@@ -115,6 +117,7 @@ if ( is_single() ) {
 		<footer class="entry-footer">
 			<p><strong class="meta-title">Summary</strong></p>
 			<p><?php echo esc_html( $summary ); ?></p>
+			<div class="background-block full-width-block"></div>
 		</footer>
 		<?php endif; ?>
 		<?php $credits = get_post_meta( $post->ID, 'themeberger-post-credit', false ); ?>
@@ -124,6 +127,7 @@ if ( is_single() ) {
 			<?php foreach ( $credits as $credit ) { ?>
 			<p><?php echo esc_html( $credit ); ?></p>
 			<?php } ?>
+			<div class="background-block full-width-block"></div>
 		</footer>
 		<?php endif; ?>
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
@@ -132,6 +136,7 @@ if ( is_single() ) {
 				<?php get_template_part( 'template-parts/partial-entry-footer-single', $post_type_slug ); ?>
 			<?php endif; ?>
 			<?php get_template_part( 'template-parts/partial-interactions', $post_type_slug ); ?>
+			<div class="background-block full-width-block"></div>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
 

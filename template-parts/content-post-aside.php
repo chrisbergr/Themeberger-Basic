@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts (Status)
+ * Template part for displaying posts (Aside)
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

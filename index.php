@@ -24,7 +24,7 @@ get_header(); ?>
 
 				<?php do_action( 'themeberger_before_primary' ); ?>
 				<div id="primary-content" class="content-area">
-					<main id="main" class="site-main<?php echo is_single() ? ' main-single' : ' hfeed h-feed" itemscope itemtype="http://schema.org/Collection'; ?>">
+					<main id="main" class="site-main<?php echo is_singular() ? ' main-single' : ' hfeed h-feed" itemscope itemtype="http://schema.org/Collection'; ?>">
 					<?php do_action( 'themeberger_before_content' ); ?>
 
 					<?php if ( have_posts() ) : ?>
