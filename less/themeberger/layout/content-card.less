@@ -1,3 +1,22 @@
+.post-type-icon(){
+	display: block;
+	content: "";
+	width: 20px;
+	height: auto;
+	position: absolute;
+	left: 35px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	//background-color: #f03;
+	font-size: 0;
+	line-height: 1;
+	z-index: 2;
+	path{
+		fill: black;
+		fill: var(--global-brand-color);
+	}
+}
 .content-card{
 	width: 100%;
     max-width: 700px;
@@ -32,7 +51,32 @@
 			}
 		}
 	}
+	&.type-like,
+	&.type-bookmark,
+	&.type-favorite,
+	&.type-repost{
+		.entry-response .response-icon{
+			top: 0;
+			.translateY(-50%);
+		}
+	}
+	&.type-bookmark{
+		.entry-response .response-icon{
+			width: 14px;
+			left: 38px;
+		}
+	}
+	&.type-repost{
+		.entry-response .response-icon{
+			width: 30px;
+			left: 30px;
+		}
+	}
 	&.type-reply{
+		.entry-response .response-icon{
+			bottom: 0;
+			.translateY(50%);
+		}
 		.entry-header{
 			&::after{
 				display: block;
@@ -236,6 +280,15 @@
 			position: relative;
 			z-index: 5;
 		}
+	}
+	.entry-response{
+		position: relative;
+		.response-icon{
+			.post-type-icon();
+		}
+	}
+	.entry-response + .entry-footer{
+		padding-top: 30px;
 	}
 	.entry-footer{
 		position: relative;

@@ -1,6 +1,6 @@
 <?php
  /**
-  * Default Template
+  * Like Template
   * The Goal of this Template is to be a general all-purpose model that will be replaced by customization in other templates
   *
   * @link https://github.com/dshanske/indieweb-post-kinds
@@ -8,47 +8,6 @@
   * @package themebergertest
   */
 
-if ( ! function_exists( 'build_hcard' ) ) :
-function build_hcard( $author ) {
-
-	if ( ! is_array( $author ) ) {
-		return false;
-	}
-
-	//[name] => Webmention Rocks!
-    //[url] => https://webmention.rocks/
-    //[photo] => https://webmention.rocks/assets/webmention-rocks-icon.png
-
-	$default = array(
-			'name'  => 'Unkown',
-			'url'   => null,
-			'photo' => null,
-		);
-	$author = wp_parse_args( $author, $default );
-
-	/*
-	<span class="author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-		<a class="url u-url" itemprop="url" rel="author" href="http://wpbeta.localhost/?author=1">
-			<img class="photo u-photo avatar" itemprop="image" src="http://2.gravatar.com/avatar" alt="Christian Hockenberger"><span class="name p-name fn" itemprop="name">Christian Hockenberger</span>
-		</a>
-	</span>
-	*/
-
-	$name = sprintf( '<span class="name p-name fn">%1s</span>', $author['name'] );
-	$avatar = '';
-	if ( $author['photo']) {
-		$avatar = sprintf( '<img class="photo u-photo avatar" src="%1s" alt="%2s">', $author['photo'], $author['name'] );
-	}
-	$author_str = $avatar . $name;
-
-	if ( $author['url']) {
-		$author_str = sprintf( '<a class="url u-url" href="%1s">%2s</a>', $author['url'], $author_str );
-	}
-
-	return sprintf( '<span class="author p-author vcard hcard h-card">%1s</span>', $author_str );
-
-}
-endif;
 
 //$mf2_post = new MF2_Post( get_the_ID() );
 //$cite     = $mf2_post->fetch();
@@ -56,11 +15,16 @@ $author   = array();
 //$author	  = $mf2_post->get( 'author', true );
 //print_r($author);
 //die();
+//print_r($cite);
+//die();
 if ( isset( $cite['author'] ) ) {
 //if ( $author ) {
 	//$author = Kind_View::get_hcard( $cite['author'] );
-	$author = build_hcard( $cite['author'] );
+	//$author = build_hcard( $cite['author'] );
 	//$author = build_hcard( $author['properties'] );
+	$cite['author']['image'] = null;
+	$cite['author']['class'] = 'response-author';
+	$author = build_author_vcard( $cite['author'] );
 }
 //print_r($cite['author']);
 //die();
@@ -89,8 +53,8 @@ $published = null;
 if ( array_key_exists( 'published', $cite ) ) {
 	$published = human_time_diff( date( 'U', strtotime( $cite[ 'published' ] ) ), current_time( 'timestamp' ) );
 	$published = sprintf(
-		_x( '<small>&sdot; %s ago</small>', '%s = human-readable time difference', '@@textdomain' ),
-		'<a class="u-in-reply-to" rel="in-reply-to" href="' . $url . '">' . $published . '</a>'
+		_x( '<span class="response-date">%s</span>', '%s = human-readable time difference', '@@textdomain' ),
+		'<a class="u-in-reply-to" rel="in-reply-to" href="' . $url . '">' . $published . ' ago</a>'
 	);
 }
 
@@ -112,7 +76,7 @@ if ( ! empty( $type ) ) {
 //}
 ?>
 
-<section class="montreal h-cite response <?php echo $type; ?> ">
+<section class="h-cite response <?php echo $type; ?> ">
 <div class="response-meta">
 <?php
 echo Kind_Taxonomy::get_before_kind( $kind );
@@ -136,16 +100,16 @@ if ( ! $embed ) {
 }
 ?>
 </div>
-<div class="response-content">
+<div class="response-content e-summary">
 <?php
 if ( $title ) {
-	echo '<p><strong>' . $title . '</strong></p>';
+	echo '<p class="response-title"><strong>' . $title . '</strong></p>';
 }
 if ( $cite && is_array( $cite ) ) {
 	if ( $embed ) {
-		echo sprintf( '<blockquote class="e-summary">%1s</blockquote>', $embed );
+		echo sprintf( '<p>%1s</p>', $embed );
 	} elseif ( array_key_exists( 'summary', $cite ) ) {
-		echo sprintf( '<blockquote class="e-summary">%1s</blockquote>', $cite['summary'] );
+		echo sprintf( '<p>%1s</p>', $cite['summary'] );
 	}
 }
 
@@ -157,5 +121,4 @@ if ( $rsvp ) {
 ?>
 </div>
 </section>
-XOXO--
 <?php

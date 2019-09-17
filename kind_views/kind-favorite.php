@@ -1,6 +1,6 @@
 <?php
  /**
-  * Reply Template
+  * Favorite Template
   * The Goal of this Template is to be a general all-purpose model that will be replaced by customization in other templates
   *
   * @link https://github.com/dshanske/indieweb-post-kinds
