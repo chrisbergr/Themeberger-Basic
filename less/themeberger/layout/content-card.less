@@ -45,25 +45,30 @@
 				background-color: black;
 				background-color: var(--global-brand-color);
 				z-index: 1;
+				opacity: 0.5;
 			}
 			.avatar{
-				box-shadow: 0 0 0 4px black;
-				box-shadow: 0 0 0 4px var(--global-brand-color);
+				box-shadow: 0 0 0 4px white;
+				//box-shadow: 0 0 0 4px var(--global-brand-color);
+				box-shadow: 0 0 0 4px var(--global-background-color);
 			}
 		}
-		.response{
+		.response-content{
 			&::after{
 				display: block;
 				content: "";
 				position: absolute;
-				top: 50px;
+				top: 0;
 				left: 42px;
 				width: 5px;
 				height: 100%;
 				background-color: black;
 				background-color: var(--global-brand-color);
 				z-index: 1;
+				opacity: 0.5;
 			}
+		}
+		.response{
 			.avatar{
 				box-shadow: 0 0 0 4px lightgrey;
 				box-shadow: 0 0 0 4px var(--article-section-color);
