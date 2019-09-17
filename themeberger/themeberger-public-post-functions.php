@@ -1,5 +1,15 @@
 <?php
 
+function build_author_vcard( $args ) {
+
+	$post_id = get_the_ID();
+
+	$author = new Themeberger_Post_Functions( 'themeberger', '1.0.1', $post_id );
+	$output = $author->build_author_vcard( $args );
+	return $output;
+
+}
+
 function get_the_author_vcard( $before = '', $after = '', $post_id = false ) {
 
 	if ( ! $post_id ) {

@@ -69,6 +69,46 @@ class Themeberger_Post_Functions {
 	}
 
 
+	public function build_author_vcard( $args = '' ) {
+
+		$args = wp_parse_args(
+			$args,
+			array(
+				'name'  => 'Unknown',
+				'url'   => null,
+				'photo' => null,
+				'image' => null,
+				'class' => null,
+			)
+		);
+
+		$author_name = sprintf( '<span class="name p-name fn" itemprop="name">%1s</span>', $args['name'] );
+
+		$author_avatar = '';
+		if ( $args['photo'] ) {
+			$author_avatar = sprintf( '<img class="photo u-photo avatar" itemprop="image" src="%1s" alt="%2s">', $args['photo'], $args['name'] );
+		}
+		if ( $args['image'] ) {
+			$author_avatar = $args['image'];
+		}
+
+		$author_str = $author_avatar . $author_name;
+
+		if ( $args['url'] ) {
+			$author_str = sprintf( '<a class="url u-url" itemprop="url" rel="author" href="%1s">%2s</a>', $args['url'], $author_str );
+		}
+
+		$author_class = '';
+		if ( $args['class'] ) {
+			$author_class = ' ' . $args['class'];
+		}
+
+		$author = sprintf( '<span class="author p-author vcard hcard h-card%1s" itemprop="author" itemscope itemtype="http://schema.org/Person">%2s</span>', $author_class, $author_str );
+
+		return $author;
+
+	}
+
 	public function get_author_vcard( $args = '' ) {
 
 		$args = wp_parse_args(
@@ -86,12 +126,22 @@ class Themeberger_Post_Functions {
 			null,
 			esc_html( get_the_author_meta( 'display_name', $author_id ) ),
 			array(
-				'class'      => 'photo u-photo avatar',
+				'class'      => 'u-photo',
 				'extra_attr' => 'itemprop="image"',
 			)
 		);
+		$url = esc_url( get_author_posts_url( get_the_author_meta( 'ID', $author_id ) ) );
+		$name = esc_html( get_the_author_meta( 'display_name', $author_id ) );
 
-		$author = '<span class="author themeberger-author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" rel="author" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $author_id ) ) ) . '">' . $avatar . '<span class="name p-name fn" itemprop="name">' . esc_html( get_the_author_meta( 'display_name', $author_id ) ) . '</span></a></span>';
+		$author = $this->build_author_vcard([
+			'name'  => $name,
+			'url'   => $url,
+			'photo' => null,
+			'image' => $avatar,
+			'class' => 'themeberger-author',
+		]);
+
+		//$author = '<span class="author themeberger-author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" rel="author" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $author_id ) ) ) . '">' . $avatar . '<span class="name p-name fn" itemprop="name">' . esc_html( get_the_author_meta( 'display_name', $author_id ) ) . '</span></a></span>';
 		$author = apply_filters( 'themeberger_author_vcard', $author, $this->post );
 		$author = $args['before'] . $author . $args['after'];
 

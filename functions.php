@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.0.23' );
+define( 'THEME_VERSION', '1.0.24' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -246,3 +246,26 @@ require THEME_INCLUDES . '/class-wp-customize-colorrange.php';
 require THEME_INCLUDES . '/class-wp-customize-range.php';
 require THEME_INCLUDES . '/customizer.php';
 require THEME_INCLUDES . '/customizer-data.php';
+
+
+/**/
+function remove_kind_view() {
+	remove_filter( 'the_content', array( 'Kind_View', 'content_response' ), 9 );
+	remove_filter( 'the_excerpt', array( 'Kind_View', 'excerpt_response' ), 9 );
+}
+add_action( 'wp_loaded', 'remove_kind_view' );
+//*
+function remove_kind_style() {
+   wp_dequeue_style( 'kind' );
+}
+add_action( 'wp_print_styles', 'remove_kind_style', 100 );
+/**/
+function test_kind ( $content ) {
+	//print_r( 'TEST: ' . "\n\r\n\r" );
+	print_r( $content );
+	//print_r( 'ENDTEST' . "\n\r\n\r" );
+	//die();
+
+}
+//add_filter( 'kind_response_display', 'test_kind' );
+/**/

@@ -43,7 +43,18 @@ get_header(); ?>
 							the_post();
 							$this_type   = get_post_type();
 							$this_format = get_post_format() ? : 'standard';
-							$template    = $this_type . '-' . $this_format;
+							$this_kind   = 'note';
+
+							if ( function_exists('has_post_kind') && has_post_kind() ) {
+								$this_kind = strtolower( get_post_kind() );
+							}
+
+							if ( 'standard' === $this_format && 'note' !== $this_kind ) {
+								$this_format = $this_kind;
+							}
+
+							$template = $this_type . '-' . $this_format;
+							//print_r($template);
 							get_template_part( 'template-parts/content', $template );
 						endwhile;
 
