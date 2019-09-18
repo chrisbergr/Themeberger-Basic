@@ -63,7 +63,7 @@
 			)
 		);
 		?>
-		<span class="themeberger-comment-date">mention.php</span>
+		<span class="themeberger-comment-date themeberger-debug">mention.php</span>
 	</div><!-- .comment-meta -->
 	<div class="comment-content e-content p-name">
 		<?php if ( '0' === $comment->comment_approved ) : ?>
