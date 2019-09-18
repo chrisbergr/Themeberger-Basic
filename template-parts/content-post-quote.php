@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 $current           = $post->post_name;
@@ -37,7 +37,7 @@ if ( is_single() ) {
 			<?php
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-test' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
 					'after'  => '</div>',
 				)
 			);

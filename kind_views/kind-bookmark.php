@@ -5,7 +5,7 @@
   *
   * @link https://github.com/dshanske/indieweb-post-kinds
   *
-  * @package themebergertest
+  * @package themebergerbasic
   */
 
 

@@ -1,7 +1,7 @@
 /**
- * themebergertest customizer scripts
+ * themebergerbasic customizer scripts
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 ( function( $ ) {

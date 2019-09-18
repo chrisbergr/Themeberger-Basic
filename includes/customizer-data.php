@@ -2,7 +2,7 @@
 /**
  * Customizer Output Functions
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 function get_tb_helper_defaultcover() {
 

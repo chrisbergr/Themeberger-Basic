@@ -191,7 +191,7 @@ class Themeberger_Post_Functions {
 		$posted_ago = human_time_diff( get_the_time( 'U', $this->post ), current_time( 'timestamp' ) );
 		$posted_ago = sprintf(
 			/* translators: %s = human-readable time difference */
-			_x( '%s ago', '%s = human-readable time difference', 'themeberger-test' ),
+			_x( '%s ago', '%s = human-readable time difference', 'themeberger-basic' ),
 			$posted_ago
 		);
 		$updated_ago = '';
@@ -202,7 +202,7 @@ class Themeberger_Post_Functions {
 			$updated_ago = human_time_diff( get_the_modified_time( 'U', $this->post ), current_time( 'timestamp' ) );
 			$updated_ago = sprintf(
 				/* translators: %s = human-readable time difference */
-				_x( '%s ago', '%s = human-readable time difference', 'themeberger-test' ),
+				_x( '%s ago', '%s = human-readable time difference', 'themeberger-basic' ),
 				$updated_ago
 			);
 		}
@@ -234,8 +234,8 @@ class Themeberger_Post_Functions {
 
 		$permalink_title = sprintf(
 			/* translators: 1 = Post Title, 2 = Author Name */
-			esc_html_x( '%1$s by %2$s', 'permalink title', 'themeberger-test' ),
-			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger-test' ),
+			esc_html_x( '%1$s by %2$s', 'permalink title', 'themeberger-basic' ),
+			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger-basic' ),
 			get_the_author_meta( 'display_name', $this->post->post_author )
 		);
 

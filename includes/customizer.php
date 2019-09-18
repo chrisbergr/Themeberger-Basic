@@ -2,7 +2,7 @@
 /**
  * Customizer Functions and definitions
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 function themeberger_customizer_settings( $wp_customize ) {

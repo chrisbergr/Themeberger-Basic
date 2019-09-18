@@ -1,8 +1,8 @@
 {
-	"name": "themebergertest",
-	"themeName": "Themeberger Test",
-	"textdomain": "themeberger-test",
-	"version": "1.0.26",
+	"name": "themebergerbasic",
+	"themeName": "Themeberger Basic",
+	"textdomain": "themeberger-basic",
+	"version": "1.0.27",
 	"year": "2019",
 	"description": "WordPress Theme",
 	"tags": "custom-background, custom-colors, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, sticky-post",
@@ -15,13 +15,13 @@
 		"version": "v2 or later",
 		"url": "http://www.gnu.org/licenses/gpl-2.0.html"
 	},
-	"homepage": "https://github.com/chrisbergr/Themeberger-Test",
+	"homepage": "https://github.com/chrisbergr/Themeberger-Basic",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/chrisbergr/Themeberger-Test.git"
+		"url": "https://github.com/chrisbergr/Themeberger-Basic.git"
 	},
 	"bugs": {
-		"url": "https://github.com/chrisbergr/Themeberger-Test/issues"
+		"url": "https://github.com/chrisbergr/Themeberger-Basic/issues"
 	},
 	"main": "Gruntfile.js",
 	"private": true,

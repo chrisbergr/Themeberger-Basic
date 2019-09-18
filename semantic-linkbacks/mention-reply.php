@@ -8,7 +8,7 @@
 			_x(
 				'<time class="comment-date published" datetime="%2$s" itemprop="datePublished">%1$s ago</time>',
 				'%1$s = human-readable time difference',
-				'themeberger-test'
+				'themeberger-basic'
 			),
 			$posted_ago,
 			$postet_timestamp

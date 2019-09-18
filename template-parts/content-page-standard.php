@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 if ( ! function_exists( 'strip_single_tag' ) ) :
@@ -77,7 +77,7 @@ $approved_comments = $comments_count->approved;
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-test' ),
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -90,7 +90,7 @@ $approved_comments = $comments_count->approved;
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-test' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
 					'after'  => '</div>',
 				)
 			);

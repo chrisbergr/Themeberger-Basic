@@ -2,7 +2,7 @@
 /**
  * Template Part
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 ?>

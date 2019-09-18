@@ -2,7 +2,7 @@
 /**
  * Template partial for subcontent of front page
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 ?>

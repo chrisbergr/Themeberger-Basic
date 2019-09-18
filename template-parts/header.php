@@ -2,7 +2,7 @@
 /**
  * Template Part
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 if ( ! function_exists( 'header_style' ) ) {
@@ -74,7 +74,7 @@ if ( ! function_exists( 'header_style' ) ) {
 							<?php
 							$searchtitle = sprintf(
 								/* translators: %s: Search term visible in the title */
-								esc_html__( 'Search Results for &#8220;%s&#8221;', 'themeberger-test' ),
+								esc_html__( 'Search Results for &#8220;%s&#8221;', 'themeberger-basic' ),
 								get_search_query()
 							);
 							?>

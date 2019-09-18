@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package themebergerbasic
+ */
 
 function build_author_vcard( $args ) {
 

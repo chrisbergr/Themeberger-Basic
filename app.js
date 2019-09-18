@@ -1,7 +1,7 @@
 /**
- * themebergertest app scripts
+ * themebergerbasic app scripts
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 console.log( ':)' );

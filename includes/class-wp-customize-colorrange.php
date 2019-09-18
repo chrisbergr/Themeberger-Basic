@@ -2,7 +2,7 @@
 /**
  * Customizer Extentions
  *
- * @package themebergertest
+ * @package themebergerbasic
  */
 
 if ( class_exists( 'WP_Customize_Control' ) ) {
