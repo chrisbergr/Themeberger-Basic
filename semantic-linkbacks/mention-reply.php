@@ -13,7 +13,7 @@
 			$posted_ago,
 			$postet_timestamp
 		);
-		$time_link  = '<a href="#comment-' . get_comment_ID() . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out . '</a>';
+		$time_link  = '<a href="' . $comment->comment_author_url . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out . '</a>';
 		$author_url = get_comment_author_url();
 		if ( $author_url ) {
 			$author = '<span class="comment-author themeberger-comment-author vcard h-card u-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
