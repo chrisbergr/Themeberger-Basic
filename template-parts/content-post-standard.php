@@ -41,6 +41,29 @@ endif;
 add_filter( 'the_excerpt', 'themebergerautop', 88 );
 
 
+$entry_footer_html = array(
+	'a'    => array(
+		'href'     => array(),
+		'title'    => array(),
+		'itemprop' => array(),
+		'itemscope' => array(),
+		'itemtype' => array(),
+		'class'    => array(),
+	),
+	'span' => array(
+		'class' => array(),
+		'itemprop' => array(),
+		'itemscope' => array(),
+		'itemtype' => array(),
+	),
+	'strong' => array(
+		'class' => array(),
+		'itemprop' => array(),
+		'itemscope' => array(),
+		'itemtype' => array(),
+	),
+);
+
 if ( has_post_thumbnail() && ! is_archive() ) {
 	$curr_id       = is_home() ? get_queried_object_id() : $post->ID;
 	$content_image = get_the_post_thumbnail_url( $curr_id, 'post-thumbnail' );
@@ -116,7 +139,7 @@ if ( is_single() ) {
 		<?php if ( is_single() && $summary ) : ?>
 		<footer class="entry-footer">
 			<p><strong class="meta-title">Summary</strong></p>
-			<p><?php echo esc_html( $summary ); ?></p>
+			<p><?php echo wp_kses( $summary, $entry_footer_html ); ?></p>
 			<div class="background-block full-width-block"></div>
 		</footer>
 		<?php endif; ?>
@@ -125,7 +148,7 @@ if ( is_single() ) {
 		<footer class="entry-footer">
 			<p><strong class="meta-title">Credits</strong></p>
 			<?php foreach ( $credits as $credit ) { ?>
-			<p><?php echo esc_html( $credit ); ?></p>
+			<p><?php echo wp_kses( $credit, $entry_footer_html ); ?></p>
 			<?php } ?>
 			<div class="background-block full-width-block"></div>
 		</footer>
