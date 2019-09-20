@@ -44,3 +44,30 @@ function remove_syndication_style() {
 add_action( 'wp_print_styles', 'remove_syndication_style', 100 );
 
 /**/
+
+/* SUPPORT for Plugin INDIEWEB */
+
+function remove_indieweb_style() {
+	wp_dequeue_style( 'indieweb' );
+}
+add_action( 'wp_print_styles', 'remove_indieweb_style', 100 );
+
+/**/
+
+/* SUPPORT for Plugin SVG SUPPORT */
+
+function remove_svgsupport_style() {
+	wp_dequeue_style( 'bodhi-svgs-attachment' );
+}
+add_action( 'wp_print_styles', 'remove_svgsupport_style', 100 );
+
+/**/
+
+/* SUPPORT for Plugin NIX PREFIX */
+
+function remove_nixprefix_style() {
+	wp_dequeue_style( 'nix-prefix-style' );
+}
+add_action( 'wp_print_styles', 'remove_nixprefix_style', 100 );
+
+/**/
