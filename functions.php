@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.1.5' );
+define( 'THEME_VERSION', '1.1.6' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -260,3 +260,13 @@ require THEME_INCLUDES . '/customizer-data.php';
 
 //TODO: Exclude this into child theme
 require THEME_INCLUDES . '/chrisbergr.php';
+
+function themeberger_previous_posts_link_attributes( $attr ) {
+	return $attr . 'class="prev" rel="prev"';
+}
+add_filter( 'previous_posts_link_attributes', 'themeberger_previous_posts_link_attributes' );
+
+function themeberger_next_posts_link_attributes( $attr ) {
+	return $attr . 'class="next" rel="next"';
+}
+add_filter( 'next_posts_link_attributes', 'themeberger_next_posts_link_attributes' );
