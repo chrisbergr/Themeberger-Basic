@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', init, false);
 ( function() {
 
 	document.addEventListener( 'DOMContentLoaded', function() {
-		var articleContent = document.querySelectorAll( '.full-width-block' );
+		var articleContent   = document.querySelectorAll( '.full-width-block' );
+		var themebergerBlock = document.querySelectorAll( '.themeberger-container-background' );
 
 		if ( ! articleContent ) {
 			return;
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', init, false);
 
 			updateDimensions._tick = requestAnimationFrame( function() {
 				updateDimensions._tick = null;
-				console.log(articleContent);
+				//console.log(articleContent);
 				for (index = 0; index < articleContent.length; ++index) {
 					articleContent[index].style.width = window.innerWidth + 'px';
 					articleContent[index].style.width = '100vw';
@@ -88,6 +89,18 @@ document.addEventListener('DOMContentLoaded', init, false);
 						articleContent[index].style.marginLeft = -siteMain.getBoundingClientRect().left + 'px';
 					} else {
 						articleContent[index].style.marginRight = -siteMain.getBoundingClientRect().left + 'px';
+					}
+				}
+				for (index = 0; index < themebergerBlock.length; ++index) {
+					themebergerBlock[index].style.width = window.innerWidth + 'px';
+					themebergerBlock[index].style.width = '100vw';
+					//articleContent[index].querySelector( 'img' ).style.width = window.innerWidth + 'px';
+
+
+					if ( htmlDirValue !== 'rtl' ) {
+						themebergerBlock[index].style.marginLeft = -siteMain.getBoundingClientRect().left + 'px';
+					} else {
+						themebergerBlock[index].style.marginRight = -siteMain.getBoundingClientRect().left + 'px';
 					}
 				}
 			} );
