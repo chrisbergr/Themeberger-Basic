@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.1.3' );
+define( 'THEME_VERSION', '1.1.4' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -53,7 +53,13 @@ if ( ! function_exists( 'themebergerbasic_setup' ) ) :
 
 		add_theme_support( 'post-thumbnails' );
 
-		add_theme_support( 'custom-header' );
+		add_theme_support(
+			'custom-header',
+			array(
+				'flex-width'    => true,
+				'flex-height'    => true,
+			)
+		);
 
 		add_theme_support( 'custom-background' );
 
