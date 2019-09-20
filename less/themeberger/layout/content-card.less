@@ -19,6 +19,7 @@
 	}
 }
 .content-card{
+	position: relative;
 	width: 100%;
     max-width: 700px;
     margin: 0 auto;
@@ -26,6 +27,9 @@
 	background-color: var(--global-background-color);
 	//box-shadow: 0px 0px 0px 10px rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.1);
+	&:not(.type-article){
+		overflow: hidden;
+	}
 	&.card-hidden{
 		background-color: transparent;
 		box-shadow: none;
@@ -395,5 +399,23 @@
 				margin: 0;
 			}
 		}
+	}
+}
+
+.tag-rip-en .content-card,
+.tag-rip-de .content-card,
+.tag-rip .content-card{
+	&::before{
+		content: "";
+		display: block;
+		position: absolute;
+		top: -60px;
+		right: 0;
+		width: 40px;
+		height: 200px;
+		.rotate(-45deg);
+		.drop-shadow();
+		background-color: #000;
+		z-index: 3;
 	}
 }

@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.1.2' );
+define( 'THEME_VERSION', '1.1.3' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -246,6 +246,9 @@ require THEME_INCLUDES . '/class-wp-customize-colorrange.php';
 require THEME_INCLUDES . '/class-wp-customize-range.php';
 require THEME_INCLUDES . '/customizer.php';
 require THEME_INCLUDES . '/customizer-data.php';
+
+//TODO: Exclude this into child theme
+require THEME_INCLUDES . '/chrisbergr.php';
 
 
 /**/
