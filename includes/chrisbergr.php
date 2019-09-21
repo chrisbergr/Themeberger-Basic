@@ -109,10 +109,11 @@ function my_theme_footer_info() {
 					</div>
 					<div class="profilegrid-bottom">
 						<ul class="external_links">
-							<li class="twitter"><a href="//twitter.com/chrisbergr" title="@chrisbergr on Twitter" rel="me">Twitter</a></li>
-							<li class="facebook"><a href="//facebook.com/chrisbergr" title="chrisbergr on Facebook" rel="me">Facebook</a></li>
-							<li class="behance"><a href="//behance.net/chrisbergr" title="chrisbergr on Behance" rel="me">Behance</a></li>
-							<li class="github"><a href="//github.com/chrisbergr" title="chrisbergr on GitHub" rel="me">GitHub</a></li>
+							<li class="twitter"><a href="https://twitter.com/chrisbergr" title="@chrisbergr on Twitter" rel="me">Twitter</a></li>
+							<li class="facebook"><a href="https://facebook.com/chrisbergr" title="chrisbergr on Facebook" rel="me">Facebook</a></li>
+							<li class="instagram"><a href="https://instagram.com/chrisbergr" title="chrisbergr on Instagram" rel="me">Instagram</a></li>
+							<li class="behance"><a href="https://behance.net/chrisbergr" title="chrisbergr on Behance" rel="me">Behance</a></li>
+							<li class="github"><a href="https://github.com/chrisbergr" title="chrisbergr on GitHub" rel="me">GitHub</a></li>
 						</ul>
 					</div>
 				</div>
