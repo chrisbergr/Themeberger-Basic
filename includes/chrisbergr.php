@@ -192,3 +192,19 @@ function my_theme_footer_navigation() {
 
 }
 add_action( 'themeberger_after_footer', 'my_theme_footer_navigation', 10 );
+
+
+function dailybooth_notice() {
+	if ( is_single() && has_tag( 'dailybooth' ) ) :
+		?>
+		<div class="reclaimed-notice">
+			<p><?php echo sprintf(
+				__( 'I reclaimed this post from <a href="%s">Dailybooth</a>. Unfortunately this platform, <a href="%s">like so many others</a>, no longer exists.', 'themeberger-basic' ),
+				'https://en.wikipedia.org/wiki/DailyBooth',
+				'https://indieweb.org/site-deaths'
+			); ?></p>
+		</div>
+		<?php
+	endif;
+}
+add_action( 'themeberger_after_entry_content', 'dailybooth_notice', 100 );

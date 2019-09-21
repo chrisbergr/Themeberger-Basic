@@ -5,7 +5,7 @@ Github Theme URI: https://github.com/chrisbergr/Themeberger-Basic
 Author:         Christian Hockenberger
 Author URI:     https://christian.hockenberger.us
 Description:  	WordPress Theme
-Version:      	1.1.6
+Version:      	1.1.7
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	themeberger-basic
@@ -2227,6 +2227,50 @@ h1.page-title {
 }
 .content-card .entry-content.page-content {
   padding-top: 70px;
+}
+.reclaimed-notice {
+  --global-text-alt: var(--article-text-alt);
+  --global-headline-color: var(--article-headline-color);
+  background-color: #f30;
+  position: relative;
+  padding: 30px 20px;
+  padding-left: 85px;
+  background-color: lightgrey;
+  background-color: var(--article-section-color);
+  color: grey;
+  color: var(--global-text-alt);
+  -webkit-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.reclaimed-notice * {
+  position: relative;
+  z-index: 5;
+}
+.reclaimed-notice + .entry-footer {
+  padding-top: 20px;
+}
+.reclaimed-notice a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+.reclaimed-notice a:hover,
+.reclaimed-notice a:focus,
+.reclaimed-notice a:active {
+  color: blue;
+  color: var(--global-link-color);
+}
+.reclaimed-notice::after {
+  content: "👉";
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  width: auto;
+  height: auto;
+  font-size: 2em;
+  z-index: 5;
 }
 .response-author,
 .themeberger-author,
