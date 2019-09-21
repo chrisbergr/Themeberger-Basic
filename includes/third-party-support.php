@@ -29,7 +29,9 @@ function manipulate_response_display ( $content ) {
 /* SUPPORT for Plugin SYNDICATION LINKS */
 
 function remove_syndication_view() {
-	remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
+	if ( is_single() || is_singular() ) {
+		remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
+	}
 }
 add_action( 'wp_loaded', 'remove_syndication_view' );
 

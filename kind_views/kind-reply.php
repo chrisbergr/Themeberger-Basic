@@ -38,7 +38,8 @@ $title = null;
 if ( array_key_exists( 'name', $cite ) ) {
 	$title = $cite['name'];
 }
-$embed     = self::get_embed( $url );
+$embed = false;
+//$embed     = self::get_embed( $url );
 $duration  = $mf2_post->get( 'duration', true );
 if ( ! $duration ) {
 		$duration = calculate_duration( $mf2_post->get( 'dt-start' ), $mf2_post->get( 'dt-end' ) );
