@@ -48,6 +48,8 @@ if ( is_single() ) {
 			</svg>
 		</div><?php kind_display(); ?></div>
 
+		<?php do_action( 'themeberger_after_entry_content' ); ?>
+
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>

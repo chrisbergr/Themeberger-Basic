@@ -135,6 +135,8 @@ if ( is_single() ) {
 			<div class="background-block full-width-block"></div>
 		</div><!-- .entry-content -->
 
+		<?php do_action( 'themeberger_after_entry_content' ); ?>
+
 		<?php $summary = get_post_meta( $post->ID, 'themeberger-post-summary', true ); ?>
 		<?php if ( is_single() && $summary ) : ?>
 		<footer class="entry-footer">
@@ -218,6 +220,8 @@ if ( is_single() ) {
 			);
 			?>
 		</div><!-- .entry-content -->
+
+		<?php do_action( 'themeberger_after_entry_content' ); ?>
 
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">

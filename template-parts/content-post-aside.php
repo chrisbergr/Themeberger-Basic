@@ -45,6 +45,8 @@ if ( is_single() ) {
 			<p><?php the_permalink_date( '<span class="themeberger-datex">', '</span>: ', true ); ?><?php echo esc_html( $content ); ?></p>
 		</div><!-- .entry-content -->
 
+		<?php do_action( 'themeberger_after_entry_content' ); ?>
+
 		<?php if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
