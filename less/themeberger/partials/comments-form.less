@@ -2,11 +2,15 @@
 .content-card + .comments-area .comment-respond,
 .comment-respond{
 	//background-color: #f03;
-	padding-left: 85px;
+	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 50px;
 	width: 100%;
 	max-width: 700px;
+
+	.m1-sm({
+		padding-left: 85px;
+	});
 
 	a{
 		color: inherit;
@@ -54,10 +58,13 @@
 	}
 
 	textarea,
-	input{
+	input:not([type=checkbox]):not([type=radio]):not([type=submit]){
 		padding: 8px 10px;
 		background-color: var(--global-section-color);
 		border-color: var(--global-border-color);
+		.max-sm({
+			width: 100%;
+		});
 		&:focus{
 			background-color: var(--global-background-color);
 		}
@@ -74,8 +81,11 @@
 		*/
 		label{
 			display: block;
-			padding-left: 104px;
+			padding-left: 60px;
 			margin-top: -25px;
+			.m1-sm({
+				padding-left: 104px;
+			});
 		}
 	}
 
