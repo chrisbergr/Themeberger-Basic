@@ -16,6 +16,16 @@ $content           = str_replace( '<!-- /wp:paragraph -->', '', $content );
 $comments_count    = wp_count_comments( get_the_ID() );
 $approved_comments = $comments_count->approved;
 
+
+$content_html = array(
+	'a'    => array(
+		'href'     => array(),
+		'title'    => array(),
+		'itemprop' => array(),
+		'class'    => array(),
+	),
+);
+
 $post_type_slug = 'aside';
 
 $collection = 'itemprop="hasPart" ';
@@ -42,7 +52,7 @@ if ( is_single() ) {
 	<?php endif; ?>
 
 		<div class="entry-content e-content p-summary" itemprop="articleBody">
-			<p><?php the_permalink_date( '<span class="themeberger-datex">', '</span>: ', true ); ?><?php echo esc_html( $content ); ?></p>
+			<p><?php the_permalink_date( '<span class="themeberger-datex">', '</span>: ', true ); ?><?php echo wp_kses( $content, $content_html ); ?></p>
 		</div><!-- .entry-content -->
 
 		<?php do_action( 'themeberger_after_entry_content' ); ?>
