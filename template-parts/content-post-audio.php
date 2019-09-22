@@ -32,7 +32,7 @@ if ( is_single() ) {
 			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content p-name e-content" itemprop="articleBody">
+		<div class="entry-content p-name e-content p-summary" itemprop="articleBody">
 			<?php the_content_without_first_audio(); ?>
 			<?php
 			wp_link_pages(

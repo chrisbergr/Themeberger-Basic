@@ -41,7 +41,7 @@ if ( is_single() ) {
 		</header><!-- .entry-header -->
 	<?php endif; ?>
 
-		<div class="entry-content p-name e-content" itemprop="articleBody">
+		<div class="entry-content p-name e-content p-summary" itemprop="articleBody">
 			<p><?php the_permalink_date( '<span class="themeberger-datex">', '</span>: ', true ); ?><?php echo esc_html( $content ); ?></p>
 		</div><!-- .entry-content -->
 
