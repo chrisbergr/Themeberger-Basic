@@ -69,15 +69,8 @@
     .logo-footer-christian path{
         fill: white;
     }
-    .logo-footer-crest circle{
-        fill-rule: evenodd;
-        clip-rule: evenodd;
-        fill: rgba( 255, 255, 255, 0);
-    }
-    .logo-footer-crest path{
-        fill-rule: evenodd;
-        clip-rule: evenodd;
-	        fill: white;
+    .logo-footer-crest{
+	    fill: white;
     }
     &:hover{
         .logo-footer-crest path{
@@ -91,11 +84,16 @@
 	background-color: var(--footer-background-color);
 	color: grey;
     color: var(--footer-text-color);
+	padding: 50px;
     padding-top: 1.5em;
     padding-bottom: 1em;
 }
 .footer-navigation{
     .wrapper_spacing();
+	width: 100%;
+	max-width: 980px;
+	padding-left: 0;
+	padding-right: 0;
     & ul{
         font-size: 0.8em;
         list-style: none;
@@ -152,6 +150,7 @@
 	background-color: var(--footer-background-color);
 	color: grey;
     color: var(--footer-text-color);
+	padding: 50px;
     padding-top: 0.5em;
     padding-bottom: 1.5em;
     text-align: center;
@@ -161,6 +160,10 @@
     & .wrapper{
         .wrapper_spacing();
         .make-row();
+		width: 100%;
+		max-width: 980px;
+		padding-left: 0;
+		padding-right: 0;
     }
     & .footer-infobox-left{
         .make-column(4);
@@ -192,6 +195,7 @@
 	background-color: var(--footer-background-color);
 	color: grey;
     color: var(--footer-text-color);
+	padding: 50px;
     padding-top: 1.5em;
     padding-bottom:1.5em;
     //margin-top: @default-margin * 1;
@@ -202,6 +206,10 @@
     & .backlink-nav{
         .wrapper_spacing();
         .make-row();
+		width: 100%;
+		max-width: 980px;
+		padding-left: 0;
+		padding-right: 0;
     }
     & p{
         font-size: 0.8em;
@@ -297,8 +305,14 @@
 	& .hcardname{
 		font-size: 1.2em;
 		color: white;
+		& + p{
+			margin-top: 0;
+		}
 	}
 	& .external_links{
+		.max-sm({
+			margin-top: 1em;
+		});
 		display: block;
 		padding: 0;
 		padding-top: 0;
@@ -333,7 +347,16 @@
 			}
 			&.behance,
 			&.github,
+			&.instagram,
 			&.twitter,
+			&.dribbble,
+			&.linkedin,
+			&.youtube,
+			&.flickr,
+			&.amazon,
+			&.swarm,
+			&.pinterest,
+			&.foursquare,
 			&.facebook{
 				& a{
 					&::before{
@@ -343,38 +366,102 @@
 						line-height: @default-fontsize;
 						color: var(--brand-color-secondary);
 						display: inline-block;
-						margin-right: 2px;
-						margin-bottom: -1px;
+						margin-right: 8px;
+						//margin-bottom: -1px;
+						.translateY(1px);
 						//font-family: "FontAwesome";
-						font-family: "iconberger";
+						font-family: "themeberger";
 					}
 				}
 			}
 			&.behance{
 				& a{
 					&::before{
-						content: @iconberger-behance;
+						content: @themeberger-behance;
 					}
 				}
 			}
 			&.github{
 				& a{
 					&::before{
-						content: @iconberger-github;
+						content: @themeberger-github;
 					}
 				}
 			}
 			&.twitter{
 				& a{
 					&::before{
-						content: @iconberger-twitter;
+						content: @themeberger-twitter;
 					}
 				}
 			}
 			&.facebook{
 				& a{
 					&::before{
-						content: @iconberger-facebook;
+						content: @themeberger-facebook;
+					}
+				}
+			}
+			&.instagram{
+				& a{
+					&::before{
+						content: @themeberger-instagram;
+					}
+				}
+			}
+			&.dribbble{
+				& a{
+					&::before{
+						content: @themeberger-dribbble;
+					}
+				}
+			}
+			&.linkedin{
+				& a{
+					&::before{
+						content: @themeberger-linkedin;
+					}
+				}
+			}
+			&.youtube{
+				& a{
+					&::before{
+						content: @themeberger-youtube;
+					}
+				}
+			}
+			&.flickr{
+				& a{
+					&::before{
+						content: @themeberger-flickr;
+					}
+				}
+			}
+			&.amazon{
+				& a{
+					&::before{
+						content: @themeberger-amazon;
+					}
+				}
+			}
+			&.swarm{
+				& a{
+					&::before{
+						content: @themeberger-swarm;
+					}
+				}
+			}
+			&.pinterest{
+				& a{
+					&::before{
+						content: @themeberger-pinterest;
+					}
+				}
+			}
+			&.foursquare{
+				& a{
+					&::before{
+						content: @themeberger-foursquare;
 					}
 				}
 			}
