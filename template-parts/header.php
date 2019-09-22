@@ -43,6 +43,8 @@ if ( ! function_exists( 'header_style' ) ) {
 					<?php endif; ?>
 					<div class="site-branding">
 
+						<?php do_action( 'themeberger_site_branding' ); ?>
+
 						<?php if ( has_custom_logo() ) : ?>
 							<div class="site-logo"><?php the_custom_logo(); ?></div>
 						<?php endif; ?>
