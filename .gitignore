@@ -40,3 +40,4 @@ npm-debug.log
 bin/
 less/ni/*
 *.css.map
+child-themes/*

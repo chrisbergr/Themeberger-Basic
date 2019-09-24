@@ -52,7 +52,7 @@ if ( is_single() ) {
 	<?php endif; ?>
 
 		<div class="entry-content e-content p-summary" itemprop="articleBody">
-			<p><?php the_permalink_date( '<span class="themeberger-datex">', '</span>: ', true ); ?><?php echo wp_kses( $content, $content_html ); ?></p>
+			<p><?php the_permalink_date( '<strong class="themeberger-datex">', '</strong>: ', true ); ?><?php echo wp_kses( $content, $content_html ); ?></p>
 		</div><!-- .entry-content -->
 
 		<?php do_action( 'themeberger_after_entry_content' ); ?>
