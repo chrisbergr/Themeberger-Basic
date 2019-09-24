@@ -28,22 +28,26 @@ function manipulate_response_display ( $content ) {
 
 /* SUPPORT for Plugin SYNDICATION LINKS */
 
-function remove_syndication_view() {
-	if ( is_single() || is_singular() ) {
-		remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
+if ( function_exists ( 'get_post_syndication_links' ) ) :
+
+	function remove_syndication_view() {
+		if ( is_single() || is_singular() ) {
+			remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
+		}
 	}
-}
-add_action( 'wp_loaded', 'remove_syndication_view' );
+	add_action( 'wp_loaded', 'remove_syndication_view' );
 
-function add_syndication_view() {
-	echo '<div id="syndication-links">' . get_post_syndication_links() . '</div>';
-}
-add_action( 'themeberger_entry_footer', 'add_syndication_view', 50 );
+	function add_syndication_view() {
+		echo '<div id="syndication-links">' . get_post_syndication_links() . '</div>';
+	}
+	add_action( 'themeberger_entry_footer', 'add_syndication_view', 50 );
 
-function remove_syndication_style() {
-	wp_dequeue_style( 'syndication-style' );
-}
-add_action( 'wp_print_styles', 'remove_syndication_style', 100 );
+	function remove_syndication_style() {
+		wp_dequeue_style( 'syndication-style' );
+	}
+	add_action( 'wp_print_styles', 'remove_syndication_style', 100 );
+
+endif;
 
 /**/
 
