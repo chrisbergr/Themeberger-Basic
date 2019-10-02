@@ -25,39 +25,11 @@ if ( ! function_exists( 'header_style' ) ) {
 			<?php do_action( 'themeberger_before_header' ); ?>
 			<header id="masthead" class="site-header<?php echo is_singular() ? ' header-single' : ''; ?>" style="<?php header_style(); ?>">
 
+				<?php do_action( 'chobz_breadcrumb' ); ?>
+
 				<div class="site-header--inner">
-					<?php if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) : ?>
-					<nav id="site-navigation" class="primary-navigation" role="navigation">
-						<?php
-						wp_nav_menu(
-							array(
-								'menu_class'     => 'primary-menu',
-								'theme_location' => 'primary',
-								'menu_id'        => 'primary',
-								'container'      => false,
-								'fallback_cb'    => false,
-							)
-						);
-						?>
-					</nav>
-					<?php endif; ?>
+
 					<div class="site-branding">
-
-						<?php do_action( 'themeberger_site_branding' ); ?>
-
-						<?php if ( has_custom_logo() ) : ?>
-							<div class="site-logo"><?php the_custom_logo(); ?></div>
-						<?php endif; ?>
-						<?php if ( display_header_text() ) : ?>
-							<?php $blog_info = get_bloginfo( 'name' ); ?>
-							<?php if ( ! empty( $blog_info ) ) : ?>
-								<?php if ( is_front_page() && is_home() ) : ?>
-									<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-								<?php else : ?>
-									<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-								<?php endif; ?>
-							<?php endif; ?>
-						<?php endif; ?>
 
 						<?php if ( is_front_page() && is_home() ) : ?>
 							<?php $description = get_bloginfo( 'description', 'display' ); ?>

@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.1.11' );
+define( 'THEME_VERSION', '1.1.12' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
@@ -267,3 +267,19 @@ function themeberger_next_posts_link_attributes( $attr ) {
 	return $attr . 'class="next" rel="next"';
 }
 add_filter( 'next_posts_link_attributes', 'themeberger_next_posts_link_attributes' );
+
+function add_atom_feed() {
+?>
+<link rel="alternate" type="application/atom+xml" title="<?php bloginfo( 'name' ); ?> &raquo; Atom Feed" href="<?php bloginfo( 'atom_url' ); ?>" />
+<?php
+}
+add_action ( 'wp_head', 'add_atom_feed', 2 );
+
+
+
+
+
+function add_archive_description() {
+	the_archive_description( '<section class="taxonomy-description"><div class="taxonomy-description-inner">', '</div></section>' );
+}
+add_action ( 'themeberger_after_header', 'add_archive_description', 50 );

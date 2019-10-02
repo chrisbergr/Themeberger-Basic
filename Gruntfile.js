@@ -79,6 +79,33 @@ module.exports = function (grunt) {
 					"./rtl.css": "./less/rtl.less",
 					"./admin.css": "./less/admin.less"
 				}
+			},
+			child_chobz: {
+				options: {
+					compress: false,
+					plugins: [
+                        new(require("less-plugin-clean-css"))({
+							"advanced": true
+						})
+                    ],
+					sourceMap: false,
+					banner: "/*!\n" +
+						"Theme Name:   chobz\n" +
+						"Theme URI:    cho.bz\n" +
+						"Description:  Themeberger Basic Child Theme\n" +
+						"Author:       Christian Hockenberger\n" +
+						"Author URI:   http://cho.bz\n" +
+						"Template:     Themeberger-Basic\n" +
+						"Version:      1.0.0\n" +
+						"License:      GNU General Public License v2 or later\n" +
+						"License URI:  http://www.gnu.org/licenses/gpl-2.0.html\n" +
+						"Tags:         responsive-layout, accessibility-ready\n" +
+						"Text Domain:  themeberger-basic\n" +
+						"*/"
+				},
+				files: {
+					"./child-themes/chobz/style.css": "./child-themes/chobz/less/style.less"
+				}
 			}
 		},
 
@@ -101,12 +128,14 @@ module.exports = function (grunt) {
 	grunt.registerTask('deploy', [
 		'less:deploy_style',
 		'less:deploy_other',
+		'less:child_chobz',
 		'replace'
 	]);
 
 	grunt.registerTask('build', [
 		'less:build_style',
 		'less:build_other',
+		'less:child_chobz',
 		'replace'
 	]);
 
