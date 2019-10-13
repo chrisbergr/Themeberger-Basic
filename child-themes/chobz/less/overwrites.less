@@ -10,3 +10,26 @@
 		display: none !important;
 	});
 }
+
+.chobz-ui--social{
+	.external_links{
+		display: block;
+		position: absolute;
+		left: 10px;
+		bottom: 10px;
+		width: 30px;
+		line-height: 35px;
+	}
+	.external_links li{
+		width: 30px;
+		height: 30px;
+		margin-right: 0;
+	}
+	.external_links li a{
+		font-size: 0px;
+		&::before{
+			margin-right: 0;
+			font-size: 15px;
+		}
+	}
+}

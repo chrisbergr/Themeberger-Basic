@@ -309,163 +309,163 @@
 			margin-top: 0;
 		}
 	}
-	& .external_links{
-		.max-sm({
-			margin-top: 1em;
-		});
-		display: block;
-		padding: 0;
-		padding-top: 0;
-		font-size: inherit;
-		margin-left: 0;
+
+}
+.external_links{
+	.max-sm({
+		margin-top: 1em;
+	});
+	display: block;
+	padding: 0;
+	padding-top: 0;
+	font-size: inherit;
+	margin-left: 0;
+	margin-bottom: 0 !important;
+	.m1-sm({
 		margin-bottom: 0 !important;
-		.m1-sm({
-			margin-bottom: 0 !important;
-		});
-		.m1-md({
-			margin-bottom: 0 !important;
-		});
-		.m1-lg({
-			margin-bottom: 0 !important;
-		});
-		& li{
-			display: inline-block;
-			margin: 0;
-			padding: 0;
-			font-size: inherit;
-			margin-right: 8px;
+	});
+	.m1-md({
+		margin-bottom: 0 !important;
+	});
+	.m1-lg({
+		margin-bottom: 0 !important;
+	});
+	& li{
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		font-size: inherit;
+		margin-right: 8px;
+		& a{
+			text-decoration: none;
+		}
+		&.seperator{
+			&::before{
+				display: inline-block;
+				content: "@";
+				width: 12px;
+				text-align: center;
+			}
+		}
+		&.behance,
+		&.github,
+		&.instagram,
+		&.twitter,
+		&.dribbble,
+		&.linkedin,
+		&.youtube,
+		&.flickr,
+		&.amazon,
+		&.swarm,
+		&.pinterest,
+		&.foursquare,
+		&.facebook{
 			& a{
-				text-decoration: none;
-			}
-			&.seperator{
 				&::before{
+					content: " ";
+					width: @default-fontsize;
+					height: @default-fontsize;
+					line-height: @default-fontsize;
+					color: var(--brand-color-secondary);
 					display: inline-block;
-					content: "@";
-					width: 12px;
-					text-align: center;
+					margin-right: 8px;
+					//margin-bottom: -1px;
+					.translateY(1px);
+					//font-family: "FontAwesome";
+					font-family: "themeberger";
 				}
 			}
-			&.behance,
-			&.github,
-			&.instagram,
-			&.twitter,
-			&.dribbble,
-			&.linkedin,
-			&.youtube,
-			&.flickr,
-			&.amazon,
-			&.swarm,
-			&.pinterest,
-			&.foursquare,
-			&.facebook{
-				& a{
-					&::before{
-						content: " ";
-						width: @default-fontsize;
-						height: @default-fontsize;
-						line-height: @default-fontsize;
-						color: var(--brand-color-secondary);
-						display: inline-block;
-						margin-right: 8px;
-						//margin-bottom: -1px;
-						.translateY(1px);
-						//font-family: "FontAwesome";
-						font-family: "themeberger";
-					}
+		}
+		&.behance{
+			& a{
+				&::before{
+					content: @themeberger-behance;
 				}
 			}
-			&.behance{
-				& a{
-					&::before{
-						content: @themeberger-behance;
-					}
+		}
+		&.github{
+			& a{
+				&::before{
+					content: @themeberger-github;
 				}
 			}
-			&.github{
-				& a{
-					&::before{
-						content: @themeberger-github;
-					}
+		}
+		&.twitter{
+			& a{
+				&::before{
+					content: @themeberger-twitter;
 				}
 			}
-			&.twitter{
-				& a{
-					&::before{
-						content: @themeberger-twitter;
-					}
+		}
+		&.facebook{
+			& a{
+				&::before{
+					content: @themeberger-facebook;
 				}
 			}
-			&.facebook{
-				& a{
-					&::before{
-						content: @themeberger-facebook;
-					}
+		}
+		&.instagram{
+			& a{
+				&::before{
+					content: @themeberger-instagram;
 				}
 			}
-			&.instagram{
-				& a{
-					&::before{
-						content: @themeberger-instagram;
-					}
+		}
+		&.dribbble{
+			& a{
+				&::before{
+					content: @themeberger-dribbble;
 				}
 			}
-			&.dribbble{
-				& a{
-					&::before{
-						content: @themeberger-dribbble;
-					}
+		}
+		&.linkedin{
+			& a{
+				&::before{
+					content: @themeberger-linkedin;
 				}
 			}
-			&.linkedin{
-				& a{
-					&::before{
-						content: @themeberger-linkedin;
-					}
+		}
+		&.youtube{
+			& a{
+				&::before{
+					content: @themeberger-youtube;
 				}
 			}
-			&.youtube{
-				& a{
-					&::before{
-						content: @themeberger-youtube;
-					}
+		}
+		&.flickr{
+			& a{
+				&::before{
+					content: @themeberger-flickr;
 				}
 			}
-			&.flickr{
-				& a{
-					&::before{
-						content: @themeberger-flickr;
-					}
+		}
+		&.amazon{
+			& a{
+				&::before{
+					content: @themeberger-amazon;
 				}
 			}
-			&.amazon{
-				& a{
-					&::before{
-						content: @themeberger-amazon;
-					}
+		}
+		&.swarm{
+			& a{
+				&::before{
+					content: @themeberger-swarm;
 				}
 			}
-			&.swarm{
-				& a{
-					&::before{
-						content: @themeberger-swarm;
-					}
+		}
+		&.pinterest{
+			& a{
+				&::before{
+					content: @themeberger-pinterest;
 				}
 			}
-			&.pinterest{
-				& a{
-					&::before{
-						content: @themeberger-pinterest;
-					}
-				}
-			}
-			&.foursquare{
-				& a{
-					&::before{
-						content: @themeberger-foursquare;
-					}
+		}
+		&.foursquare{
+			& a{
+				&::before{
+					content: @themeberger-foursquare;
 				}
 			}
 		}
 	}
-
 }
