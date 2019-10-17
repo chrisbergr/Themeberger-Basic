@@ -91,6 +91,24 @@ if ( ! function_exists( 'header_style' ) ) {
 							<h1 class="page-title"><?php single_post_title(); ?></h1>
 						<?php endif; ?>
 
+						<?php if ( is_singular() ) : ?>
+							<?php
+								$this_type   = get_post_type();
+								$this_format = get_post_format() ? : 'standard';
+								$this_kind   = 'note';
+								if ( function_exists('has_post_kind') && has_post_kind() ) {
+									$this_kind = strtolower( get_post_kind() );
+								}
+								if ( 'standard' === $this_format && 'note' !== $this_kind ) {
+									$this_format = $this_kind;
+								}
+								$template = $this_type . '-' . $this_format;
+							?>
+							<?php if ( 'post-standard' === $template ) : ?>
+							<?php the_title( '<h1 class="entry-title page-title">', '</h1>' ); ?>
+							<?php endif; ?>
+						<?php endif; ?>
+
 					</div><!-- .site-branding -->
 				</div><!-- .site-header--inner -->
 

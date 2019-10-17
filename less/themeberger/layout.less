@@ -21,8 +21,15 @@
 	margin-left: e('calc( 50% - 100vw / 2 )') !important;
 }
 .more-width-block{
-	width: 75vw !important;
-	margin-left: e('calc( 50% - 75vw / 2 )') !important;
+	.max-lg({
+		//width: 100vw !important;
+		//margin-left: e('calc( 50% - 100vw / 2 )') !important;
+		width: 100% !important;
+	});
+	.m1-lg({
+		width: 75vw !important;
+		margin-left: e('calc( 50% - 75vw / 2 )') !important;
+	});
 }
 
 .background-block{

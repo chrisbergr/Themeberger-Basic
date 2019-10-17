@@ -92,10 +92,10 @@ if ( is_single() ) {
 		<div class="content-card type-<?php echo $post_type_slug; ?>">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-image xfull-width-block"><?php the_post_thumbnail(); ?></div>
+		<div class="entry-image more-width-block"><?php the_post_thumbnail(); ?></div>
 		<?php endif; ?>
 
-		<header class="entry-header">
+		<header class="entry-header" style="display:none;">
 			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
 			<?php if ( is_singular() ) : ?>
 				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
