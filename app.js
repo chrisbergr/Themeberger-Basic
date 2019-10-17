@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', init, false);
 
 */
 
+/*
 
 ( function() {
 
@@ -112,3 +113,5 @@ document.addEventListener('DOMContentLoaded', init, false);
 	} );
 
 } )();
+
+*/
