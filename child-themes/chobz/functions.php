@@ -9,6 +9,10 @@ function my_theme_enqueue_styles() {
         wp_get_theme()->get('Version')
     );
 
+	$parent_script = 'themebergerbasic-app';
+	wp_enqueue_script( $parent_script, get_template_directory_uri() . '/app.js', array( 'jquery' ), wp_get_theme()->get('Version'), true );
+	wp_enqueue_script( 'themebergerbasic-chobz', get_stylesheet_directory_uri() . '/app.js', array( $parent_script ), wp_get_theme()->get('Version'), true );
+
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
@@ -320,7 +324,7 @@ function chobz_ui() {
 		<section class="chobz-ui--left">
 			<div class="chobz-ui--top">
 				<div class="chobz-ui--hamburger">
-					<a href="#" onclick="javascript:jQuery('html, body').toggleClass('display-fullmenu')">
+					<a href="#" id="chobz_burger">
 						<svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="menu-icon">
 							<path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path>
 						</svg>
@@ -375,7 +379,7 @@ function chobz_ui() {
 		<section class="chobz-ui--right">
 			<div class="chobz-ui--top">
 				<div class="chobz-ui--search">
-					<a href="#" onclick="javascript:jQuery('body').toggleClass('display-search')">
+					<a href="#" id="chobz_lens">
 						<svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="search-icon">
 							<path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
 						</svg>
@@ -444,6 +448,15 @@ function chobz_ui() {
 	<?php
 }
 add_action( 'themeberger_before_header', 'chobz_ui', 10 );
+
+/**/
+
+function posts_per_page( $query ) {
+	if( $query->is_main_query() && ( is_category( 'foto' ) || is_category( 'photo' ) ) && ! is_admin() ) {
+		$query->set( 'posts_per_page', '50' );
+	}
+}
+add_action( 'pre_get_posts', 'posts_per_page' );
 
 /**/
 
@@ -627,3 +640,52 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 	}
 
 }
+
+
+
+function now_card() {
+
+	$curl = curl_init( 'http://explorer.localhost/api/current-location/' );
+	curl_setopt( $curl, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json' ) );
+	curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+	$result_location = curl_exec( $curl );
+	curl_close( $curl );
+	$result_location = json_decode( $result_location );
+	$current_place = $result_location->current_place;
+	$location = preg_replace( '#(\s*<br\s*/?>)*\s*$#i', '', nl2br( $result_location->current_place_f ) );
+	//print_r($result_location);
+	?>
+
+	<div class="now-card">
+		<div class="content-card">
+
+			<div class="content-card-section section-left">
+
+				<?php if ( $current_place->has_image ) : ?>
+				<img src="<?=$current_place->image?>" class="map-static">
+				<img src="<?=$current_place->image_wide?>" class="map-wide-static">
+				<?php endif; ?>
+
+			</div>
+			<div class="content-card-section section-center">
+
+				<p class="smaller">CURRENT LOCATION:</p>
+				<p><?php if ( $current_place->name ) : ?><strong><?php echo $current_place->name; ?></strong><br><?php endif; ?><?php echo $location; ?></p>
+				<p class="smaller">
+					<a class="address--link" href="https://www.google.com/maps/search/<?=$current_place->coordinates?>" target="_blank" title="View on Google Maps"><?=$current_place->coordinates?></a><br>
+				</p>
+
+			</div>
+			<div class="content-card-section section-right">
+
+				weather
+
+			</div>
+
+		</div>
+	</div>
+
+	<?php
+
+}
+add_action( 'themeberger_after_header', 'now_card' );

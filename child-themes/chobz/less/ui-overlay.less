@@ -192,7 +192,7 @@
 				fill: black;
 				fill: var(--ui-color);
 			}
-			.display-search &{
+			.display-fullmenu &{
 				display: none;
 			}
 		}
@@ -204,7 +204,7 @@
 				fill: black;
 				fill: var(--ui-color);
 			}
-			.display-search &{
+			.display-fullmenu &{
 				display: inline;
 			}
 		}
@@ -309,7 +309,7 @@
 	}
 	.chobz-ui--fullmenu{
 		z-index: 2;
-		background-color: #fff;
+		background-color: #000;
 		background-color: var(--ui-fullmenu-background-color);
 		position: absolute;
 		top: 0;
@@ -318,17 +318,24 @@
 		height: 100%;
 		padding-left: 50px;
 		padding-right: 50px;
-        overflow-y: auto;
+		overflow-x: hidden;
+        overflow-y: hidden;
+		&.scrollable{
+			overflow-y: auto;
+		}
         -webkit-overflow-scrolling: touch;
 		.m1-md({
 			padding-left: 100px;
 			padding-right: 100px;
 		});
-		.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
-		opacity: 0;
+		.transition(all 0.25s cubic-bezier(1, .3, .3, 1));
+		//opacity: 0;
 		.display-fullmenu &{
-			opacity: 1;
+			//opacity: 1;
 			pointer-events: all;
+		}
+		#page:not(.display-fullmenu) &{
+			.translate(-100%, 0%);
 		}
 	}
 	.chobz-ui-fullmenu--inner{
@@ -484,10 +491,23 @@ e('}');
 	}
 }
 
+/*
 html.display-fullmenu {
 	overflow: hidden;
 }
 body.display-fullmenu {
 	overflow: visible;
 	height: 100%;
+}
+*/
+
+body{
+	position: static;
+	overflow-y: scroll;
+}
+.display-search,
+.display-fullmenu{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
 }
