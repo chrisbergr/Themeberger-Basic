@@ -114,30 +114,33 @@ function my_theme_footer_info() {
 						<p class="hcardname name p-name fn n"><span class="given-name p-given-name" itemprop="givenName">Christian</span> <span class="family-name p-family-name" itemprop="familyName">Hockenberger</span></p>
 						<p class="note p-note"><strong class="highlight">Father</strong>, <strong class="highlight">Husband</strong>, <span class="job-title p-job-title" itemprop="jobTitle">Brand Identity Designer</span> &amp; Soldier</p>
 						<div class="profilegrid-inner">
-							<p class="adr h-adr" itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress"><span class="street-address p-street-address" itemprop="streetAddress">Robert-Koch-Straße 19</span><br><span class="country-name p-country-name" itemprop="addressCountry">DE</span>-<span class="postal-code p-postal-code" itemprop="postalCode">67240</span> <span class="locality p-locality" itemprop="addressLocality">Roxheim</span></p>
+							<p class="adr h-adr" itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+								<span class="street-address p-street-address" itemprop="streetAddress">Robert-Koch-Straße 19</span><br>
+								<span class="country-name p-country-name" itemprop="addressCountry">DE</span>-<span class="postal-code p-postal-code" itemprop="postalCode">67240</span> <span class="locality p-locality" itemprop="addressLocality">Roxheim</span>
+							</p>
 						</div>
 						<div class="profilegrid-inner">
-							<p><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#105;&#97;&#110;&#64;&#104;&#111;&#99;&#107;&#101;&#110;&#98;&#101;&#114;&#103;&#101;&#114;&#46;&#117;&#115;" class="email u-email" itemprop="email">&#99;&#104;&#114;&#105;&#115;&#116;&#105;&#97;&#110;&#64;&#104;&#111;&#99;&#107;&#101;&#110;&#98;&#101;&#114;&#103;&#101;&#114;&#46;&#117;&#115;</a><br><a href="https://christian.hockenberger.us" class="url u-url" itemprop="url">christian.hockenberger.us</a></p>
+							<p><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#105;&#97;&#110;&#64;&#104;&#111;&#99;&#107;&#101;&#110;&#98;&#101;&#114;&#103;&#101;&#114;&#46;&#117;&#115;" class="email u-email" itemprop="email" rel="me">&#99;&#104;&#114;&#105;&#115;&#116;&#105;&#97;&#110;&#64;&#104;&#111;&#99;&#107;&#101;&#110;&#98;&#101;&#114;&#103;&#101;&#114;&#46;&#117;&#115;</a><br><a href="https://christian.hockenberger.us" class="url u-url u-uid" itemprop="url">christian.hockenberger.us</a></p>
 						</div>
 					</div>
 					<div class="profilegrid-right">
 						<p class="txtrght">
-							<img src="<?php echo get_avatar_img_url('christian@hockenberger.us'); ?>" title="Christian Hockenberger" alt="Christian Hockenberger Portrait" class="photo u-photo avatar">
+							<img class="profilephoto photo u-photo avatar" src="https://christian.hockenberger.us/wp-content/uploads/sites/3/2019/09/chris-300x300.jpg" title="Christian Hockenberger" alt="Christian Hockenberger Portrait">
 						</p>
 					</div>
 					<div class="profilegrid-bottom">
 						<ul class="external_links">
-							<li class="twitter"><a href="https://twitter.com/chrisbergr" title="@chrisbergr on Twitter" rel="me">Twitter</a></li>
-							<li class="instagram"><a href="https://instagram.com/chrisbergr" title="chrisbergr on Instagram" rel="me">Instagram</a></li>
-							<li class="facebook"><a href="https://facebook.com/chrisbergr" title="chrisbergr on Facebook" rel="me">Facebook</a></li>
-							<li class="pinterest"><a href="https://pinterest.com/chrisbergr" title="chrisbergr on Pinterest" rel="me">Pinterest</a></li>
-							<li class="dribbble"><a href="https://dribbble.com/chrisbergr" title="chrisbergr on Dribbble" rel="me">Dribbble</a></li>
-							<li class="behance"><a href="https://behance.net/chrisbergr" title="chrisbergr on Behance" rel="me">Behance</a></li>
-							<li class="linkedin"><a href="https://www.linkedin.com/in/christian-hockenberger/" title="Christian Hockenberger on LinkedIn" rel="me">LinkedIn</a></li>
-							<li class="github"><a href="https://github.com/chrisbergr" title="chrisbergr on GitHub" rel="me">GitHub</a></li>
-							<li class="youtube"><a href="https://youtube.me/princeofdune" title="Christian Hockenberger on YouTube" rel="me">YouTube</a></li>
-							<li class="flickr"><a href="https://flickr.com/chrisbergr" title="chrisbergr on Flickr" rel="me">Flickr</a></li>
-							<li class="foursquare"><a href="https://foursquare.com/chrisbergr" title="chrisbergr on Foursquare" rel="me">Foursquare</a></li>
+							<li class="twitter"><a href="https://twitter.com/chrisbergr" title="@chrisbergr on Twitter" rel="me" class="url u-url">Twitter</a></li>
+							<li class="instagram"><a href="https://instagram.com/chrisbergr" title="chrisbergr on Instagram" rel="me" class="url u-url">Instagram</a></li>
+							<li class="facebook"><a href="https://facebook.com/chrisbergr" title="chrisbergr on Facebook" rel="me" class="url u-url">Facebook</a></li>
+							<li class="pinterest"><a href="https://pinterest.com/chrisbergr" title="chrisbergr on Pinterest" rel="me" class="url u-url">Pinterest</a></li>
+							<li class="dribbble"><a href="https://dribbble.com/chrisbergr" title="chrisbergr on Dribbble" rel="me" class="url u-url">Dribbble</a></li>
+							<li class="behance"><a href="https://behance.net/chrisbergr" title="chrisbergr on Behance" rel="me" class="url u-url">Behance</a></li>
+							<li class="linkedin"><a href="https://www.linkedin.com/in/christian-hockenberger/" title="Christian Hockenberger on LinkedIn" rel="me" class="url u-url">LinkedIn</a></li>
+							<li class="github"><a href="https://github.com/chrisbergr" title="chrisbergr on GitHub" rel="me" class="url u-url">GitHub</a></li>
+							<li class="youtube"><a href="https://youtube.me/princeofdune" title="Christian Hockenberger on YouTube" rel="me" class="url u-url">YouTube</a></li>
+							<li class="flickr"><a href="https://flickr.com/chrisbergr" title="chrisbergr on Flickr" rel="me" class="url u-url">Flickr</a></li>
+							<li class="foursquare"><a href="https://foursquare.com/chrisbergr" title="chrisbergr on Foursquare" rel="me" class="url u-url">Foursquare</a></li>
 						</ul>
 					</div>
 				</div>
@@ -167,11 +170,14 @@ function my_theme_footer_backlink() {
 				</p>
 			</div>
 			<div class="gototop">
-				<p>
+				<!--<p>
 					<a href="#Top" class="scrolltopFunc">
 						<i class="iconberger iconberger-up"></i> Top
 					</a>
-				</p>
+				</p>-->
+				<a href="https://xn--sr8hvo.ws/%E2%9C%92%EF%B8%8F%F0%9F%9A%A4%F0%9F%90%89/previous">←</a>
+				An IndieWeb Webring 🕸💍
+				<a href="https://xn--sr8hvo.ws/%E2%9C%92%EF%B8%8F%F0%9F%9A%A4%F0%9F%90%89/next">→</a>
 			</div>
 		</nav>
 	</div>
@@ -297,7 +303,7 @@ add_filter( 'wpseo_title', 'my_default_seo_title', 10, 1 );
 
 function exclude_category( $query ) {
     if ( $query->is_feed ) {
-        $query->set('cat', '-206, -208, -214');
+        $query->set( 'cat', '-206, -208, -214' );
     }
 	return $query;
 }
@@ -645,47 +651,53 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 
 function now_card() {
 
-	$curl = curl_init( 'http://explorer.localhost/api/current-location/' );
-	curl_setopt( $curl, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json' ) );
-	curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-	$result_location = curl_exec( $curl );
-	curl_close( $curl );
-	$result_location = json_decode( $result_location );
-	$current_place = $result_location->current_place;
-	$location = preg_replace( '#(\s*<br\s*/?>)*\s*$#i', '', nl2br( $result_location->current_place_f ) );
-	//print_r($result_location);
-	?>
+	if ( is_front_page() && is_home() ) :
 
-	<div class="now-card">
-		<div class="content-card">
+		//$curl = curl_init( 'http://explorer.localhost/api/current-location/' );
+		$curl = curl_init( 'https://location.cho.bz/api/current-location/' );
+		curl_setopt( $curl, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json' ) );
+		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+		$result_location = curl_exec( $curl );
+		curl_close( $curl );
+		$result_location = json_decode( $result_location );
+		$current_place = $result_location->current_place;
+		$location = preg_replace( '#(\s*<br\s*/?>)*\s*$#i', '', nl2br( $result_location->current_place_f ) );
+		//print_r($result_location);
+		?>
 
-			<div class="content-card-section section-left">
+		<div class="now-card">
+			<h2>cho.bz/now</h2>
+			<div class="content-card">
 
-				<?php if ( $current_place->has_image ) : ?>
-				<img src="<?=$current_place->image?>" class="map-static">
-				<img src="<?=$current_place->image_wide?>" class="map-wide-static">
-				<?php endif; ?>
+				<div class="content-card-section section-left">
+
+					<?php if ( $current_place->has_image ) : ?>
+					<img src="<?=$current_place->image?>" class="map-static">
+					<img src="<?=$current_place->image_wide?>" class="map-wide-static">
+					<?php endif; ?>
+
+				</div>
+				<div class="content-card-section section-center">
+
+					<p class="smaller">CURRENT LOCATION:</p>
+					<p class="address-formated"><?php if ( $current_place->name ) : ?><strong><?php echo $current_place->name; ?></strong><br><?php endif; ?><?php echo $location; ?></p>
+					<p class="smaller">
+						<a class="address--link" href="https://www.google.com/maps/search/<?=$current_place->coordinates?>" target="_blank" title="View on Google Maps"><?=$current_place->coordinates?></a><br>
+					</p>
+
+				</div>
+				<div class="content-card-section section-right">
+
+					I am working on displaying the current weather at my location in this column. This will also be a teaser of my Now-Page.
+
+				</div>
 
 			</div>
-			<div class="content-card-section section-center">
-
-				<p class="smaller">CURRENT LOCATION:</p>
-				<p><?php if ( $current_place->name ) : ?><strong><?php echo $current_place->name; ?></strong><br><?php endif; ?><?php echo $location; ?></p>
-				<p class="smaller">
-					<a class="address--link" href="https://www.google.com/maps/search/<?=$current_place->coordinates?>" target="_blank" title="View on Google Maps"><?=$current_place->coordinates?></a><br>
-				</p>
-
-			</div>
-			<div class="content-card-section section-right">
-
-				weather
-
-			</div>
-
 		</div>
-	</div>
 
-	<?php
+		<?php
+
+	endif;
 
 }
 add_action( 'themeberger_after_header', 'now_card' );

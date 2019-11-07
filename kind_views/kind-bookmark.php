@@ -54,7 +54,7 @@ if ( array_key_exists( 'published', $cite ) ) {
 	$published = human_time_diff( date( 'U', strtotime( $cite[ 'published' ] ) ), current_time( 'timestamp' ) );
 	$published = sprintf(
 		_x( '<span class="response-date">%s</span>', '%s = human-readable time difference', '@@textdomain' ),
-		'<a class="u-in-reply-to" rel="in-reply-to" href="' . $url . '">' . $published . ' ago</a>'
+		'<a class="u-url" href="' . $url . '">' . $published . ' ago</a>'
 	);
 }
 

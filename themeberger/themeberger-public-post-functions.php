@@ -538,3 +538,27 @@ function the_content_meta( $echo = true ) {
 	echo $output;
 
 }
+
+
+
+if ( ! function_exists( 'the_kicker' ) && ! is_admin() ) :
+
+	function the_kicker() {
+		return;
+	}
+	function get_the_kicker() {
+		return;
+	}
+
+endif;
+
+if ( ! function_exists( 'the_subtitle' ) && ! is_admin() ) :
+
+	function the_subtitle() {
+		return;
+	}
+	function get_the_subtitle() {
+		return;
+	}
+
+endif;

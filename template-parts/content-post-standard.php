@@ -185,17 +185,31 @@ if ( is_single() ) {
 
 		<header class="entry-header">
 			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
+			<h6 class="entry-kicker"><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></h6>
 			<?php if ( is_singular() ) : ?>
 				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
 			<?php else : ?>
 				<?php the_title( '<h2 class="entry-title p-name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 			<?php endif; ?>
-			<?php if ( has_excerpt() ) : ?>
-			<h4 class="entry-intro"><?php the_excerpt( '' ); ?></h4>
-			<?php endif; ?>
+			<?php the_subtitle( '<h4 class="entry-subtitle">', '</h4>' ); ?>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content e-content" itemprop="articleBody">
+			<?php if ( has_excerpt() ) : ?>
+			<p><?php the_excerpt( '' ); ?></p>
+			<p><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
+			); ?></a></p>
+			<?php else: ?>
 			<?php
 			the_content(
 				sprintf(
@@ -211,7 +225,6 @@ if ( is_single() ) {
 					get_the_title()
 				)
 			);
-
 			wp_link_pages(
 				array(
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
@@ -219,18 +232,19 @@ if ( is_single() ) {
 				)
 			);
 			?>
+			<?php endif; ?>
 		</div><!-- .entry-content -->
 
 		<?php do_action( 'themeberger_after_entry_content' ); ?>
 
-		<?php if ( is_single() || $approved_comments > 0 ) : ?>
+		<?php //if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
 			<?php if ( is_single() ) : ?>
 				<?php get_template_part( 'template-parts/partial-entry-footer-single', $post_type_slug ); ?>
 			<?php endif; ?>
 			<?php get_template_part( 'template-parts/partial-interactions', $post_type_slug ); ?>
 		</footer><!-- .entry-footer -->
-		<?php endif; ?>
+		<?php //endif; ?>
 
 	</div><!-- .content-card -->
 
