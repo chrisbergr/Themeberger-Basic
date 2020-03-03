@@ -20,14 +20,15 @@
 	<div class="homepage-image"><?php the_post_thumbnail(); ?></div>
 	<?php endif; ?>
 
-	<header class="homepage-header">
-		<h2 class="homepage-title"><?php echo get_the_title(); ?></h2>
-	</header><!-- .entry-header -->
+	<section class="homepage-content-container">
+		<header class="homepage-header">
+			<h2 class="homepage-title"><?php echo get_the_title(); ?></h2>
+		</header><!-- .entry-header -->
+		<div class="homepage-content">
+			<?php the_content(); ?>
+		</div><!-- .entry-content -->
+	</section>
 
-	<div class="homepage-content">
-		<?php the_content(); ?>
-	</div><!-- .entry-content -->
-
-	<div class="background-block full-width-block" style="background-color: #fff;"></div>
+	<div class="background-block full-width-block"></div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

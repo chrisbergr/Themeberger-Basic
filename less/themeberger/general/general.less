@@ -4,7 +4,14 @@ html {
 	-webkit-text-size-adjust: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	width: 100vw;
+	//width: 100vw;
+	width: 100%;
+
+	*,
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
 }
 body {
 	margin: 0;
@@ -13,11 +20,6 @@ body {
 	margin-bottom: 0 !important;
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
 
 hr {
 	//--global-border-color: e("hsla(var(--color-secondary), var(--global-saturation), var(--global-lightness), var(--global-alpha))");

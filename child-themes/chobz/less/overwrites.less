@@ -35,12 +35,31 @@
 }
 
 .home .site-header{
-	display: none;
+	//display: none;
+	padding: 0px !important;
+	height: 0px !important;
+	overflow: hidden !important;
 }
 .homepage-header{
 	display: none;
 }
-.homepage .homepage-content{
-	overflow: hidden;
+.homepage{
 	min-height: 100vh;
+	.m1-md({
+		padding: 0 75px;
+		padding: 0 var(--ui-size);
+	});
+}
+.homepage .homepage-content{
+}
+.homepage .homepage-content-container{
+	.flex-flow(row nowrap);
+}
+
+
+.site{
+	padding-top: var(--ui-size);
+	.m1-md({
+		padding-top: 0;
+	});
 }

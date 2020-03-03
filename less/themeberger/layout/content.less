@@ -53,22 +53,121 @@
 }
 .homepage{
 	margin-top: 0 !important;
+	padding: 0 50px;
+	width: 100%;
+	overflow: hidden;
+	.homepage-image{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: 2;
+		opacity: 0.25;
+		img {
+			position: absolute;
+			max-width: none;
+			min-width: 1000%;
+			min-height: 1000%;
+			height: auto;
+			width: auto;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%) scale(0.1);
+			z-index: -1;
+		}
+	}
 	.homepage-content,
 	.homepage-header{
 		position: relative;
 		z-index: 5;
 		width: 100%;
+		h1,
+		.homepage-title{
+			color: var(--global-brand-color);
+			font-size: 105px;
+			letter-spacing: -6px;
+			font-weight: bold;
+			line-height: 1;
+			margin-top: 0;
+			margin-bottom: 100px;
+			.m1-sm({
+				max-width: 700px;
+			});
+		}
+		p{
+			color: var(--header-text-color);
+			font-size: 22px;
+			font-weight: normal;
+			line-height: 1.2;
+			margin-bottom: 32px;
+			margin-top: 0;
+			&:last-child{
+				margin-bottom: 0;
+			}
+			.m1-sm({
+				max-width: 50%;
+			});
+		}
+		a{
+			position: relative;
+			display: inline-block;
+			.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+			color: inherit;
+			border-bottom: var(--global-brand-color) 2px solid;
+			text-decoration: none;
+			padding-bottom: 3px;
+			&::after{
+				display: inline-block;
+				content: "\2192";
+				position: absolute;
+				right: 5px;
+				bottom: -12px;
+				.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+				color: var(--global-brand-color);
+				opacity: 0;
+			}
+			&:hover,
+			&:focus,
+			&:active{
+				color: var(--global-brand-color);
+				border-bottom: transparent 2px solid;
+				&::after{
+					right: -30px;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.homepage-content-container{
+		position: relative;
+		z-index: 4;
 		max-width: 980px;
 		margin: 0 auto;
+		padding: 50px 0;
+		.flex-display();
+		.flex-flow(column);
+		.justify-content(center);
+		.align-items(center);
+		min-height: 100vh;
+	}
+	.homepage-content{
+		//position: absolute;
+		//top: 50%;
+		//.translateY(-50%);
+		.flex(1);
 	}
 	.background-block{
-		background-color: purple !important;
+		background-color: black;
+		background-color: var(--header-background-color);
 	}
 	.homepage-title{
 		margin-top: 0;
 	}
 }
 .subcontent{
+	overflow: hidden;
 	.subcontent-content,
 	.subcontent-header{
 		position: relative;

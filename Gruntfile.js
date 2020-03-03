@@ -106,7 +106,7 @@ module.exports = function (grunt) {
 							"advanced": true
 						})
 					],
-					sourceMap: false
+					sourceMap: true
 				},
 				files: {
 					"./child-themes/chobz/assets/chobz.min.css": "./child-themes/chobz/less/index.less"

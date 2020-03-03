@@ -17,24 +17,21 @@
 	color: black;
 	color: var(--ui-color);
 	//mix-blend-mode: luminosity;
-//	mix-blend-mode: difference;
-	//filter: e('invert(1) grayscale(1) contrast(5)');
-	//filter: e('invert(1) contrast(5)');
-	//filter: e('contrast(5) invert(1)');
-//	filter: e('invert(1) grayscale(1) contrast(9)');
-	//color: black;
+	background-color: transparent;
+	/*
+	.home &{
+		--ui-color: grey;
+		--ui-background-color: white;
+		mix-blend-mode: difference;
+		filter: e('invert(1) grayscale(1) contrast(9)');
+		.chobz-ui--left,
+		.chobz-ui--right{
+			.drop-shadow(0,0,0,0,0);
+		}
+	}
+	/**/
 	.m1-md({
 		position: fixed;
-		//height: 100%;
-		.admin-bar &{
-			height: e('calc(100% - 32px)');
-			margin-top: 32px;
-		}
-	});
-	.max-md({
-		.admin-bar &{
-			margin-top: 46px;
-		}
 	});
 	a{
 		text-decoration: none;
@@ -88,6 +85,7 @@
 		height: 75px;
 		height: var(--ui-size);
 		z-index: 5;
+		overflow: hidden;
 		.m1-md({
 			width: 75px;
 			width: var(--ui-size);
@@ -376,7 +374,7 @@ e('@media screen\0 {');
 		.translate-rotate(9%,0,90deg) !important;
 	}
 e('}');
-
+/*
 .site{
 	.max-md({
 		.admin-bar &{
@@ -385,6 +383,7 @@ e('}');
 		}
 	});
 }
+*/
 
 .taxonomy-description,
 .site-header,
@@ -469,19 +468,35 @@ e('}');
 		width: auto;
 		height: auto;
 		text-transform: uppercase;
+		&.aside{
+			a{
+				font-size: 20px;
+				font-weight: normal;
+				opacity: 0.5;
+			}
+		}
 	}
 	& > .menu-item{
+		margin-top: 20px;
 		a{
+			font-size: 50px;
+			font-weight: bold;
+			/*
 			font-size: 2em;
 			.m1-md({
 				font-size: 5em;
 			});
+			*/
 		}
 	}
 	.sub-menu{
 		.clearfix();
+		margin-top: -10px;
 		padding-bottom: 20px;
+		margin-left: 0;
+		padding-left: 0;
 		& > .menu-item{
+			text-transform: none;
 			.m1-md({
 				float: left;
 				margin-right: 20px;
@@ -490,10 +505,14 @@ e('}');
 				margin-right: 0;
 			}
 			a{
+				font-size: 30px;
+				font-weight: normal;
+				/*
 				font-size: 1em;
 				.m1-md({
 					font-size: 2em;
 				});
+				*/
 			}
 		}
 	}
@@ -510,12 +529,15 @@ body.display-fullmenu {
 */
 
 body{
-	position: static;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	//position: static;
+	//overflow-y: scroll;
+	//overflow-x: hidden;
 }
 .display-search,
 .display-fullmenu{
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
