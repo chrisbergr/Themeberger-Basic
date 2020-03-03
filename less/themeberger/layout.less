@@ -33,6 +33,7 @@
 }
 
 .background-block{
+	//display: none !important;
 	position: absolute !important;
 	top: 0;
 	left: 0;
@@ -40,6 +41,9 @@
 	height: 100%;
 	background-color: inherit;
 	z-index: 1 !important;
+	&.behind{
+		z-index: -1 !important;
+	}
 }
 
 .content-card .entry-content.page-content{

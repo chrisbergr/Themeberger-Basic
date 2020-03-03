@@ -185,7 +185,7 @@ if ( is_single() ) {
 
 		<header class="entry-header">
 			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
-			<h6 class="entry-kicker"><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></h6>
+			<h6 class="entry-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></h6>
 			<?php if ( is_singular() ) : ?>
 				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
 			<?php else : ?>

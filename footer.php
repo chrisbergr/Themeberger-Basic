@@ -21,13 +21,5 @@
 
 		<?php wp_footer(); ?>
 
-		<script>
-			jQuery( 'h1, h2, h3, h4, .menu-item a' ).each( function() {
-				if ( jQuery( this ).css( 'text-transform' ) === 'uppercase' ) {
-					jQuery( this ).html( jQuery( this ).html().replace( /ß/g, 'ẞ' ) );
-				}
-			} );
-		</script>
-
 	</body>
 </html>

@@ -45,6 +45,10 @@ get_header(); ?>
 							$this_format = get_post_format() ? : 'standard';
 							$this_kind   = 'note';
 
+							if ( ! is_home() && is_front_page() ) {
+								$this_kind = 'homepage';
+							}
+
 							if ( function_exists('has_post_kind') && has_post_kind() ) {
 								$this_kind = strtolower( get_post_kind() );
 							}
@@ -84,6 +88,8 @@ get_header(); ?>
 				<?php do_action( 'themeberger_after_primary' ); ?>
 
 				<?php get_sidebar(); ?>
+
+				<?php /*<div class="background-block behind full-width-block"></div>*/ ?>
 
 			</div><!-- #content -->
 

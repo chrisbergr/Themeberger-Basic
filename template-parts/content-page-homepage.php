@@ -14,17 +14,17 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="content subcontent"<?php //post_class( 'content subcontent' ); ?>>
+<article id="post-<?php the_ID(); ?>" class="content homepage"<?php //post_class( 'content homepage' ); ?>>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-	<div class="subcontent-image"><?php the_post_thumbnail(); ?></div>
+	<div class="homepage-image"><?php the_post_thumbnail(); ?></div>
 	<?php endif; ?>
 
-	<header class="subcontent-header">
-		<h2 class="subcontent-title"><?php echo get_the_title(); ?></h2>
+	<header class="homepage-header">
+		<h2 class="homepage-title"><?php echo get_the_title(); ?></h2>
 	</header><!-- .entry-header -->
 
-	<div class="subcontent-content">
+	<div class="homepage-content">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 

@@ -68,6 +68,19 @@ if ( ! function_exists( 'header_style' ) ) {
 							<?php endif; ?>
 						<?php endif; ?>
 
+						<?php if ( ! is_front_page() && is_home() ) : //blog index ?>
+							<h1 class="page-title"><?php single_post_title(); ?></h1>
+						<?php endif; ?>
+
+						<?php if ( is_front_page() && ! is_home() ) : //homepage ?>
+							<?php $description = get_bloginfo( 'description', 'display' ); ?>
+							<?php if ( $description || is_customize_preview() ) : ?>
+								<h1 class="page-title">
+									<?php echo esc_html( $description ); ?>
+								</h1>
+							<?php endif; ?>
+						<?php endif; ?>
+
 						<?php if ( is_category() || is_archive() ) : ?>
 							<?php the_archive_title( '<h1 class="site-description">', '</h1>' ); ?>
 						<?php endif; ?>
@@ -105,7 +118,9 @@ if ( ! function_exists( 'header_style' ) ) {
 								$template = $this_type . '-' . $this_format;
 							?>
 							<?php if ( 'post-standard' === $template ) : ?>
+							<h6 class="entry-kicker page-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></h6>
 							<?php the_title( '<h1 class="entry-title page-title">', '</h1>' ); ?>
+							<?php the_subtitle( '<h4 class="entry-subtitle page-subtitle">', '</h4>' ); ?>
 							<?php endif; ?>
 						<?php endif; ?>
 

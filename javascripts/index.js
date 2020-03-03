@@ -4,7 +4,16 @@
  * @package themebergerbasic
  */
 
-console.log( ':)' );
+console.log( 'Themeberger Basic :)' );
+
+var tb = jQuery;
+var versal_sz_search = 'h1, h2, h3, h4, .menu-item a';
+
+tb( versal_sz_search ).each( function() {
+	if ( tb( this ).css( 'text-transform' ) === 'uppercase' ) {
+		tb( this ).html( tb( this ).html().replace( /ß/g, 'ẞ' ) );
+	}
+} );
 
 /*
 

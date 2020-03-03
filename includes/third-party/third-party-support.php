@@ -31,14 +31,15 @@ function manipulate_response_display ( $content ) {
 if ( function_exists ( 'get_post_syndication_links' ) ) :
 
 	function remove_syndication_view() {
-		if ( is_single() || is_singular() ) {
-			remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
-		}
+		remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
 	}
-	add_action( 'wp_loaded', 'remove_syndication_view' );
+	//add_action( 'wp_loaded', 'remove_syndication_view' );
+	add_action( 'init', 'remove_syndication_view', 11 );
 
 	function add_syndication_view() {
-		echo '<div id="syndication-links">' . get_post_syndication_links() . '</div>';
+		if ( is_single() || is_singular() ) {
+			echo '<div id="syndication-links">' . get_post_syndication_links() . '</div>';
+		}
 	}
 	add_action( 'themeberger_entry_footer', 'add_syndication_view', 50 );
 

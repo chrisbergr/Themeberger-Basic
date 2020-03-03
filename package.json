@@ -2,7 +2,7 @@
 	"name": "themebergerbasic",
 	"themeName": "Themeberger Basic",
 	"textdomain": "themeberger-basic",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"year": "2019",
 	"description": "WordPress Theme",
 	"tags": "custom-background, custom-colors, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, sticky-post",
@@ -29,6 +29,7 @@
 		"coffee-script": "^1.7.1",
 		"grunt": "^0.4.5",
 		"grunt-contrib-less": "^1.4.1",
+		"grunt-contrib-uglify": "^4.0.1",
 		"grunt-text-replace": "^0.4.0",
 		"less-plugin-clean-css": "^1.5.1"
 	},
