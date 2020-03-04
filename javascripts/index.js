@@ -15,6 +15,15 @@ tb( versal_sz_search ).each( function() {
 	}
 } );
 
+tb( '.homepage-content a' ).hover(
+	function() {
+		tb( '.homepage-image' ).addClass( 'fadein' );
+	},
+	function() {
+		tb( '.homepage-image' ).removeClass( 'fadein' );
+	}
+);
+
 /*
 
 const COLOR_LIST = ['#7f00ff', '#ff00ff', '#0000ff', '#007fff', '#00ffff'];

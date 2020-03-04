@@ -12,6 +12,8 @@
  	$content_image = false;
  }
 
+ $subpage_content = get_the_content();
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="content subcontent demo-1 cda-alignright cda-naked cda-noimg"<?php //post_class( 'content subcontent' ); ?>>
@@ -25,12 +27,6 @@
 		<h2 class="subcontent-title"><?php echo get_the_title(); ?></h2>
 	</header><!-- .entry-header -->
 	*/ ?>
-
-
-	<div class="subcontent-content">
-		<?php the_content(); ?>
-	</div><!-- .entry-content -->
-
 
 	<div class="scrollarea">
 		<div class="scrollarea-header">
@@ -52,45 +48,7 @@
 							<span class="slide-subtitle"><?php the_subtitle(); ?></span>
 						</div>
 						<div class="slide-meta">
-							<a href="<?php the_permalink(); ?>">Read article</a>
-						</div>
-					</li>
-					<?php endif; ?>
-				<?php endwhile; ?>
-				<?php wp_reset_postdata(); ?>
-			<?php endif; ?>
-
-			<?php if ( $the_query->have_posts() ) : ?>
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					<?php if ( has_post_thumbnail() ) : ?>
-					<li class="slide">
-						<div class="slide-image-wrapper"><img class="slide-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>"></div>
-						<div class="slide-description">
-							<span class="slide-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></span>
-							<span class="slide-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
-							<span class="slide-subtitle"><?php the_subtitle(); ?></span>
-						</div>
-						<div class="slide-meta">
-							<a href="<?php the_permalink(); ?>">Read article</a>
-						</div>
-					</li>
-					<?php endif; ?>
-				<?php endwhile; ?>
-				<?php wp_reset_postdata(); ?>
-			<?php endif; ?>
-
-			<?php if ( $the_query->have_posts() ) : ?>
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					<?php if ( has_post_thumbnail() ) : ?>
-					<li class="slide">
-						<div class="slide-image-wrapper"><img class="slide-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>"></div>
-						<div class="slide-description">
-							<span class="slide-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></span>
-							<span class="slide-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
-							<span class="slide-subtitle"><?php the_subtitle(); ?></span>
-						</div>
-						<div class="slide-meta">
-							<a href="<?php the_permalink(); ?>">Read article</a>
+							<a href="<?php the_permalink(); ?>" class="readmore">Read article</a>
 						</div>
 					</li>
 					<?php endif; ?>
@@ -101,7 +59,11 @@
 		</ul>
 	</div>
 
-	<div class="background-block full-width-block" style="background-color: #fff;"></div>
+	<div class="subcontent-content">
+		<?php echo $subpage_content; ?>
+	</div><!-- .entry-content -->
+
+	<div class="background-block full-width-block"></div>
 
 <?php /*
 

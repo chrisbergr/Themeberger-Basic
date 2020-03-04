@@ -29,6 +29,17 @@
 	--ui-fullmenu-color: white;
 }
 
+@media screen and (prefers-color-scheme: dark) {
+
+	:root {
+		--ui-color: white;
+		--ui-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
+		--ui-search-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
+		--ui-fullmenu-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
+		--ui-fullmenu-color: white;
+	}
+}
+
 :focus {
 	outline: none !important;
 }

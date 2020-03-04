@@ -106,6 +106,41 @@
 	--article-headline-color: e("hsla(var(--color-primary), var(--saturation-more), var(--lightness-morest), var(--global-alpha))");
 
 }
+@media screen and (prefers-color-scheme: dark) {
+
+	:root {
+
+	    --global-background-color: e("hsla(var(--color-primary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
+		--global-section-color: e("hsla(var(--color-secondary), var(--saturation-lesser), var(--lightness-lessest), var(--global-alpha))");
+	    --global-text-color: e("hsla(var(--color-primary), var(--saturation-lesser), var(--lightness-more), var(--global-alpha))");
+	    --global-headline-color: e("hsla(var(--color-primary), var(--saturation-min), var(--lightness-max), var(--global-alpha))");
+	    --global-text-alt: e("hsla(var(--color-primary), var(--saturation-min), var(--lightness-more), var(--global-alpha))");
+		--global-link-color: e("hsla(var(--color-secondary), var(--global-saturation), var(--global-lightness), var(--global-alpha))");
+		--global-link-bright: e("hsla(var(--color-secondary), var(--saturation-max), var(--lightness-morest), var(--global-alpha))");
+		--global-link-brighter: e("hsla(var(--color-secondary), var(--saturation-max), var(--lightness-max), var(--global-alpha))");
+		--global-link-active: e("hsla(var(--color-secondary), var(--global-saturation), var(--lightness-less), var(--global-alpha))");
+		--global-link-background: e("hsla(var(--color-secondary), var(--global-saturation), var(--lightness-lesser), var(--global-alpha))");
+		--global-border-color: e("hsla(var(--color-secondary), var(--saturation-lesser), var(--global-lightness), var(--alpha-min))");
+
+		--header-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
+		--header-text-color: e("hsla(var(--color-primary), var(--saturation-min), var(--lightness-max), var(--global-alpha))");
+		--header-menu-color: var(--global-link-color);
+
+		--footer-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
+		--footer-text-color: e("hsla(var(--color-primary), var(--saturation-min), var(--lightness-more), var(--global-alpha))");
+		--footer-menu-color: e("hsla(var(--color-primary), var(--saturation-min), var(--lightness-max), var(--global-alpha))");
+
+		--article-section-color: e("hsla(var(--color-primary), var(--saturation-lesser), var(--lightness-lessest), var(--global-alpha))");
+		--article-text-alt: e("hsla(var(--color-primary), var(--saturation-lesser), var(--global-lightness), var(--global-alpha))");
+		--article-headline-color: e("hsla(var(--color-primary), var(--saturation-more), var(--lightness-morest), var(--global-alpha))");
+
+	}
+	.scrollarea-arrows .arrow:before{
+		-webkit-filter: brightness(100);
+		filter: brightness(100);
+	}
+
+}
 :root[theme='debug'] {
 
     --global-saturation: 50%;
