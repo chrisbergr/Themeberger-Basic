@@ -1,15 +1,35 @@
 	/* VALUES */
 
-
+	/*
+	var close_overlay = close_overlay_default;
+	function open_overlay() {
+		if ( ! $body.hasClass( class_moved ) ) {
+			close_overlay = close_overlay_scrolled;
+			$body.addClass( class_moved );
+			return;
+		}
+		close_overlay = close_overlay_default;
+		return;
+	}
+	function close_overlay_scrolled() {
+		$body.removeClass( class_moved );
+		close_overlay = close_overlay_default;
+		return;
+	}
+	function close_overlay_default() {
+		return;
+	}
+	*/
 
 	/* MENU */
 
 	function hamburger_close() {
 		$ui_fullmenu.removeClass( class_scrollable );
-		$page.removeClass( class_display_fullmenu );
+		$body.removeClass( class_display_fullmenu );
 		$masthead.css( property_margin_top, 0 );
 		native_scrollto( 0, scrolltop );
 		is_menu_open = false;
+		//close_overlay();
 	}
 	function hamburger_open() {
 		if ( is_search_open ) {
@@ -17,11 +37,12 @@
 		}
 		scrolltop = document.documentElement.scrollTop;
 		$masthead.css( property_margin_top, -(scrolltop) + unit_px );
-		$page.addClass( class_display_fullmenu );
+		$body.addClass( class_display_fullmenu );
 		$ui_fullmenu.removeClass( class_scrollable ).delay( 250 ).queue( function() {
 			chobz( this ).addClass( class_scrollable ).dequeue();
 		} );
 		is_menu_open = true;
+		//open_overlay();
 	}
 	function hamburger( e ) {
 		e.preventDefault();
@@ -36,10 +57,11 @@
 	/* SEARCH */
 
 	function lens_close() {
-		$page.removeClass( class_display_search );
+		$body.removeClass( class_display_search );
 		$masthead.css( property_margin_top, 0 );
 		native_scrollto( 0, scrolltop );
 		is_search_open = false;
+		//close_overlay();
 	}
 	function lens_open() {
 		if ( is_menu_open ) {
@@ -47,8 +69,9 @@
 		}
 		scrolltop = document.documentElement.scrollTop;
 		$masthead.css( property_margin_top, -(scrolltop) + unit_px );
-		$page.addClass( class_display_search );
+		$body.addClass( class_display_search );
 		is_search_open = true;
+		//open_overlay();
 	}
 	function lens( e ) {
 		e.preventDefault();

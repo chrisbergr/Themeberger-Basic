@@ -24,14 +24,14 @@
 			border-bottom: none;
 		}
 	}
-	
+
 	.mejs-container,
 	.mejs-container .mejs-controls,
 	.mejs-embed,
 	.mejs-embed body {
 		background: #f4f5f6;
 	}
-	
+
 	.mejs-button{
 		button{
 			box-shadow: none;
@@ -40,7 +40,7 @@
 			background-color: #f03;
 		}
 	} //mejs-play
-	
+
 	.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total,
 	.mejs-controls .mejs-time-rail .mejs-time-total{
 		background-color: #999;
@@ -72,4 +72,21 @@
 .wp-block-embed{
 	margin-top: 0;
 	margin-bottom: 0;
+	&.is-type-video{
+		margin-bottom: 1.5em;
+		.wp-block-embed__wrapper{
+			position: relative;
+			padding-bottom: 56.25%;
+			height: 0;
+			overflow: hidden;
+			iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+	}
 }

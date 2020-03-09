@@ -106,7 +106,7 @@ module.exports = function (grunt) {
 							"advanced": true
 						})
 					],
-					sourceMap: true
+					sourceMap: false
 				},
 				files: {
 					"./child-themes/chobz/assets/chobz.min.css": "./child-themes/chobz/less/index.less"
@@ -162,6 +162,7 @@ module.exports = function (grunt) {
 						'assets/themeberger-basic.min.js',
 						'child-themes/chobz/javascript/chobz.js',
 						'child-themes/chobz/javascript/chobz-ui.js',
+						'child-themes/chobz/javascript/chobz-scroll.js',
 						'child-themes/chobz/javascript/chobz-slider.js'
 					]
 				}

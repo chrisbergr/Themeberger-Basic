@@ -118,7 +118,7 @@ if ( ! function_exists( 'header_style' ) ) {
 								$template = $this_type . '-' . $this_format;
 							?>
 							<?php if ( 'post-standard' === $template ) : ?>
-							<h6 class="entry-kicker page-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></h6>
+							<h6 class="entry-category-date page-category-date"><?php the_permalink_date( '', '<br>', false ); ?><?php the_category( ', ' ); ?></h6><h6 class="entry-kicker page-kicker"><?php the_kicker(); ?></h6>
 							<?php the_title( '<h1 class="entry-title page-title">', '</h1>' ); ?>
 							<?php the_subtitle( '<h4 class="entry-subtitle page-subtitle">', '</h4>' ); ?>
 							<?php endif; ?>

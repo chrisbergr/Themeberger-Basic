@@ -16,6 +16,13 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	color: var(--global-headline-color);
 	margin-bottom: 1.5em;
+	p + &,
+	ul + &,
+	ol + &,
+	figure + &{
+		margin-top: 2em;
+		margin-bottom: 0.5em;
+	}
 }
 h1 {
 	font-size: 2em;

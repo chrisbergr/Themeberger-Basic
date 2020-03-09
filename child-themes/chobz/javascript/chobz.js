@@ -2,6 +2,8 @@ console.log('chobz');
 
 var chobz = jQuery;
 
+var $window   = chobz( window );
+var $body     = chobz( 'body' );
 var $page     = chobz( '#page' );
 var $masthead = chobz( '#masthead' );
 
@@ -30,6 +32,11 @@ var scrolltop      = 0;
 
 // SLIDER VALUES
 var arrows_disabled_class = 'disabled';
+
+// SCROLL FUNCTIONS
+var chobz_scroll_offset = 10;
+var chobz_class_moved   = 'scrolled';
+var chobz_class_home    = 'home';
 
 /*
 jQuery(document).ready(function() {

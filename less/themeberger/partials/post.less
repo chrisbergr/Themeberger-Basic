@@ -206,6 +206,7 @@
 		a{
 			text-transform: uppercase;
 			font-weight: bold;
+			.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
 			.m1-sm({
 				&::after{
 					content: "";
@@ -214,13 +215,19 @@
 					top: 50%;
 					height: 40px;
 					width: 40px;
+					line-height: 36px;
 					.translateY(-50%);
-					background-position: center center;
-					background-size: contain;
-					background-repeat: no-no-repeat;
+					//background-position: center center;
+					//background-size: contain;
+					//background-repeat: no-no-repeat;
+					text-align: center;
 					opacity: 0.5;
 					border-radius: 50%;
-					background-color: white;
+					background-color: transparent;
+					border: #999 2px solid;
+					font-weight: bold;
+					font-size: 1.2em;
+					.transition(all 0.25s cubic-bezier(1, .3, .3, 1));
 				}
 			});
 			&:hover,
@@ -231,6 +238,7 @@
 					&::after{
 						opacity: 1;
 						background-color: var(--global-link-background);
+						border: var(--global-link-background) 2px solid;
 					}
 				});
 			}
@@ -242,8 +250,9 @@
 				margin-right: 40px;
 				padding-right: 10px;
 				&::after{
+					content: "\2192";
 					right: -40px;
-					background-image: url(images/navigation-arrow-right.svg);
+					//background-image: url(images/navigation-arrow-right.svg);
 				}
 			}
 		});
@@ -254,8 +263,9 @@
 				margin-left: 40px;
 				padding-left: 10px;
 				&::after{
+					content: "\2190";
 					left: -40px;
-					background-image: url(images/navigation-arrow-left.svg);
+					//background-image: url(images/navigation-arrow-left.svg);
 				}
 			}
 		});
@@ -293,6 +303,7 @@
 			line-height: 1;
 			width: 2em;
 			height: 2em;
+			.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
 			&:hover,
 			&:focus,
 			&:active{
@@ -319,18 +330,92 @@
 
 .comment-navigation{
 	position: relative;
-	margin-top: -20px;
-	height: 50px;
+	height: auto;
 	line-height: 50px;
-	background-color: #f4f5f6;
+	padding: 20px 0;
+	padding-bottom: 0;
+	//background-color: #f4f5f6;
 	font-size: 0.8em;
 	color: grey;
 	color: var(--global-text-alt);
+	/*
 	.nav-previous{
 		padding-left: 20px;
 	}
 	.nav-next{
 		padding-right: 20px;
+	}
+	*/
+
+	.nav-previous,
+	.nav-next{
+		a{
+			position: relative;
+			text-transform: uppercase;
+			font-weight: bold;
+			.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+			.m1-sm({
+				&::after{
+					content: "";
+					display: block;
+					position: absolute;
+					top: 50%;
+					height: 30px;
+					width: 30px;
+					line-height: 25px;
+					.translateY(-50%);
+					//background-position: center center;
+					//background-size: contain;
+					//background-repeat: no-no-repeat;
+					text-align: center;
+					opacity: 0.5;
+					border-radius: 50%;
+					background-color: transparent;
+					border: #999 2px solid;
+					font-weight: bold;
+					font-size: 1em;
+					.transition(all 0.25s cubic-bezier(1, .3, .3, 1));
+				}
+			});
+			&:hover,
+			&:focus,
+			&:active{
+				color: var(--global-headline-color);
+				.m1-sm({
+					&::after{
+						opacity: 1;
+						background-color: var(--global-link-background);
+						border: var(--global-link-background) 2px solid;
+					}
+				});
+			}
+		}
+	}
+	.nav-previous{
+		.m1-sm({
+			a{
+				margin-left: 30px;
+				padding-left: 10px;
+				&::after{
+					content: "\2190";
+					left: -30px;
+					//background-image: url(images/navigation-arrow-left.svg);
+				}
+			}
+		});
+	}
+	.nav-next{
+		.m1-sm({
+			a{
+				margin-right: 30px;
+				padding-right: 10px;
+				&::after{
+					content: "\2192";
+					right: -30px;
+					//background-image: url(images/navigation-arrow-right.svg);
+				}
+			}
+		});
 	}
 	a{
 		color: inherit;
@@ -359,7 +444,9 @@
 		font-size: 0.8em;
 		li{
 			display: inline-block;
+			font-weight: bold;
 		}
+		/*
 		a{
 			padding: 7px;
 			pointer-events: auto;
@@ -377,6 +464,44 @@
 			color: black;
 			color: var(--global-headline-color);
 			font-weight: bold;
+		}
+		*/
+		a{
+			&.prev,
+			&.next{
+				display: none;
+			}
+			padding: 7px;
+			pointer-events: auto;
+			color: inherit;
+			text-decoration: none;
+			background-color: transparent;
+			border-radius: 50%;
+			display: inline-block;
+			line-height: 1;
+			width: 2em;
+			height: 2em;
+			.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+			&:hover,
+			&:focus,
+			&:active{
+				color: blue;
+				color: var(--global-headline-color);
+				font-weight: bold;
+				background-color: var(--global-link-background);
+			}
+		}
+		.current{
+			padding: 7px;
+			color: white;
+			color: var(--header-text-color);
+			background-color: blue;
+			background-color: var(--global-link-color);
+			border-radius: 50%;
+			display: inline-block;
+			line-height: 1;
+			width: 2em;
+			height: 2em;
 		}
 	}
 }

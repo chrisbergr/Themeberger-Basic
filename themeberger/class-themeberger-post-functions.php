@@ -50,8 +50,8 @@ class Themeberger_Post_Functions {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string    $plugin_name    The name of this plugin.
+	 * @param      string    $version        The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version, $post ) {
 
@@ -191,7 +191,7 @@ class Themeberger_Post_Functions {
 		$posted_ago = human_time_diff( get_the_time( 'U', $this->post ), current_time( 'timestamp' ) );
 		$posted_ago = sprintf(
 			/* translators: %s = human-readable time difference */
-			_x( '%s ago', '%s = human-readable time difference', 'themeberger-basic' ),
+			_x( '%s ago', '%s = human-readable time difference', 'themeberger' ),
 			$posted_ago
 		);
 		$updated_ago = '';
@@ -202,7 +202,7 @@ class Themeberger_Post_Functions {
 			$updated_ago = human_time_diff( get_the_modified_time( 'U', $this->post ), current_time( 'timestamp' ) );
 			$updated_ago = sprintf(
 				/* translators: %s = human-readable time difference */
-				_x( '%s ago', '%s = human-readable time difference', 'themeberger-basic' ),
+				_x( '%s ago', '%s = human-readable time difference', 'themeberger' ),
 				$updated_ago
 			);
 		}
@@ -234,8 +234,9 @@ class Themeberger_Post_Functions {
 
 		$permalink_title = sprintf(
 			/* translators: 1 = Post Title, 2 = Author Name */
-			esc_html_x( '%1$s by %2$s', 'permalink title', 'themeberger-basic' ),
-			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger-basic' ),
+			esc_html_x( '%1$s by %2$s', 'permalink title', 'themeberger' ),
+			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger' ),
+			//__( 'A post', 'themeberger' ),
 			get_the_author_meta( 'display_name', $this->post->post_author )
 		);
 
@@ -269,6 +270,8 @@ class Themeberger_Post_Functions {
 		return $permalink;
 
 	}
+
+	/* HERE */
 
 	public function get_shorturl( $args = '' ) {
 

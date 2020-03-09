@@ -1,4 +1,6 @@
 
+@import (less) "../../../../wptest/public/wp-includes/css/dist/block-library/style.css";
+
 @import "../../../less/index.less";
 
 //@import "../../../less/common/defaults.less";
@@ -17,9 +19,14 @@
 	--ui-color: black;
 	--ui-background-color: white;
 	--ui-size: 75px;
+	--ui-shadow-opacity: 0.1;
 	--ui-search-background-color: e("hsla(var(--color-special), var(--saturation-special), var(--lightness-special), 0.99)");
 	--ui-fullmenu-background-color: e("hsla(var(--color-special), var(--saturation-special), var(--lightness-special), 0.99)");
 	--ui-fullmenu-color: white;
+
+	--frontpage-ui-color: white;
+	--frontpage-ui-background-color: transparent;
+	--frontpage-ui-shadow-opacity: 0;
 }
 :root[theme='dark'] {
 	--ui-color: white;
@@ -27,6 +34,9 @@
 	--ui-search-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
 	--ui-fullmenu-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
 	--ui-fullmenu-color: white;
+
+	--frontpage-ui-color: white;
+	--frontpage-ui-background-color: transparent;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -37,6 +47,9 @@
 		--ui-search-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
 		--ui-fullmenu-background-color: e("hsla(var(--color-secondary), var(--saturation-min), var(--lightness-lessest), var(--global-alpha))");
 		--ui-fullmenu-color: white;
+
+		--frontpage-ui-color: white;
+		--frontpage-ui-background-color: transparent;
 	}
 }
 
@@ -145,3 +158,91 @@
 		}
 	}
 }
+
+
+.footer-batches{
+	display: none;
+	.m1-md({
+		display: inline-block;
+	});
+	height: 40px;
+	margin-top: 50px;
+	path,
+	polygon,
+	rect{
+		.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+	}
+}
+
+#solidaritaet{
+	&:hover{
+		.solidaritaet-letter{
+			fill: #fff;
+		}
+		.solidaritaet-border{
+			opacity: 0;
+		}
+	}
+}
+#solidaritaet-background{
+	path,
+	polygon,
+	rect{
+		//fill: #fff;
+		fill: transparent;
+	}
+}
+#solidaritaet-yellow{
+	path,
+	polygon,
+	rect{
+		fill: #FFCC00;
+	}
+}
+#solidaritaet-blue{
+	path,
+	polygon,
+	rect{
+		//fill: #004466;
+		//fill: #006191;
+		fill: #5c6468;
+	}
+}
+#solidaritaet-black{
+	path,
+	polygon,
+	rect{
+		//fill: #000;
+		fill: #fff;
+	}
+}
+
+
+#monogram-flag{
+	margin-left: 10px;
+	&:hover{
+		#monogram-flag-white{
+			fill: #FFFFFF;
+		}
+		#monogram-flag-red{
+			fill: #CC0033;
+		}
+		#monogram-flag-blue{
+			//fill: #003366;
+			fill: #0c58a5;
+		}
+	}
+}
+#monogram-flag-white{
+	fill: transparent;
+}
+#monogram-flag-red{
+	fill: #5c6468;
+}
+#monogram-flag-blue{
+	fill: #5c6468;
+}
+
+
+
+/* •·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·• */

@@ -1,0 +1,53 @@
+# Copyright (C) 2019 the WordPress team
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Themeberger Basic 1.2.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/themeberger-basic\n"
+"POT-Creation-Date: 2019-05-07 18:19:59+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-03-07 16:04+0100\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+
+#: template-parts/content-post-standard.php:218
+msgid "Read article"
+msgstr "Artikel lesen"
+
+#: template-parts/content-none.php:17
+msgid "No Contents"
+msgstr "Keine Inhalte"
+
+#: template-parts/content-none.php:18
+msgid "Unfortunately, there is no content available."
+msgstr "Leider sind keine Inhalte verfügbar."
+
+#: template-parts/content-page-standard.php:80
+msgid "Pages:"
+msgstr "Seiten:"
+
+#. translators: %s: human-readable time difference
+#: themeberger/class-themeberger-post-functions.php:194
+msgid "%s ago"
+msgstr "vor %s"
+
+#. translators: %1$s: Post Title. %2$s: Author Name.
+#: themeberger/class-themeberger-post-functions.php:237
+msgid "%1$s by %2$s"
+msgstr "%1$s von %2$s"
+
+#: themeberger/class-themeberger-post-functions.php:238
+msgid "A post"
+msgstr "Ein Beitrag"
+
+#: content-quote.php:51 content-quote.php:63 content-single.php:37
+#: content-single.php:40 content.php:58 inc/content.php:72
+msgid "This gallery contains <a %1$s>%2$s photo</a>."
+msgid_plural "This gallery contains <a %1$s>%2$s photos</a>."
+msgstr[0] ""
+msgstr[1] ""

@@ -132,7 +132,6 @@ if ( is_single() ) {
 				)
 			);
 			?>
-			<div class="background-block full-width-block"></div>
 		</div><!-- .entry-content -->
 
 		<?php do_action( 'themeberger_after_entry_content' ); ?>
@@ -165,6 +164,8 @@ if ( is_single() ) {
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
 
+		<div class="background-block full-width-block"></div>
+
 	</div><!-- .content-card -->
 
 	<?php if ( comments_open() || get_comments_number() ) : ?>
@@ -172,20 +173,22 @@ if ( is_single() ) {
 	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
+
 <?php else : ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
 
-		<?php the_content_meta(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
 
-		<div class="content-supercard type-<?php echo $post_type_slug; ?>">
+	<?php the_content_meta(); ?>
+
+	<div class="content-supercard type-<?php echo $post_type_slug; ?>">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-image"><?php the_post_thumbnail(); ?></div>
+		<div class="entry-image"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
 		<?php endif; ?>
 
 		<header class="entry-header">
 			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
-			<h6 class="entry-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></h6>
+			<?php the_kicker( '<h6 class="entry-kicker">', '</h6>' ); ?>
 			<?php if ( is_singular() ) : ?>
 				<?php the_title( '<h1 class="entry-title p-name">', '</h1>' ); ?>
 			<?php else : ?>
@@ -197,34 +200,9 @@ if ( is_single() ) {
 		<div class="entry-content e-content" itemprop="articleBody">
 			<?php if ( has_excerpt() ) : ?>
 			<p><?php the_excerpt( '' ); ?></p>
-			<p><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			); ?></a></p>
 			<?php else: ?>
 			<?php
-			the_content(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
+			the_content( '' );
 			wp_link_pages(
 				array(
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
@@ -237,16 +215,12 @@ if ( is_single() ) {
 
 		<?php do_action( 'themeberger_after_entry_content' ); ?>
 
-		<?php //if ( is_single() || $approved_comments > 0 ) : ?>
 		<footer class="entry-footer">
-			<?php if ( is_single() ) : ?>
-				<?php get_template_part( 'template-parts/partial-entry-footer-single', $post_type_slug ); ?>
-			<?php endif; ?>
-			<?php get_template_part( 'template-parts/partial-interactions', $post_type_slug ); ?>
+			<a href="<?php the_permalink(); ?>" class="readmore"><?php _e( 'Read article', 'themeberger' ); ?></a>
+			<div class="category-date"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?></div>
 		</footer><!-- .entry-footer -->
-		<?php //endif; ?>
 
-	</div><!-- .content-card -->
+	</div><!-- .content-supercard -->
 
 
 </article><!-- #post-<?php the_ID(); ?> -->

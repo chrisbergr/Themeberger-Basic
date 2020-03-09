@@ -53,10 +53,17 @@
 }
 .homepage{
 	margin-top: 0 !important;
-	padding: 0 50px;
+	padding: 0 2em;
+	.m1-sm({
+		padding: 0 50px;
+	});
 	width: 100%;
 	overflow: hidden;
 	.homepage-image{
+		display: none;
+		.m1-sm({
+			display: block;
+		});
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -91,15 +98,18 @@
 		.homepage-title{
 			color: white;
 			color: var(--global-brand-color);
+			margin-top: 0;
+			margin-bottom: 50px;
 			font-size: 70px;
+			.m1-sm({
+				margin-bottom: 100px;
+			});
 			.m1-md({
 				font-size: 105px;
 			});
 			letter-spacing: -6px;
 			font-weight: bold;
 			line-height: 1;
-			margin-top: 0;
-			margin-bottom: 100px;
 			.m1-sm({
 				max-width: 700px;
 			});
@@ -198,5 +208,14 @@
 	}
 	.subcontent-title{
 		margin-top: 0;
+	}
+	.subcontent-content{
+		padding: 0 1em;
+		.m1-sm({
+			padding: 0 50px;
+		});
+		.m1-md({
+			padding: 0;
+		});
 	}
 }

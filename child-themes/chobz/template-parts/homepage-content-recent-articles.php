@@ -41,15 +41,16 @@
 				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 					<?php if ( has_post_thumbnail() ) : ?>
 					<li class="slide">
-						<div class="slide-image-wrapper"><img class="slide-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>"></div>
+						<a href="<?php the_permalink(); ?>" class="slide-image-wrapper"><img class="slide-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>"></a>
 						<div class="slide-description">
-							<span class="slide-kicker"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?><?php the_kicker( ' | ' ); ?></span>
+							<?php the_kicker( '<span class="slide-kicker">', '</span>' ); ?>
 							<span class="slide-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
 							<span class="slide-subtitle"><?php the_subtitle(); ?></span>
 						</div>
 						<div class="slide-meta">
-							<a href="<?php the_permalink(); ?>" class="readmore">Read article</a>
+							<a href="<?php the_permalink(); ?>" class="readmore"><?php _e( 'Read article', 'themeberger' ); ?></a>
 						</div>
+						<div class="slide-category-date"><?php the_permalink_date( '', ' | ', false ); ?><?php the_category( ', ' ); ?></div>
 					</li>
 					<?php endif; ?>
 				<?php endwhile; ?>
@@ -57,107 +58,12 @@
 			<?php endif; ?>
 
 		</ul>
-	</div>
+	</div><!-- .scrollarea -->
 
 	<div class="subcontent-content">
 		<?php echo $subpage_content; ?>
-	</div><!-- .entry-content -->
+	</div><!-- .subcontent-content -->
 
 	<div class="background-block full-width-block"></div>
-
-<?php /*
-
-	<section class="x-content | scrollarea-ctn">
-	    <div class="scrollarea | slideshow">
-	        <ul class="slideshow-list">
-	            <li class="slideshow-list__el">
-	                <article class="tile | js-tile">
-	                    <a href="#">
-	                        <figure class="tile__fig">
-	                            <img src="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/woods/base.jpg" data-hover="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/woods/hover.jpg" alt="Woods & Forests" class="tile__img">
-	                        </figure>
-	                        <div class="tile__content">
-	                            <h2 class="tile__title | title title--medium ">Woods & <span class="title__offset title__offset--medium">Forests</span></h2>
-	                            <div class="tile__cta">
-	                                <span class="btn-inline">See more</span>
-	                            </div>
-	                        </div>
-	                    </a>
-	                </article>
-	            </li>
-	            <li class="slideshow-list__el">
-	                <article class="tile | js-tile">
-	                    <a href="#">
-	                        <figure class="tile__fig">
-	                            <img src="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/rocks/base.jpg" data-hover="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/rocks/hover.jpg" alt="Rocks & Mountains" class="tile__img">
-	                        </figure>
-	                        <div class="tile__content">
-	                            <h2 class="tile__title | title title--medium ">Rocks & <span class="title__offset title__offset--medium">Mountains</span></h2>
-	                            <div class="tile__cta">
-	                                <span class="btn-inline">See more</span>
-	                            </div>
-	                        </div>
-	                    </a>
-	                </article>
-	            </li>
-	            <li class="slideshow-list__el">
-	                <article class="tile | js-tile">
-	                    <a href="#">
-	                        <figure class="tile__fig">
-	                            <img src="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/cities/base.jpg" data-hover="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/cities/hover.jpg" alt="Cities & Skylines" class="tile__img">
-	                        </figure>
-	                        <div class="tile__content">
-	                            <h2 class="tile__title | title title--medium ">Cities & <span class="title__offset title__offset--medium">Skylines</span>
-	                                </spa>
-	                            </h2>
-	                            <div class="tile__cta">
-	                                <span class="btn-inline">See more</span>
-	                            </div>
-	                        </div>
-	                    </a>
-	                </article>
-	            </li>
-	            <li class="slideshow-list__el">
-	                <article class="tile | js-tile">
-	                    <a href="#">
-	                        <figure class="tile__fig">
-	                            <img src="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/deserts/base.jpg" data-hover="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/deserts/hover.jpg" alt="SAND & DESERTS" class="tile__img">
-	                        </figure>
-	                        <div class="tile__content">
-	                            <h2 class="tile__title | title title--medium ">Sand & <span class="title__offset title__offset--medium">Deserts</span>
-	                                </spa>
-	                            </h2>
-	                            <div class="tile__cta">
-	                                <span class="btn-inline">See more</span>
-	                            </div>
-	                        </div>
-	                    </a>
-	                </article>
-	            </li>
-	            <li class="slideshow-list__el">
-	                <article class="tile | js-tile">
-	                    <a href="#">
-	                        <figure class="tile__fig">
-	                            <img src="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/snow/base.jpg" data-hover="https://tympanus.net/Tutorials/GooeyImageHoverEffects/dist/img/tiles/snow/hover.jpg" alt="Snow & Mountains" class="tile__img">
-	                        </figure>
-	                        <div class="tile__content">
-	                            <h2 class="tile__title | title title--medium ">Snow & <span class="title__offset title__offset--medium">Mountains</span>
-	                                </spa>
-	                            </h2>
-	                            <div class="tile__cta">
-	                                <span class="btn-inline">See more</span>
-	                            </div>
-	                        </div>
-	                    </a>
-	                </article>
-	            </li>
-	        </ul>
-	    </div>
-	    <div class="slideshow__progress-ctn"><span class="slideshow__progress"></span></div>
-	</section>
-
-    <canvas id="scene"></canvas>
-
-*/ ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -61,7 +61,7 @@ $approved_comments = $comments_count->approved;
 		<div class="content-card type-article">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-image xfull-width-block"><?php the_post_thumbnail(); ?></div>
+		<div class="entry-image more-width-block"><?php the_post_thumbnail(); ?></div>
 		<?php endif; ?>
 
 		<?php if ( has_excerpt() ) : ?>
@@ -73,24 +73,11 @@ $approved_comments = $comments_count->approved;
 
 		<div class="entry-content page-content">
 			<?php
-			the_content(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
+			the_content();
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
 					'after'  => '</div>',
 				)
 			);

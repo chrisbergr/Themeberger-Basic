@@ -36,7 +36,8 @@ function chobz_footer_info() {
 							<path d="M1041.9,171h20.9l33.8,69.6l-1.5,1.6V171h16.4v90.8h-21.1l-33.7-68.6l1.5-1.6v70.2h-16.4V171z"></path>
 						</g>
 					</svg>
-				</a>
+				</a><br>
+				<?php do_action( 'themeberger_footer_infobox' ); ?>
 			</div>
 			<div class="footer-infobox-center">
 

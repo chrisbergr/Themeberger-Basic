@@ -1,5 +1,7 @@
 <?php
 
+// TEST: https://cho.bz/b/GU
+
 define( 'CHOBZ_FUNCTIONS', get_stylesheet_directory() . '/includes' );
 define( 'CHOBZ_SETUP', CHOBZ_FUNCTIONS . '/setup' );
 define( 'CHOBZ_INCLUDES', CHOBZ_FUNCTIONS . '/chobz' );
@@ -13,11 +15,14 @@ require_once CHOBZ_INCLUDES . '/chobz-ui.php';
 require_once CHOBZ_INCLUDES . '/footer-navigation.php';
 require_once CHOBZ_INCLUDES . '/footer-info.php';
 require_once CHOBZ_INCLUDES . '/footer-backlink.php';
+require_once CHOBZ_INCLUDES . '/footer-solidaritaet.php';
+require_once CHOBZ_INCLUDES . '/footer-journey.php';
 require_once CHOBZ_INCLUDES . '/banner-dailybooth.php';
 require_once CHOBZ_INCLUDES . '/card-now.php';
 
 require_once CHOBZ_THIRD_PARTY . '/themeberger-breadcrumbs.php';
 require_once CHOBZ_THIRD_PARTY . '/polylang.php';
+require_once CHOBZ_THIRD_PARTY . '/remove-assets.php';
 
 /**/
 

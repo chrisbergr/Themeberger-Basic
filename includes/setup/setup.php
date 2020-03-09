@@ -15,7 +15,7 @@ if ( ! function_exists( 'themebergerbasic_setup' ) ) :
 	 */
 	function themebergerbasic_setup() {
 
-		load_theme_textdomain( 'themeberger-basic', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'themeberger', get_template_directory() . '/languages' );
 
 		add_theme_support( 'automatic-feed-links' );
 

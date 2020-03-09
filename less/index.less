@@ -78,6 +78,9 @@
 	--article-text-alt: e("hsla(var(--color-primary), var(--saturation-lesser), var(--lightness-less), var(--global-alpha))");
 	--article-headline-color: e("hsla(var(--color-primary), var(--saturation-lesser), var(--lightness-lessest), var(--global-alpha))");
 
+	--card-background-color: var(--global-background-color);
+	--card-comments-background-color: var(--global-section-color);
+
 }
 :root[theme='dark'] {
 
@@ -104,6 +107,9 @@
 	--article-section-color: e("hsla(var(--color-primary), var(--saturation-lesser), var(--lightness-lessest), var(--global-alpha))");
 	--article-text-alt: e("hsla(var(--color-primary), var(--saturation-lesser), var(--global-lightness), var(--global-alpha))");
 	--article-headline-color: e("hsla(var(--color-primary), var(--saturation-more), var(--lightness-morest), var(--global-alpha))");
+
+	--card-background-color: e("hsla(var(--color-primary), var(--saturation-min), 10%, var(--global-alpha))");
+	--card-comments-background-color: var(--card-background-color);
 
 }
 @media screen and (prefers-color-scheme: dark) {
@@ -133,6 +139,9 @@
 		--article-section-color: e("hsla(var(--color-primary), var(--saturation-lesser), var(--lightness-lessest), var(--global-alpha))");
 		--article-text-alt: e("hsla(var(--color-primary), var(--saturation-lesser), var(--global-lightness), var(--global-alpha))");
 		--article-headline-color: e("hsla(var(--color-primary), var(--saturation-more), var(--lightness-morest), var(--global-alpha))");
+
+		--card-background-color: e("hsla(var(--color-primary), var(--saturation-min), 10%, var(--global-alpha))");
+		--card-comments-background-color: var(--card-background-color);
 
 	}
 	.scrollarea-arrows .arrow:before{
