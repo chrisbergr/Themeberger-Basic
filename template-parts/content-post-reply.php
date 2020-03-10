@@ -41,7 +41,7 @@ if ( is_single() ) {
 			<?php
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
 					'after'  => '</div>',
 				)
 			);

@@ -89,7 +89,7 @@ if ( ! function_exists( 'header_style' ) ) {
 							<?php
 							$searchtitle = sprintf(
 								/* translators: %s: Search term visible in the title */
-								esc_html__( 'Search Results for &#8220;%s&#8221;', 'themeberger-basic' ),
+								esc_html__( 'Search Results for &#8220;%s&#8221;', 'themeberger' ),
 								get_search_query()
 							);
 							?>
@@ -97,7 +97,7 @@ if ( ! function_exists( 'header_style' ) ) {
 						<?php endif; ?>
 
 						<?php if ( is_404() ) : ?>
-							<h1 class="site-description"><?php _e( '404 - Not found', 'themeberger-basic' ); ?></h1>
+							<h1 class="site-description"><?php _e( '404 - Not found', 'themeberger' ); ?></h1>
 						<?php endif; ?>
 
 						<?php if ( is_page() ) : ?>

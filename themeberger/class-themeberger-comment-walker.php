@@ -68,27 +68,27 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 		$add_below = 'comment';
 		$commenter = wp_get_current_commenter();
 		if ( $commenter['comment_author_email'] ) {
-			$moderation_note = __( 'Your comment is awaiting moderation.', 'themeberger-basic' );
+			$moderation_note = __( 'Your comment is awaiting moderation.', 'themeberger' );
 		} else {
-			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.', 'themeberger-basic' );
+			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.', 'themeberger' );
 		}
 		?>
 		<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'u-comment h-cite parent' : 'u-comment h-cite', $comment ); ?> itemprop="comment" itemscope itemtype="http://schema.org/Comment">
 			<div class="comment-meta" role="complementary">
 				<?php
-
-				$postet_timestamp = get_comment_date( 'c' );
-				$posted_ago       = human_time_diff( get_comment_date( 'U' ), current_time( 'timestamp' ) );
-				$time_out         = sprintf(
-					/* translators: 1: comment date (human time diff), 2: comment timestamp */
-					_x(
-						'<time class="comment-date published" datetime="%2$s" itemprop="datePublished">%1$s ago</time>',
-						'%1$s = human-readable time difference',
-						'themeberger-basic'
-					),
-					$posted_ago,
-					$postet_timestamp
+				$posted_ago = human_time_diff( get_comment_date( 'U' ), current_time( 'timestamp' ) );
+				$posted_ago = sprintf(
+					/* translators: %s = human-readable time difference */
+					esc_html__( '%s ago', 'themeberger' ),
+					$posted_ago
 				);
+				$date_string = '<time class="comment-date published" itemprop="datePublished" datetime="%1$s">%2$s</time>';
+				$time_out = sprintf(
+					$date_string,
+					esc_attr( get_comment_date( 'c' ) ),
+					$posted_ago
+				);
+
 				$time_link = '<a href="#comment-' . get_comment_ID() . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out . '</a>';
 
 				$author_url = get_comment_author_url();

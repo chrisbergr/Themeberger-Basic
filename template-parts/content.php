@@ -79,7 +79,7 @@ $current = $post->post_name;
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -92,7 +92,7 @@ $current = $post->post_name;
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
 				'after'  => '</div>',
 			)
 		);

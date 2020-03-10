@@ -35,7 +35,7 @@
 		if ( is_search_open ) {
 			lens_close();
 		}
-		scrolltop = document.documentElement.scrollTop;
+		scrolltop = get_scroll_position();
 		$masthead.css( property_margin_top, -(scrolltop) + unit_px );
 		$body.addClass( class_display_fullmenu );
 		$ui_fullmenu.removeClass( class_scrollable ).delay( 250 ).queue( function() {
@@ -67,7 +67,7 @@
 		if ( is_menu_open ) {
 			hamburger_close();
 		}
-		scrolltop = document.documentElement.scrollTop;
+		scrolltop = get_scroll_position();
 		$masthead.css( property_margin_top, -(scrolltop) + unit_px );
 		$body.addClass( class_display_search );
 		is_search_open = true;

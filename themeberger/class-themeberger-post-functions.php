@@ -191,18 +191,18 @@ class Themeberger_Post_Functions {
 		$posted_ago = human_time_diff( get_the_time( 'U', $this->post ), current_time( 'timestamp' ) );
 		$posted_ago = sprintf(
 			/* translators: %s = human-readable time difference */
-			_x( '%s ago', '%s = human-readable time difference', 'themeberger' ),
+			esc_html__( '%s ago', 'themeberger' ),
 			$posted_ago
 		);
-		$updated_ago = '';
 
+		$updated_ago = '';
 		$date_string = '<time class="entry-date published updated dt-published dt-updated" itemprop="datePublished dateModified" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U', $this->post ) !== get_the_modified_time( 'U', $this->post ) ) {
 			$date_string = '<time class="entry-date published dt-published" itemprop="datePublished" datetime="%1$s">%2$s</time><time class="updated dt-updated" itemprop="dateModified" datetime="%3$s">%4$s</time>';
 			$updated_ago = human_time_diff( get_the_modified_time( 'U', $this->post ), current_time( 'timestamp' ) );
 			$updated_ago = sprintf(
 				/* translators: %s = human-readable time difference */
-				_x( '%s ago', '%s = human-readable time difference', 'themeberger' ),
+				esc_html__( '%s ago', 'themeberger' ),
 				$updated_ago
 			);
 		}
@@ -231,12 +231,10 @@ class Themeberger_Post_Functions {
 				'human_readable' => false,
 			)
 		);
-
-		$permalink_title = sprintf(
+		$permalink_title = wp_sprintf(
 			/* translators: 1 = Post Title, 2 = Author Name */
-			esc_html_x( '%1$s by %2$s', 'permalink title', 'themeberger' ),
+			__( '%1$s by %2$s', 'themeberger' ),
 			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger' ),
-			//__( 'A post', 'themeberger' ),
 			get_the_author_meta( 'display_name', $this->post->post_author )
 		);
 
@@ -270,8 +268,6 @@ class Themeberger_Post_Functions {
 		return $permalink;
 
 	}
-
-	/* HERE */
 
 	public function get_shorturl( $args = '' ) {
 
@@ -383,7 +379,7 @@ class Themeberger_Post_Functions {
 		if ( empty( $first_video ) ) {
 			$embed = get_media_embedded_in_content( $content, array( 'video', 'embed', 'iframe' ) );
 			if ( empty( $embed ) ) {
-				return 'EMPTY VIDEO!!';
+				return;
 			}
 			$first_video = $embed[0];
 		} else {
@@ -457,7 +453,7 @@ class Themeberger_Post_Functions {
 					$first_audio = $matches[0][0];
 				}
 				if ( empty( $first_audio ) ) {
-					return 'EMPTY AUDIO!!';
+					return;
 				}
 			} else {
 				$first_audio = explode( '?', $first_audio )[0];

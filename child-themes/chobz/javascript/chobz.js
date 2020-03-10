@@ -24,6 +24,9 @@ var class_slider           = '.slider';
 var unit_px             = 'px';
 var property_margin_top = 'margin-top';
 var native_scrollto     = window.scrollTo;
+var get_scroll_position = function () {
+	return document.documentElement.scrollTop;
+}
 
 // UI VALUES
 var is_menu_open   = false;
@@ -37,6 +40,12 @@ var arrows_disabled_class = 'disabled';
 var chobz_scroll_offset = 10;
 var chobz_class_moved   = 'scrolled';
 var chobz_class_home    = 'home';
+
+// EVENTS
+var event_scroll    = 'scroll',
+event_mousemove = 'mousemove',
+event_mousedown = 'mousedown',
+event_mouseup   = 'mouseup';
 
 /*
 jQuery(document).ready(function() {

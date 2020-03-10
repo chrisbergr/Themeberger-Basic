@@ -50,12 +50,19 @@ function chobz_slider( key, value ) {
 		mx = 0;
 	}
 
+/*
 	chobz( slider ).on( {
-		mousemove: slider_mousemove,
-		mousedown: slider_mousedown,
-		scroll: slider_scroll
+		event_mousemove: slider_mousemove,
+		event_mousedown: slider_mousedown,
+		event_scroll: slider_scroll
 	} );
-	chobz( document ).on( 'mouseup', mouseup);
+	*/
+	chobz( slider )
+		.on( event_mousemove, slider_mousemove)
+		.on( event_mousedown, slider_mousedown)
+		.on( event_scroll, slider_scroll);
+
+	chobz( document ).on( event_mouseup, mouseup);
 	chobz( arrows ).on( 'click', arrows_click );
 
 }

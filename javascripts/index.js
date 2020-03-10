@@ -7,20 +7,25 @@
 console.log( 'Themeberger Basic :)' );
 
 var tb = jQuery;
-var versal_sz_search = 'h1, h2, h3, h4, .menu-item a';
+var versal_sz_search                = 'h1, h2, h3, h4, .menu-item a';
+var css_text_transform              = 'text-transform';
+var css_text_transform_value        = 'uppercase';
+var homepage_img_action_selector    = '.homepage-content a';
+var homepage_img_action_image       = '.homepage-image';
+var homepage_img_action_image_class = 'fadein';
 
 tb( versal_sz_search ).each( function() {
-	if ( tb( this ).css( 'text-transform' ) === 'uppercase' ) {
+	if ( tb( this ).css( css_text_transform ) === css_text_transform_value ) {
 		tb( this ).html( tb( this ).html().replace( /ß/g, 'ẞ' ) );
 	}
 } );
 
-tb( '.homepage-content a' ).hover(
+tb( homepage_img_action_selector ).hover(
 	function() {
-		tb( '.homepage-image' ).addClass( 'fadein' );
+		tb( homepage_img_action_image ).addClass( homepage_img_action_image_class );
 	},
 	function() {
-		tb( '.homepage-image' ).removeClass( 'fadein' );
+		tb( homepage_img_action_image ).removeClass( homepage_img_action_image_class );
 	}
 );
 

@@ -3,14 +3,14 @@ var chobz_scroll = chobz_scroll_off,
 	scroll_offset = chobz_scroll_offset;
 
 function chobz_scroll_on() {
-	if ( $window.scrollTop() < scroll_offset ) {
+	if ( get_scroll_position() < scroll_offset ) {
 		$body.removeClass( class_moved );
 		chobz_scroll = chobz_scroll_off;
 	}
 }
 
 function chobz_scroll_off() {
-	if ( $window.scrollTop() > scroll_offset ) {
+	if ( get_scroll_position() > scroll_offset ) {
 		$body.addClass( class_moved );
 		chobz_scroll = chobz_scroll_on;
 	}

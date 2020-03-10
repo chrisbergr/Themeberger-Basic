@@ -10,5 +10,5 @@
 
 	<p><?php the_title( '<strong class="meta-title p-name">', '</strong> | ' ); ?><span itemprop="articleSection"><?php the_category( ', ' ); ?></span><?php the_permalink_date( ' | ', '', false ); ?></p>
 	<?php do_action( 'themeberger_entry_footer' ); ?>
-	<p>Shortlink: <?php the_shorturl(); ?></p>
-	<?php the_tags( '<p>Tags: <span itemprop="keywords">', ', ', '</span></p>' ); ?>
+	<p><?php _e( 'Shortlink:', 'themeberger' ); ?> <?php the_shorturl(); ?></p>
+	<?php the_tags( '<p>' . __( 'Tags:', 'themeberger' ) . ' <span itemprop="keywords">', ', ', '</span></p>' ); ?>

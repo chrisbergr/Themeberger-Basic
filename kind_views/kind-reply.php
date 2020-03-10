@@ -52,10 +52,19 @@ $rsvp = $mf2_post->get( 'rsvp', true );
 
 $published = null;
 if ( array_key_exists( 'published', $cite ) ) {
-	$published = human_time_diff( date( 'U', strtotime( $cite[ 'published' ] ) ), current_time( 'timestamp' ) );
+	$published_ago           = human_time_diff( date( 'U', strtotime( $cite[ 'published' ] ) ), current_time( 'timestamp' ) );
+	$published_ago_timestamp = date( 'c', strtotime( $cite[ 'published' ] ) );
+	$published_ago           = sprintf(
+		/* translators: %s = human-readable time difference */
+		esc_html__( '%s ago', 'themeberger' ),
+		$published_ago
+	);
+	$date_string = '<span class="response-date"><a class="u-url" href="%3$s"><time class="published updated dt-published dt-updated" datetime="%1$s">%2$s</time></a></span>';
 	$published = sprintf(
-		_x( '<span class="response-date">%s</span>', '%s = human-readable time difference', '@@textdomain' ),
-		'<a class="u-url" rel="in-reply-to" href="' . $url . '">' . $published . ' ago</a>'
+		$date_string,
+		$published_ago_timestamp,
+		$published_ago,
+		$url
 	);
 }
 

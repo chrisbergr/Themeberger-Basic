@@ -45,11 +45,101 @@ msgstr ""
 msgid "A post"
 msgstr ""
 
+#: themeberger/class-themeberger-comment-walker.php:71
+msgid "Your comment is awaiting moderation."
+msgstr ""
 
+#: themeberger/class-themeberger-comment-walker.php:73
+msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
+msgstr ""
 
-#: content-quote.php:51 content-quote.php:63 content-single.php:37
-#: content-single.php:40 content.php:58 inc/content.php:72
-msgid "This gallery contains <a %1$s>%2$s photo</a>."
-msgid_plural "This gallery contains <a %1$s>%2$s photos</a>."
+#: semantic-linkbacks/mention.php:71
+#: semantic-linkbacks/mention-reply.php:70
+msgid "Your response is awaiting moderation."
+msgstr ""
+
+#: template-parts/partial-entry-footer-single.php:13
+msgid "Shortlink:"
+msgstr ""
+
+#: template-parts/partial-entry-footer-single.php:14
+msgid "Tags:"
+msgstr ""
+
+#: template-parts/partial-interactions.php:19
+msgid "%s Interaction"
+msgid_plural "%s Interactions"
 msgstr[0] ""
 msgstr[1] ""
+
+#: template-parts/partial-interactions.php:21
+msgid "Comments"
+msgstr ""
+
+#: template-parts/partial-interactions.php:24
+msgid "Replies"
+msgstr ""
+
+#: template-parts/partial-interactions.php:27
+msgid "Reposts"
+msgstr ""
+
+#: template-parts/partial-interactions.php:30
+msgid "Likes"
+msgstr ""
+
+#: template-parts/partial-interactions.php:33
+msgid "Favorites"
+msgstr ""
+
+#: template-parts/partial-interactions.php:36
+msgid "Bookmarks"
+msgstr ""
+
+#: template-parts/partial-interactions.php:39
+msgid "RSVP"
+msgstr ""
+
+#: template-parts/partial-interactions.php:42
+msgid "RSVP Yes"
+msgstr ""
+
+#: template-parts/partial-interactions.php:45
+msgid "RSVP No"
+msgstr ""
+
+#: template-parts/partial-interactions.php:48
+msgid "RSVP Maybe"
+msgstr ""
+
+#: template-parts/partial-interactions.php:51
+msgid "RSVP Interested"
+msgstr ""
+
+#: template-parts/partial-interactions.php:54
+msgid "Invited"
+msgstr ""
+
+#: template-parts/partial-interactions.php:57
+msgid "Listen"
+msgstr ""
+
+#: template-parts/partial-interactions.php:60
+msgid "Watch"
+msgstr ""
+
+#: template-parts/partial-interactions.php:63
+msgid "Read"
+msgstr ""
+
+#: template-parts/partial-interactions.php:66
+msgid "Follow"
+msgstr ""
+
+#: template-parts/content-post-standard.php:142
+msgid "Summary"
+msgstr ""
+
+#: template-parts/content-post-standard.php:150
+msgid "Credits"
+msgstr ""

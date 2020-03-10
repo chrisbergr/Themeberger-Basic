@@ -114,7 +114,7 @@ if ( is_single() ) {
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger-basic' ),
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themeberger' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -127,7 +127,7 @@ if ( is_single() ) {
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
 					'after'  => '</div>',
 				)
 			);
@@ -139,7 +139,7 @@ if ( is_single() ) {
 		<?php $summary = get_post_meta( $post->ID, 'themeberger-post-summary', true ); ?>
 		<?php if ( is_single() && $summary ) : ?>
 		<footer class="entry-footer">
-			<p><strong class="meta-title">Summary</strong></p>
+			<p><strong class="meta-title"><?php _e( 'Summary', 'themeberger' ); ?></strong></p>
 			<p><?php echo wp_kses( $summary, $entry_footer_html ); ?></p>
 			<div class="background-block full-width-block"></div>
 		</footer>
@@ -147,7 +147,7 @@ if ( is_single() ) {
 		<?php $credits = get_post_meta( $post->ID, 'themeberger-post-credit', false ); ?>
 		<?php if ( is_single() && count( $credits ) !== 0 ) : ?>
 		<footer class="entry-footer">
-			<p><strong class="meta-title">Credits</strong></p>
+			<p><strong class="meta-title"><?php _e( 'Credits', 'themeberger' ); ?></strong></p>
 			<?php foreach ( $credits as $credit ) { ?>
 			<p><?php echo wp_kses( $credit, $entry_footer_html ); ?></p>
 			<?php } ?>
@@ -205,7 +205,7 @@ if ( is_single() ) {
 			the_content( '' );
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
 					'after'  => '</div>',
 				)
 			);

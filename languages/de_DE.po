@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-07 16:04+0100\n"
+"PO-Revision-Date: 2020-03-10 01:12+0100\n"
 "Language-Team: \n"
 "X-Generator: Poedit 2.3\n"
 "Last-Translator: \n"
@@ -45,9 +45,100 @@ msgstr "%1$s von %2$s"
 msgid "A post"
 msgstr "Ein Beitrag"
 
-#: content-quote.php:51 content-quote.php:63 content-single.php:37
-#: content-single.php:40 content.php:58 inc/content.php:72
-msgid "This gallery contains <a %1$s>%2$s photo</a>."
-msgid_plural "This gallery contains <a %1$s>%2$s photos</a>."
-msgstr[0] ""
-msgstr[1] ""
+#: themeberger/class-themeberger-comment-walker.php:71
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+#: themeberger/class-themeberger-comment-walker.php:73
+msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
+msgstr "Dein Kommentar wartet auf die Moderation. Dies ist eine Vorschau, dein Kommentar wird sichtbar, nachdem er genehmigt wurde."
+
+#: semantic-linkbacks/mention.php:71 semantic-linkbacks/mention-reply.php:70
+msgid "Your response is awaiting moderation."
+msgstr "Deine Antwort wartet auf Freischaltung."
+
+#: template-parts/partial-entry-footer-single.php:13
+msgid "Shortlink:"
+msgstr "Kurzlink:"
+
+#: template-parts/partial-entry-footer-single.php:14
+msgid "Tags:"
+msgstr "Tags:"
+
+#: template-parts/partial-interactions.php:19
+msgid "%s Interaction"
+msgid_plural "%s Interactions"
+msgstr[0] "%s Interaktion"
+msgstr[1] "%s Interaktionen"
+
+#: template-parts/partial-interactions.php:21
+msgid "Comments"
+msgstr "Kommentare"
+
+#: template-parts/partial-interactions.php:24
+msgid "Replies"
+msgstr "Antworten"
+
+#: template-parts/partial-interactions.php:27
+msgid "Reposts"
+msgstr "Reposts"
+
+#: template-parts/partial-interactions.php:30
+msgid "Likes"
+msgstr "Likes"
+
+#: template-parts/partial-interactions.php:33
+msgid "Favorites"
+msgstr "Favoriten"
+
+#: template-parts/partial-interactions.php:36
+msgid "Bookmarks"
+msgstr "Lesezeichen"
+
+#: template-parts/partial-interactions.php:39
+msgid "RSVP"
+msgstr "RSVP"
+
+#: template-parts/partial-interactions.php:42
+msgid "RSVP Yes"
+msgstr "RSVP Ja"
+
+#: template-parts/partial-interactions.php:45
+msgid "RSVP No"
+msgstr "RSVP Nein"
+
+#: template-parts/partial-interactions.php:48
+msgid "RSVP Maybe"
+msgstr "RSVP Vielleicht"
+
+#: template-parts/partial-interactions.php:51
+msgid "RSVP Interested"
+msgstr "RSVP Interessiert"
+
+#: template-parts/partial-interactions.php:54
+msgid "Invited"
+msgstr "Eingeladen"
+
+#: template-parts/partial-interactions.php:57
+msgid "Listen"
+msgstr "Hören"
+
+#: template-parts/partial-interactions.php:60
+msgid "Watch"
+msgstr "Schauen"
+
+#: template-parts/partial-interactions.php:63
+msgid "Read"
+msgstr "Lesen"
+
+#: template-parts/partial-interactions.php:66
+msgid "Follow"
+msgstr "Folgen"
+
+#: template-parts/content-post-standard.php:142
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: template-parts/content-post-standard.php:150
+msgid "Credits"
+msgstr "Credits"
