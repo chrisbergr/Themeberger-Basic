@@ -72,3 +72,167 @@ function photo_posts_per_page( $query ) {
 add_action( 'pre_get_posts', 'photo_posts_per_page' );
 
 /**/
+
+function list_hooks( $hook = '' ) {
+
+	global $wp_filter;
+
+	if ( isset( $wp_filter[$hook]->callbacks ) ) {
+		array_walk(
+			$wp_filter[$hook]->callbacks,
+			function( $callbacks, $priority ) use ( &$hooks ) {
+				foreach ( $callbacks as $id => $callback ) {
+					$hooks[] = array_merge( [ 'id' => $id, 'priority' => $priority ], $callback );
+				}
+			}
+		);
+	} else {
+		return [];
+	}
+
+	foreach( $hooks as &$item ) {
+		if ( !is_callable( $item['function'] ) ) {
+			continue;
+		}
+		if ( is_string( $item['function'] ) ) {
+			$ref = strpos( $item['function'], '::' ) ? new ReflectionClass( strstr( $item['function'], '::', true ) ) : new ReflectionFunction( $item['function'] );
+			$item['file'] = $ref->getFileName();
+			$item['line'] = get_class( $ref ) == 'ReflectionFunction'
+			? $ref->getStartLine()
+			: $ref->getMethod( substr( $item['function'], strpos( $item['function'], '::' ) + 2 ) )->getStartLine();
+		} elseif ( is_array( $item['function'] ) ) {
+			$ref = new ReflectionClass( $item['function'][0] );
+			$item['function'] = array(
+				is_object( $item['function'][0] ) ? get_class( $item['function'][0] ) : $item['function'][0],
+				$item['function'][1]
+			);
+			$item['file'] = $ref->getFileName();
+			$item['line'] = strpos( $item['function'][1], '::' )
+			? $ref->getParentClass()->getMethod( substr( $item['function'][1], strpos( $item['function'][1], '::' ) + 2 ) )->getStartLine()
+			: $ref->getMethod( $item['function'][1] )->getStartLine();
+		} elseif ( is_callable( $item['function'] ) ) {
+			$ref = new ReflectionFunction( $item['function'] );
+			$item['function'] = get_class( $item['function'] );
+			$item['file'] = $ref->getFileName();
+			$item['line'] = $ref->getStartLine();
+		}
+	}
+
+	return $hooks;
+
+}
+
+/**/
+
+function list_scripts_styles( $info = 'src' ) {
+
+	$result = [];
+	$result['scripts'] = [];
+	$result['styles'] = [];
+
+	global $wp_scripts;
+
+	foreach( $wp_scripts->queue as $script ) :
+		if ( $info === 'src' ) {
+			$result['scripts'][] =  $wp_scripts->registered[$script]->src;
+		}
+		if ( $info === 'handle' ) {
+			$result['scripts'][] =  $wp_scripts->registered[$script]->handle;
+		}
+	endforeach;
+
+	global $wp_styles;
+	foreach( $wp_styles->queue as $style ) :
+		if ( $info === 'src' ) {
+			$result['styles'][] =  $wp_styles->registered[$style]->src;
+		}
+		if ( $info === 'handle' ) {
+			$result['styles'][] =  $wp_styles->registered[$style]->handle;
+		}
+	endforeach;
+
+	return $result;
+
+}
+
+/**/
+
+
+function add_barba_script() {
+	?>
+	<script src="https://unpkg.com/@barba/core"></script>
+	<script>
+
+		// basic default transition (with no rules and minimal hooks)
+		barba.init({
+		  transitions: [{
+		    leave({ current, next, trigger }) {
+		      // do something with `current.container` for your leave transition
+		      // then return a promise or use `this.async()`
+		    },
+		    enter({ current, next, trigger }) {
+		      // do something with `next.container` for your enter transition
+		      // then return a promise or use `this.async()`
+		    }
+		  }]
+		});
+
+		// dummy example to illustrate rules and hooks
+		barba.init({
+		  transitions: [{
+		    name: 'dummy-transition',
+
+		    // apply only when leaving `[data-barba-namespace="home"]`
+		    from: 'home',
+
+		    // apply only when transitioning to `[data-barba-namespace="products | contact"]`
+		    to: {
+		      namespace: [
+		        'products',
+		        'contact'
+		      ]
+		    },
+/*
+		    // apply only if clicked link contains `.cta`
+		    custom: ({ current, next, trigger })
+		      => trigger.classList && trigger.classList.contains('cta'),
+*/
+		    // do leave and enter concurrently
+		    sync: true,
+
+		    // available hooks…
+		    beforeOnce() {},
+		    once() {},
+		    afterOnce() {},
+		    beforeLeave() {},
+		    leave() {},
+		    afterLeave() {},
+		    beforeEnter() {},
+		    enter() {},
+		    afterEnter() {}
+		  }]
+		});
+
+		barba.hooks.afterLeave((data) => {
+			// Set <body> classes for "next" page
+			var nextHtml = data.next.html;
+			var response = nextHtml.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', nextHtml)
+			var bodyClasses = jQuery(response).filter('notbody').attr('class')
+			jQuery("body").attr("class", bodyClasses);
+			jQuery(document).scrollTop( 0 );
+			window.chobz_init();
+		});
+
+	</script>
+	<?php
+}
+//add_action( 'themeberger_after_page', 'add_barba_script', 100 );
+
+function debug_scripts() {
+
+	print_r("\n\r".'<!--'."\n\r");
+	//print_r( list_hooks( 'wp_print_footer_scripts' ) );
+	print_r( list_scripts_styles( 'handle' ) );
+	print_r("\n\r".'-->'."\n\r");
+
+}
