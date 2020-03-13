@@ -13,8 +13,8 @@
 	<div class="content-card type-article">
 
 		<div class="entry-content page-content">
-			<h2><?php _e( 'No Contents', 'themeberger' ); ?></h2>
-			<p><?php _e( 'Unfortunately, there is no content available.', 'themeberger' ); ?></p>
+			<h2><?php esc_html_e( 'No Contents', 'themeberger-basic' ); ?></h2>
+			<p><?php esc_html_e( 'Unfortunately, there is no content available.', 'themeberger-basic' ); ?></p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<div class="background-block full-width-block"></div>

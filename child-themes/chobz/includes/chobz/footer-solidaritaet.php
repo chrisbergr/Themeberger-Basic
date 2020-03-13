@@ -5,7 +5,7 @@ function chobz_footer_solidaritaet() {
 	?>
 
 	<svg version="1.1" id="solidaritaet" class="footer-batches" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 viewBox="0 0 871 455" style="enable-background:new 0 0 871 455;" xml:space="preserve">
+		viewBox="0 0 871 455" style="enable-background:new 0 0 871 455;" xml:space="preserve">
 		<g id="solidaritaet-background">
 			<path id="solidaritaet-color" d="M871,455H1V0h870V455z"/>
 		</g>

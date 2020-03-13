@@ -26,34 +26,27 @@ require_once CHOBZ_THIRD_PARTY . '/remove-assets.php';
 
 /**/
 
-function default_post_title( $old_title ){
+function default_post_title( $old_title ) {
 	if ( ! $old_title ) {
-		/*
-		if ( is_single() ){
-			return single_post_title( '', false );
-		}
-		*/
 		return __( 'A post by Christian Hockenberger', 'themeberger-basic' );
 	}
 	return $old_title;
 }
 add_filter( 'the_title', 'default_post_title' );
 
-function default_title( $old_title ){
+function default_title( $old_title ) {
 	if ( ! $old_title || ! $old_title['title'] ) {
-		//$old_title['title'] = __( 'A post by Christian Hockenberger', 'themeberger-basic' );
 		$old_title['title'] = single_post_title( '', false );
 	}
 	return $old_title;
 }
 add_filter( 'document_title_parts', 'default_title' );
 
-function default_seo_title( $old_title ){
+function default_seo_title( $old_title ) {
 	$title_parts = explode( '-', $old_title );
 	if ( '' === $title_parts[0] ) {
-		//$title_parts[0] = __( 'A post by Christian Hockenberger', 'themeberger-basic' );
 		$title_parts[0] = single_post_title( '', false );
-		$old_title = implode( ' -', $title_parts );
+		$old_title      = implode( ' -', $title_parts );
 	}
 	return $old_title;
 }
@@ -62,9 +55,9 @@ add_filter( 'wpseo_title', 'default_seo_title', 10, 1 );
 /**/
 
 function exclude_activity_from_feed( $query ) {
-    if ( $query->is_feed ) {
-        $query->set( 'cat', '-206, -208, -214' );
-    }
+	if ( $query->is_feed ) {
+		$query->set( 'cat', '-206, -208, -214' );
+	}
 	return $query;
 }
 add_filter( 'pre_get_posts', 'exclude_activity_from_feed' );
@@ -72,7 +65,7 @@ add_filter( 'pre_get_posts', 'exclude_activity_from_feed' );
 /**/
 
 function photo_posts_per_page( $query ) {
-	if( $query->is_main_query() && ( is_category( 'foto' ) || is_category( 'photo' ) ) && ! is_admin() ) {
+	if ( $query->is_main_query() && ( is_category( 'foto' ) || is_category( 'photo' ) ) && ! is_admin() ) {
 		$query->set( 'posts_per_page', '50' );
 	}
 }

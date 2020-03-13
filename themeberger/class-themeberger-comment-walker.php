@@ -68,9 +68,9 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 		$add_below = 'comment';
 		$commenter = wp_get_current_commenter();
 		if ( $commenter['comment_author_email'] ) {
-			$moderation_note = __( 'Your comment is awaiting moderation.', 'themeberger' );
+			$moderation_note = __( 'Your comment is awaiting moderation.', 'themeberger-basic' );
 		} else {
-			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.', 'themeberger' );
+			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.', 'themeberger-basic' );
 		}
 		?>
 		<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'u-comment h-cite parent' : 'u-comment h-cite', $comment ); ?> itemprop="comment" itemscope itemtype="http://schema.org/Comment">
@@ -79,11 +79,11 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 				$posted_ago = human_time_diff( get_comment_date( 'U' ), current_time( 'timestamp' ) );
 				$posted_ago = sprintf(
 					/* translators: %s = human-readable time difference */
-					esc_html__( '%s ago', 'themeberger' ),
+					esc_html__( '%s ago', 'themeberger-basic' ),
 					$posted_ago
 				);
 				$date_string = '<time class="comment-date published" itemprop="datePublished" datetime="%1$s">%2$s</time>';
-				$time_out = sprintf(
+				$time_out    = sprintf(
 					$date_string,
 					esc_attr( get_comment_date( 'c' ) ),
 					$posted_ago
@@ -107,10 +107,10 @@ class Themeberger_Comment_Walker extends Walker_Comment {
 						'class'    => array(),
 					),
 					'span' => array(
-						'class' => array(),
-						'itemprop' => array(),
+						'class'     => array(),
+						'itemprop'  => array(),
 						'itemscope' => array(),
-						'itemtype' => array(),
+						'itemtype'  => array(),
 					),
 					'img'  => array(
 						'class'    => array(),

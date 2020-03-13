@@ -77,7 +77,7 @@ $approved_comments = $comments_count->approved;
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
 					'after'  => '</div>',
 				)
 			);

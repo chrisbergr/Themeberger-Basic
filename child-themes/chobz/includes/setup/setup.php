@@ -4,7 +4,7 @@ function chobz_setup() {
 
 	register_nav_menus(
 		array(
-			'fullmenu'   => __( 'Full Menu', 'themeberger-basic' ),
+			'fullmenu' => __( 'Full Menu', 'themeberger-basic' ),
 		)
 	);
 

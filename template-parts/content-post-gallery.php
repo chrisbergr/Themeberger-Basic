@@ -13,23 +13,28 @@ $approved_comments = $comments_count->approved;
 
 $post_type_slug = 'gallery';
 
-$collection = 'itemprop="hasPart" ';
-if ( is_single() ) {
-	$collection = '';
+if ( ! function_exists( 'article_in_collection' ) ) {
+	function article_in_collection() {
+		if ( ! is_single() ) {
+			echo esc_attr( 'hasPart' );
+		}
+	}
 }
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> itemprop="<?php article_in_collection(); ?>" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<?php the_content_meta(); ?>
 
-	<div class="content-card type-<?php echo $post_type_slug; ?>">
+	<div class="content-card type-<?php echo esc_attr( $post_type_slug ); ?>">
 
 		<div class="entry-gallery"><?php the_first_gallery_of_post(); ?></div>
 
 		<header class="entry-header">
-			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?><?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?><?php endif; ?>
+			<?php the_author_vcard(); ?><?php if ( ! is_single() ) : ?>
+				<?php the_permalink_date( '<span class="themeberger-date">', '</span>', true ); ?>
+			<?php endif; ?>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content e-content p-summary" itemprop="articleBody">
@@ -37,7 +42,7 @@ if ( is_single() ) {
 			<?php
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themeberger-basic' ),
 					'after'  => '</div>',
 				)
 			);

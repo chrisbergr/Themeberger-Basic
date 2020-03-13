@@ -21,7 +21,7 @@ function chobz_ui() {
 			<div class="chobz-ui--middle">
 				<div class="chobz-ui--logo">
 
-					<a href="<?php echo get_home_url(); ?>" rel="home" aria-label="Go to homepage">
+					<a href="<?php echo esc_url( get_home_url() ); ?>" rel="home" aria-label="Go to homepage">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="LOGO" x="0px" y="0px" viewBox="0 0 1546 309" style="enable-background:new 0 0 1546 309;" xml:space="preserve" class="logo">
 							<path class="logo-monogram" d="M81.7,79.5V49.1H51.3V18.6h91.3v30.4h-30.4v30.4H203V49.1h-30.4V18.6h91.3v30.4h-30.4v151.6h30.4  v-29.9h30.4v29.6l-30.7,30.7H127.7v-30.4H203v-30.5h-90.9v91.3h30.4v30.4H51.3v-30.4h30.4v-30.4H51.5l-30.7-30.6v-90.3l30.7-30.7  H81.7z M51.3,125.4v75.4h30.4v-75.3h30.4v14.4H203V110H51.3V125.4z M203,246.7h30.4v15h30.4v30.4h-91.3v-30.5H203V246.7z M263.8,110  h-14.9V79.5h14.7l30.7,30.7v29.6h-30.4L263.8,110L263.8,110z"></path>
 							<g class="logo-hockenberger">

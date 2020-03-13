@@ -16,43 +16,36 @@ $content           = str_replace( '<!-- /wp:paragraph -->', '', $content );
 $comments_count    = wp_count_comments( get_the_ID() );
 $approved_comments = $comments_count->approved;
 
-
-$content_html = array(
-	'a'    => array(
-		'href'     => array(),
-		'title'    => array(),
-		'itemprop' => array(),
-		'class'    => array(),
-	),
-);
-
 $post_type_slug = 'aside';
 
-$collection = 'itemprop="hasPart" ';
-if ( is_single() ) {
-	$collection = '';
+if ( ! function_exists( 'article_in_collection' ) ) {
+	function article_in_collection() {
+		if ( ! is_single() ) {
+			echo esc_attr( 'hasPart' );
+		}
+	}
 }
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> <?php echo $collection; ?>itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content h-entry post-entry type-post-' . $post_type_slug ); ?> itemprop="<?php article_in_collection(); ?>" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<?php the_content_meta(); ?>
 
 	<?php if ( is_single() ) : ?>
-	<div class="content-card type-<?php echo $post_type_slug; ?>">
+	<div class="content-card type-<?php echo esc_attr( $post_type_slug ); ?>">
 		<header class="entry-header">
 			<?php the_author_vcard(); ?>
 		</header><!-- .entry-header -->
 	<?php else : ?>
-	<div class="content-card card-hidden type-<?php echo $post_type_slug; ?>">
+	<div class="content-card card-hidden type-<?php echo esc_attr( $post_type_slug ); ?>">
 		<header class="entry-header-hidden">
 			<?php the_author_vcard(); ?>
 		</header><!-- .entry-header -->
 	<?php endif; ?>
 
 		<div class="entry-content e-content p-summary" itemprop="articleBody">
-			<p><?php the_permalink_date( '<strong class="themeberger-datex">', '</strong>: ', true ); ?><?php echo wp_kses( $content, $content_html ); ?></p>
+			<p><?php the_permalink_date( '<strong class="themeberger-datex">', '</strong>: ', true ); ?><?php echo wp_kses( $content, THEMEBERGER_HTML ); ?></p>
 		</div><!-- .entry-content -->
 
 		<?php do_action( 'themeberger_after_entry_content' ); ?>

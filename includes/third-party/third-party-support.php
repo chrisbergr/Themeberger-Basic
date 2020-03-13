@@ -17,28 +17,30 @@ function remove_kind_style() {
 }
 add_action( 'wp_print_styles', 'remove_kind_style', 100 );
 
-function manipulate_response_display ( $content ) {
+function manipulate_response_display( $content ) {
+	// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 	print_r( '<!-- POST KIND -->' . "\n\r\n\r" );
+	// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 	print_r( $content );
+	// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 	print_r( "\n\r\n\r" . '<!-- / POST KIND -->' );
 }
-//add_filter( 'kind_response_display', 'manipulate_response_display' );
+add_filter( 'kind_response_display_x', 'manipulate_response_display' );
 
 /**/
 
 /* SUPPORT for Plugin SYNDICATION LINKS */
 
-if ( function_exists ( 'get_post_syndication_links' ) ) :
+if ( function_exists( 'get_post_syndication_links' ) ) :
 
 	function remove_syndication_view() {
 		remove_filter( 'the_content', array( 'Syn_Config', 'the_content' ), 30 );
 	}
-	//add_action( 'wp_loaded', 'remove_syndication_view' );
 	add_action( 'init', 'remove_syndication_view', 11 );
 
 	function add_syndication_view() {
 		if ( is_single() || is_singular() ) {
-			echo '<div id="syndication-links">' . get_post_syndication_links() . '</div>';
+			echo wp_kses( '<div id="syndication-links">' . get_post_syndication_links() . '</div>', THEMEBERGER_HTML );
 		}
 	}
 	add_action( 'themeberger_entry_footer', 'add_syndication_view', 50 );

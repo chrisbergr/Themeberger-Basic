@@ -13,7 +13,7 @@ define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_INCLUDES', get_template_directory() . '/includes' );
 define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
-define( 'THEME_VERSION', '1.2.4' );
+define( 'THEME_VERSION', '1.2.5' );
 
 /**
  * Themeberger Basic Setup.
@@ -68,10 +68,10 @@ function homepage_content() {
 	?>
 	<div class="homepage-content-container">
 	<?php
+	// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	foreach ( $child_pages as $post ) {
 		setup_postdata( $post->ID );
 		$prefix = '';
-		//die();
 		get_template_part( 'template-parts/homepage-content' . $prefix, $post->post_name );
 	}
 	wp_reset_postdata();
@@ -84,11 +84,11 @@ add_action( 'themeberger_homepage', 'homepage_content' );
 /**/
 
 function add_atom_feed() {
-?>
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo( 'name' ); ?> &raquo; Atom Feed" href="<?php bloginfo( 'atom_url' ); ?>" />
-<?php
+	?>
+	<link rel="alternate" type="application/atom+xml" title="<?php bloginfo( 'name' ); ?> &raquo; Atom Feed" href="<?php bloginfo( 'atom_url' ); ?>" />
+	<?php
 }
-add_action ( 'wp_head', 'add_atom_feed', 2 );
+add_action( 'wp_head', 'add_atom_feed', 2 );
 
 /**/
 
@@ -107,6 +107,6 @@ add_filter( 'next_posts_link_attributes', 'themeberger_next_posts_link_attribute
 function add_archive_description() {
 	the_archive_description( '<section class="taxonomy-description"><div class="taxonomy-description-inner">', '</div></section>' );
 }
-add_action ( 'themeberger_after_header', 'add_archive_description', 50 );
+add_action( 'themeberger_after_header', 'add_archive_description', 50 );
 
 /**/

@@ -5,16 +5,16 @@
  * @package themebergerbasic
  */
 
- if ( has_post_thumbnail() ) {
- 	$curr_id       = $post->ID;
- 	$content_image = get_the_post_thumbnail_url( $curr_id, 'post-thumbnail' );
- } else {
- 	$content_image = false;
- }
+if ( has_post_thumbnail() ) {
+	$curr_id       = $post->ID;
+	$content_image = get_the_post_thumbnail_url( $curr_id, 'post-thumbnail' );
+} else {
+	$content_image = false;
+}
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="content homepage"<?php //post_class( 'content homepage' ); ?>>
+<article id="post-<?php the_ID(); ?>" class="content homepage">
 
 	<?php if ( has_post_thumbnail() ) : ?>
 	<div class="homepage-image"><?php the_post_thumbnail(); ?></div>
@@ -22,7 +22,7 @@
 
 	<section class="homepage-content-container">
 		<header class="homepage-header">
-			<h2 class="homepage-title"><?php echo get_the_title(); ?></h2>
+			<h2 class="homepage-title"><?php the_title(); ?></h2>
 		</header><!-- .entry-header -->
 		<div class="homepage-content">
 			<?php the_content(); ?>

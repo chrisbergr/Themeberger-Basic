@@ -19,9 +19,9 @@ function first_img( $image, $post ) {
 	$image = preg_replace_callback(
 		'/src="([^"]*)"/',
 		function ( $src ) {
-			$src = $src[0];
-			$src = str_replace( 'src="', '', $src );
-			$src = str_replace( '"', '', $src );
+			$src    = $src[0];
+			$src    = str_replace( 'src="', '', $src );
+			$src    = str_replace( '"', '', $src );
 			$src_id = attachment_url_to_postid( $src );
 			if ( 0 < $src_id ) {
 				$src = wp_get_attachment_image_url( $src_id, 'thumbnail' );
@@ -69,7 +69,7 @@ get_header(); ?>
 							$this_format = get_post_format() ? : 'standard';
 							$this_kind   = 'note';
 
-							if ( function_exists('has_post_kind') && has_post_kind() ) {
+							if ( function_exists( 'has_post_kind' ) && has_post_kind() ) {
 								$this_kind = strtolower( get_post_kind() );
 							}
 
@@ -78,7 +78,6 @@ get_header(); ?>
 							}
 
 							$template = $this_type . '-' . $this_format;
-							//print_r($template);
 							get_template_part( 'template-parts/content', $template );
 						endwhile;
 

@@ -13,91 +13,91 @@
  */
 
 get_header(); ?>
+<?php do_action( 'themeberger_before_page' ); ?>
 
-		<?php do_action( 'themeberger_before_page' ); ?>
+<div id="page" class="site">
+	<?php get_template_part( 'template-parts/header' ); ?>
 
-		<div id="page" class="site">
+	<div id="content" class="site-content">
+		<?php do_action( 'themeberger_before_primary' ); ?>
 
-			<?php get_template_part( 'template-parts/header' ); ?>
+		<div id="primary-content" class="content-area">
 
-			<div id="content" class="site-content">
+			<main id="main" class="site-main<?php echo is_singular() ? ' main-single' : ' hfeed h-feed" itemscope itemtype="http://schema.org/Collection'; ?>">
+			<?php do_action( 'themeberger_before_content' ); ?>
 
-				<?php do_action( 'themeberger_before_primary' ); ?>
-				<div id="primary-content" class="content-area">
-					<main id="main" class="site-main<?php echo is_singular() ? ' main-single' : ' hfeed h-feed" itemscope itemtype="http://schema.org/Collection'; ?>">
-					<?php do_action( 'themeberger_before_content' ); ?>
+			<?php if ( have_posts() ) : ?>
 
-					<?php if ( have_posts() ) : ?>
+				<?php
 
-						<?php
+				if ( is_home() && ! is_front_page() ) :
+					?>
+					<header>
+						<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					</header>
+					<?php
+				endif;
 
-						if ( is_home() && ! is_front_page() ) :
-							?>
-							<header>
-								<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-							</header>
-							<?php
-						endif;
+				while ( have_posts() ) :
+					the_post();
+					$this_type   = get_post_type();
+					$this_format = get_post_format() ? : 'standard';
+					$this_kind   = 'note';
 
-						while ( have_posts() ) :
-							the_post();
-							$this_type   = get_post_type();
-							$this_format = get_post_format() ? : 'standard';
-							$this_kind   = 'note';
+					if ( ! is_home() && is_front_page() ) {
+						$this_kind = 'homepage';
+					}
 
-							if ( ! is_home() && is_front_page() ) {
-								$this_kind = 'homepage';
-							}
+					if ( function_exists( 'has_post_kind' ) && has_post_kind() ) {
+						$this_kind = strtolower( get_post_kind() );
+					}
 
-							if ( function_exists('has_post_kind') && has_post_kind() ) {
-								$this_kind = strtolower( get_post_kind() );
-							}
+					if ( 'standard' === $this_format && 'note' !== $this_kind ) {
+						$this_format = $this_kind;
+					}
 
-							if ( 'standard' === $this_format && 'note' !== $this_kind ) {
-								$this_format = $this_kind;
-							}
+					$template = $this_type . '-' . $this_format;
+					get_template_part( 'template-parts/content', $template );
+				endwhile;
 
-							$template = $this_type . '-' . $this_format;
-							//print_r($template);
-							get_template_part( 'template-parts/content', $template );
-						endwhile;
+				the_posts_navigation();
 
-						the_posts_navigation();
+				the_posts_pagination(
+					array(
+						'mid_size'  => 2,
+						'prev_text' => false,
+						'next_text' => false,
+					)
+				);
 
-						the_posts_pagination(
-							array(
-								'mid_size'  => 2,
-								'prev_text' => false,
-								'next_text' => false,
-							)
-						);
+				?>
 
-						?>
+			<?php else : ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+			<?php endif; ?>
 
-					<?php else : ?>
-						<?php get_template_part( 'template-parts/content', 'none' ); ?>
-					<?php endif; ?>
+			<?php if ( ! is_home() && is_front_page() ) : ?>
+				<?php do_action( 'themeberger_homepage' ); ?>
+			<?php endif; ?>
 
-					<?php if ( ! is_home() && is_front_page() ) : ?>
-						<?php do_action( 'themeberger_homepage' ); ?>
-					<?php endif; ?>
+			<?php do_action( 'themeberger_after_content' ); ?>
 
-					<?php do_action( 'themeberger_after_content' ); ?>
-					</main><!-- #main -->
-				</div><!-- #primary-content -->
-				<?php do_action( 'themeberger_after_primary' ); ?>
+			</main><!-- #main -->
 
-				<?php get_sidebar(); ?>
+		</div><!-- #primary-content -->
+		<?php do_action( 'themeberger_after_primary' ); ?>
 
-				<?php /*<div class="background-block behind full-width-block"></div>*/ ?>
+		<?php get_sidebar(); ?>
 
-			</div><!-- #content -->
+		<?php /*<div class="background-block behind full-width-block"></div>*/ ?>
 
-			<?php get_template_part( 'template-parts/footer' ); ?>
+	</div><!-- #content -->
 
-		</div><!-- #page -->
+	<?php get_template_part( 'template-parts/footer' ); ?>
 
-		<?php do_action( 'themeberger_after_page' ); ?>
+</div><!-- #page -->
+
+<?php do_action( 'themeberger_after_page' ); ?>
 
 <?php
 get_footer();

@@ -130,16 +130,19 @@ class Themeberger_Post_Functions {
 				'extra_attr' => 'itemprop="image"',
 			)
 		);
-		$url = esc_url( get_author_posts_url( get_the_author_meta( 'ID', $author_id ) ) );
+
+		$url  = esc_url( get_author_posts_url( get_the_author_meta( 'ID', $author_id ) ) );
 		$name = esc_html( get_the_author_meta( 'display_name', $author_id ) );
 
-		$author = $this->build_author_vcard([
-			'name'  => $name,
-			'url'   => $url,
-			'photo' => null,
-			'image' => $avatar,
-			'class' => 'themeberger-author',
-		]);
+		$author = $this->build_author_vcard(
+			[
+				'name'  => $name,
+				'url'   => $url,
+				'photo' => null,
+				'image' => $avatar,
+				'class' => 'themeberger-author',
+			]
+		);
 
 		//$author = '<span class="author themeberger-author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" rel="author" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $author_id ) ) ) . '">' . $avatar . '<span class="name p-name fn" itemprop="name">' . esc_html( get_the_author_meta( 'display_name', $author_id ) ) . '</span></a></span>';
 		$author = apply_filters( 'themeberger_author_vcard', $author, $this->post );
@@ -191,7 +194,7 @@ class Themeberger_Post_Functions {
 		$posted_ago = human_time_diff( get_the_time( 'U', $this->post ), current_time( 'timestamp' ) );
 		$posted_ago = sprintf(
 			/* translators: %s = human-readable time difference */
-			esc_html__( '%s ago', 'themeberger' ),
+			esc_html__( '%s ago', 'themeberger-basic' ),
 			$posted_ago
 		);
 
@@ -202,7 +205,7 @@ class Themeberger_Post_Functions {
 			$updated_ago = human_time_diff( get_the_modified_time( 'U', $this->post ), current_time( 'timestamp' ) );
 			$updated_ago = sprintf(
 				/* translators: %s = human-readable time difference */
-				esc_html__( '%s ago', 'themeberger' ),
+				esc_html__( '%s ago', 'themeberger-basic' ),
 				$updated_ago
 			);
 		}
@@ -231,10 +234,11 @@ class Themeberger_Post_Functions {
 				'human_readable' => false,
 			)
 		);
+
 		$permalink_title = wp_sprintf(
 			/* translators: 1 = Post Title, 2 = Author Name */
-			__( '%1$s by %2$s', 'themeberger' ),
-			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger' ),
+			__( '%1$s by %2$s', 'themeberger-basic' ),
+			get_the_title( $this->post ) ? get_the_title( $this->post ) : __( 'A post', 'themeberger-basic' ),
 			get_the_author_meta( 'display_name', $this->post->post_author )
 		);
 
@@ -352,6 +356,7 @@ class Themeberger_Post_Functions {
 		$content = preg_replace( '/<figure[^>]*><\/figure[^>]*>/', '', $content );
 		$content = str_replace( '<figure class="wp-block-image"><noscript></noscript></figure>', '', $content );
 		$content = str_replace( '<noscript></noscript>', '', $content );
+		$content = str_replace( '<p></p>', '', $content );
 
 		return $content;
 
@@ -415,6 +420,7 @@ class Themeberger_Post_Functions {
 		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-youtube[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-vimeo[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 		$content = do_shortcode( apply_filters( 'the_content', $content ) );
+		$content = str_replace( '<p></p>', '', $content );
 
 		return $content;
 
@@ -476,6 +482,7 @@ class Themeberger_Post_Functions {
 		$content = do_shortcode( apply_filters( 'the_content', $content ) );
 		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-audio[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
 		$content = preg_replace( '/<figure.+class="[^"]*?wp-block-embed-soundcloud[^"]*?".*>([^$]+?)<\/figure>/i', '', $content );
+		$content = str_replace( '<p></p>', '', $content );
 
 		return $content;
 	}
@@ -530,6 +537,7 @@ class Themeberger_Post_Functions {
 		$content = do_shortcode( apply_filters( 'the_content', $content ) );
 		$pattern = '#<blockquote[^>]*>([^<]+|<(?!/?blockquote)[^>]*>|(?R))+</blockquote>#i';
 		$content = preg_replace( $pattern, '', $content );
+		$content = str_replace( '<p></p>', '', $content );
 
 		return $content;
 	}
@@ -570,6 +578,7 @@ class Themeberger_Post_Functions {
 		$content = do_shortcode( apply_filters( 'the_content', $this->post->post_content ) );
 
 		$content = preg_replace( '/<ul.+class="[^"]*?wp-block-gallery[^"]*?".*>([^$]+?)<\/ul>/i', '', $content );
+		$content = str_replace( '<p></p>', '', $content );
 
 		return $content;
 

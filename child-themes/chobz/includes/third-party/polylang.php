@@ -1,17 +1,20 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 
 if ( class_exists( 'PLL_Switcher' ) ) {
 
-	add_action( 'widgets_init', function(){
-		register_widget( 'PLL_Widget_Languages__Explorer' );
-	});
+	add_action(
+		'widgets_init',
+		function() {
+			register_widget( 'PLL_Widget_Languages_Explorer' );
+		}
+	);
 
 	/**
 	 * The language switcher widget
 	 *
 	 * @since 0.1
 	 */
-	class PLL_Widget_Languages__Explorer extends WP_Widget {
+	class PLL_Widget_Languages_Explorer extends WP_Widget {
 
 		/**
 		 * Constructor
@@ -21,9 +24,9 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 		public function __construct() {
 			parent::__construct(
 				'polylangexplorer',
-				__( 'Language Switcher Explorer', 'polylangexplorer' ),
+				__( 'Language Switcher Explorer', 'themeberger-basic' ),
 				array(
-					'description'                 => __( 'Displays a language switcher', 'polylangexplorer' ),
+					'description'                 => __( 'Displays a language switcher', 'themeberger-basic' ),
 					'customize_selective_refresh' => true,
 				)
 			);
@@ -40,37 +43,38 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 		public function widget( $args, $instance ) {
 			// Sets a unique id for dropdown
 			$instance['dropdown'] = empty( $instance['dropdown'] ) ? 0 : $args['widget_id'];
-
-			if ( $list = pll_the_languages( array_merge( $instance, array( 'echo' => 0, 'display_names_as' => 'slug', 'raw' => 1 ) ) ) ) {
+			$list                 = pll_the_languages(
+				array_merge(
+					$instance,
+					array(
+						'echo'             => 0,
+						'display_names_as' => 'slug',
+						'raw'              => 1,
+					)
+				)
+			);
+			if ( $list ) {
 				$title = empty( $instance['title'] ) ? '' : $instance['title'];
 				/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 				$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo $args['before_widget'];
 				if ( $title ) {
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					echo $args['before_title'] . $title . $args['after_title'];
 				}
 				if ( $instance['dropdown'] ) {
-					echo '<label class="screen-reader-text" for="' . esc_attr( 'lang_choice_' . $instance['dropdown'] ) . '">' . esc_html__( 'Choose a language', 'polylangexplorer' ) . '</label>';
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<label class="screen-reader-text" for="' . esc_attr( 'lang_choice_' . $instance['dropdown'] ) . '">' . esc_html__( 'Choose a language', 'themeberger-basic' ) . '</label>';
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					echo $list;
 				} else {
-					//$list = preg_replace( '/\s+/', '', $list );
-					/*
-					$list = explode( '</li>',  $list );
 					foreach ( $list as &$item ) {
-						$item = trim( $item );
-					}
-					$list = array_filter( $list, function($value) { return $value !== ''; } );*/
-					//print_r('CHRIS');
-					//print_r($list);
-
-					foreach ( $list as &$item ) {
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo '<a href="' . $item['url'] . '">' . strtoupper( $item['slug'] ) . '</a>';
 					}
-
-					//die();
-					//echo "<ul>\n" . $list . "</ul>\n";
 				}
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo $args['after_widget'];
 			}
 		}
@@ -85,7 +89,7 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 		 * @return array Settings to save or bool false to cancel saving
 		 */
 		public function update( $new_instance, $old_instance ) {
-			$instance['title'] = strip_tags( $new_instance['title'] );
+			$instance['title'] = wp_strip_all_tags( $new_instance['title'] );
 			foreach ( array_keys( PLL_Switcher::get_switcher_options( 'widget' ) ) as $key ) {
 				$instance[ $key ] = ! empty( $new_instance[ $key ] ) ? 1 : 0;
 			}
@@ -107,8 +111,10 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 			// Title
 			printf(
 				'<p><label for="%1$s">%2$s</label><input class="widefat" id="%1$s" name="%3$s" type="text" value="%4$s" /></p>',
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				$this->get_field_id( 'title' ),
-				esc_html__( 'Title:', 'polylangexplorer' ),
+				esc_html__( 'Title:', 'themeberger-basic' ),
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				$this->get_field_name( 'title' ),
 				esc_attr( $instance['title'] )
 			);
@@ -121,15 +127,15 @@ if ( class_exists( 'PLL_Switcher' ) ) {
 					$this->get_field_name( $key ),
 					$instance[ $key ] ? ' checked="checked"' : '',
 					esc_html( $str ),
-					in_array( $key, array( 'show_names', 'show_flags', 'hide_current' ) ) ? ' class="no-dropdown-' . $this->id . '"' : '',
-					! empty( $instance['dropdown'] ) && in_array( $key, array( 'show_names', 'show_flags', 'hide_current' ) ) ? ' style="display:none;"' : '',
+					in_array( $key, array( 'show_names', 'show_flags', 'hide_current' ), true ) ? ' class="no-dropdown-' . $this->id . '"' : '',
+					! empty( $instance['dropdown'] ) && in_array( $key, array( 'show_names', 'show_flags', 'hide_current' ), true ) ? ' style="display:none;"' : '',
 					'pll-' . $key
 				);
 			}
-
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $fields;
 
-			// FIXME echoing script in form is not very clean
+			// FIXME: echoing script in form is not very clean
 			// but it does not work if enqueued properly :
 			// clicking save on a widget makes this code unreachable for the just saved widget ( ?! )
 			$this->admin_print_script();

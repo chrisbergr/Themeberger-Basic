@@ -15,7 +15,7 @@ if ( ! function_exists( 'themebergerbasic_setup' ) ) :
 	 */
 	function themebergerbasic_setup() {
 
-		load_theme_textdomain( 'themeberger', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'themeberger-basic', get_template_directory() . '/languages' );
 
 		add_theme_support( 'automatic-feed-links' );
 
@@ -26,8 +26,8 @@ if ( ! function_exists( 'themebergerbasic_setup' ) ) :
 		add_theme_support(
 			'custom-header',
 			array(
-				'flex-width'    => true,
-				'flex-height'    => true,
+				'flex-width'  => true,
+				'flex-height' => true,
 			)
 		);
 
@@ -85,3 +85,65 @@ if ( ! function_exists( 'themebergerbasic_setup' ) ) :
 
 endif;
 add_action( 'after_setup_theme', 'themebergerbasic_setup' );
+
+$themeberger_allowed_html = [
+	'a'      => [
+		'href'       => [],
+		'title'      => [],
+		'class'      => [],
+		'rel'        => [],
+		'aria-label' => [],
+		'itemprop'   => [],
+		'itemscope'  => [],
+		'itemtype'   => [],
+	],
+	'br'     => [],
+	'em'     => [
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+	'strong' => [
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+	'div'    => [
+		'id'        => [],
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+	'span'   => [
+		'id'        => [],
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+	'ul'     => [
+		'id'        => [],
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+	'ol'     => [
+		'id'        => [],
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+	'li'     => [
+		'id'        => [],
+		'class'     => [],
+		'itemprop'  => [],
+		'itemscope' => [],
+		'itemtype'  => [],
+	],
+];
+define( 'THEMEBERGER_HTML', $themeberger_allowed_html );

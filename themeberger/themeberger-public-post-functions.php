@@ -502,8 +502,8 @@ function get_the_content_meta( $post_id = false ) {
 	ob_start();
 	?>
 
-	<data itemprop="name headline"><?php echo get_the_title( $post_id ); ?></data>
-	<data itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_permalink( $post_id ); ?></data>
+	<data itemprop="name headline"><?php echo esc_html( get_the_title( $post_id ) ); ?></data>
+	<data itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="<?php echo esc_url( get_the_permalink( $post_id ) ); ?>"><?php echo esc_url( get_the_permalink( $post_id ) ); ?></data>
 	<data itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
 		<data itemprop="name"><?php tb_helper_defaultpublishername(); ?></data>
 		<data itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
@@ -513,7 +513,7 @@ function get_the_content_meta( $post_id = false ) {
 	<?php if ( ! has_post_thumbnail( $post_id ) ) : ?>
 		<data itemprop="image"><?php tb_helper_defaultcover(); ?></data>
 	<?php else : ?>
-		<data itemprop="image"><?php echo get_the_post_thumbnail_url( $post_id ); ?></data>
+		<data itemprop="image"><?php echo esc_url( get_the_post_thumbnail_url( $post_id ) ); ?></data>
 	<?php endif; ?>
 
 	<?php
@@ -543,22 +543,14 @@ function the_content_meta( $echo = true ) {
 
 if ( ! function_exists( 'the_kicker' ) && ! is_admin() ) :
 
-	function the_kicker() {
-		return;
-	}
-	function get_the_kicker() {
-		return;
-	}
+	function the_kicker() {}
+	function get_the_kicker() {}
 
 endif;
 
 if ( ! function_exists( 'the_subtitle' ) && ! is_admin() ) :
 
-	function the_subtitle() {
-		return;
-	}
-	function get_the_subtitle() {
-		return;
-	}
+	function the_subtitle() {}
+	function get_the_subtitle() {}
 
 endif;
