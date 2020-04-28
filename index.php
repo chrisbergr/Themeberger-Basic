@@ -16,7 +16,7 @@ get_header(); ?>
 <?php do_action( 'themeberger_before_page' ); ?>
 
 <div id="page" class="site">
-	<?php get_template_part( 'template-parts/header' ); ?>
+	<?php marlon_get_template_part( 'template-parts/header' ); ?>
 
 	<div id="content" class="site-content">
 		<?php do_action( 'themeberger_before_primary' ); ?>
@@ -57,7 +57,7 @@ get_header(); ?>
 					}
 
 					$template = $this_type . '-' . $this_format;
-					get_template_part( 'template-parts/content', $template );
+					marlon_get_template_part( 'template-parts/content', $template );
 				endwhile;
 
 				the_posts_navigation();
@@ -73,7 +73,7 @@ get_header(); ?>
 				?>
 
 			<?php else : ?>
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+				<?php marlon_get_template_part( 'template-parts/content', 'none' ); ?>
 			<?php endif; ?>
 
 			<?php if ( ! is_home() && is_front_page() ) : ?>
@@ -93,7 +93,7 @@ get_header(); ?>
 
 	</div><!-- #content -->
 
-	<?php get_template_part( 'template-parts/footer' ); ?>
+	<?php marlon_get_template_part( 'template-parts/footer' ); ?>
 
 </div><!-- #page -->
 

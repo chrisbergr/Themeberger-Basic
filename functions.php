@@ -16,6 +16,26 @@ define( 'THEMEBERGER_DIR', get_template_directory() . '/themeberger' );
 define( 'THEME_VERSION', '1.2.5' );
 
 /**
+ * Marlon Support.
+ */
+function marlon_get_template_part( $slug, $name = null ) {
+	if ( ! function_exists( 'marlon_framework' ) || ! marlon_framework()->has_module( 'post_utilities' ) ) {
+		return get_template_part( $slug, $name );
+	}
+	return marlon_framework()->get_template_part( $slug, $name );
+}
+
+function themeberger_marlon_author_vcard_class( $author_class ) {
+	return $author_class . ' ' . 'themeberger-author';
+}
+add_filter( 'marlon_author_vcard_class', 'themeberger_marlon_author_vcard_class' );
+
+function themeberger_marlon_permalink_date( $permalink ) {
+	return '<span class="themeberger-date">' . $permalink . '</span>';
+}
+add_filter( 'marlon_permalink_date', 'themeberger_marlon_permalink_date' );
+
+/**
  * Themeberger Basic Setup.
  */
 require_once THEME_INCLUDES . '/setup/setup.php';
