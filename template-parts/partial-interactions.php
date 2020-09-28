@@ -8,8 +8,10 @@
  */
 
 $current           = $post->post_name;
-$comments_count    = wp_count_comments( get_the_ID() );
-$approved_comments = $comments_count->approved;
+$comments_count    = get_comments_number( get_the_ID() );
+$approved_comments = $comments_count;
+//$comments_count    = wp_count_comments( get_the_ID() );
+//$approved_comments = $comments_count->approved;
 
 $debug_interactions = false;
 ?>

@@ -16,9 +16,9 @@
 		$time_link   = '<a href="' . $comment->comment_author_url . '" title="' . get_comment_date() . '" itemprop="url">' . $time_out . '</a>';
 		$author_url  = get_comment_author_url();
 		if ( $author_url ) {
-			$author = '<span class="comment-author themeberger-comment-author vcard h-card u-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
+			$author = '<span class="comment-author themeberger-comment-author vcard h-card u-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="url u-url" itemprop="url" href="' . esc_url( $author_url ) . '"><img class="photo avatar themeberger-comment-avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></a></span>';
 		} else {
-			$author = '<span class="comment-author themeberger-comment-author vcard h-card u-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="photo avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></span>';
+			$author = '<span class="comment-author themeberger-comment-author vcard h-card u-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="photo avatar themeberger-comment-avatar" itemprop="image" src="' . get_avatar_url( $comment, array( 'size' => 50 ) ) . '" alt="' . esc_html( get_comment_author() ) . '"><span class="name p-name fn" itemprop="name">' . esc_html( get_comment_author() ) . '</span></span>';
 		}
 		$author_date_html = array(
 			'a'    => array(
@@ -65,7 +65,7 @@
 		?>
 		<span class="themeberger-comment-date themeberger-debug">mention-reply.php</span>
 	</div><!-- .comment-meta -->
-	<div class="comment-content e-content p-name">
+	<div class="themeberger-comment-content comment-content e-content p-name">
 		<?php if ( '0' === $comment->comment_approved ) : ?>
 		<p class="comment-meta-item"><em class="comment-awaiting-moderation"><?php esc_html_e( 'Your response is awaiting moderation.', 'themeberger-basic' ); ?></em></p>
 		<?php endif; ?>

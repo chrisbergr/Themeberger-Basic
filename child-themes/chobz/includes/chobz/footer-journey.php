@@ -4,7 +4,7 @@ function chobz_footer_journey() {
 
 	?>
 
-	<svg version="1.1" id="monogram-flag" class="footer-batches" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	<svg version="1.1" id="monogram-flag" class="footer-badges" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		viewBox="0 0 907.2 455.2" style="enable-background:new 0 0 907.2 455.2;" xml:space="preserve">
 		<path id="monogram-flag-white" d="M907,455H1V0h906V455z"/>
 		<polygon id="monogram-flag-red" points="906.8,50.8 906.8,0.3 454.3,0.3 454.3,0.3 454.3,455 454.3,455 906.8,455 906.8,404.5

@@ -1,6 +1,9 @@
 .widget {
 	margin: 0 0 1.5em;
 	/* Make sure select elements fit in widgets. */
+	&:last-child{
+		margin-bottom: 0;
+	}
 }
 
 .widget select {
@@ -52,25 +55,32 @@
 	display: block;
 }
 
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
+.content .wp-block-image {
 
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
+	.alignleft {
+		display: inline;
+		float: left;
+		margin: 0;
+		margin-top: 0.5em;
+		margin-right: 1.5em;
+	}
 
-.aligncenter {
-	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+	.alignright {
+		display: inline;
+		float: right;
+		margin: 0;
+		margin-top: 0.5em;
+		margin-left: 1.5em;
+	}
 
+	.aligncenter {
+		clear: both;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+}
 
 
 .screen-reader-text {

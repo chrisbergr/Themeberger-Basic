@@ -38,16 +38,18 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
+		<ol class="comment-list">
 		<?php
 		wp_list_comments(
 			array(
 				'style'       => 'ol',
 				'avatar_size' => 50,
 				'short_ping'  => true,
-				'walker'      => new Themeberger_Comment_Walker( 'ol' ),
+				//'walker'      => new Themeberger_Comment_Walker( 'ol' ),
 			)
 		);
 		?>
+		</ol>
 
 		<?php the_comments_navigation(); ?>
 

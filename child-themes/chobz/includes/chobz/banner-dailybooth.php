@@ -23,3 +23,4 @@ function chobz_banner_dailybooth() {
 	endif;
 }
 add_action( 'themeberger_after_entry_content', 'chobz_banner_dailybooth', 100 );
+add_action( 'marlon_after_entry_content', 'chobz_banner_dailybooth', 100 );

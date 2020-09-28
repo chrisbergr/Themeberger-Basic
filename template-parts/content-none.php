@@ -10,14 +10,14 @@
 ?>
 
 <article id="post-none" <?php post_class( 'content' ); ?>>
-	<div class="content-card type-article">
+	<div class="content-card empty-card">
 
-		<div class="entry-content page-content">
-			<h2><?php esc_html_e( 'No Contents', 'themeberger-basic' ); ?></h2>
+		<header class="entry-header">
+			<h2 class="entry-title"><?php esc_html_e( 'No Contents', 'themeberger-basic' ); ?></h2>
+		</header><!-- .entry-header -->
+
+		<div class="entry-content">
 			<p><?php esc_html_e( 'Unfortunately, there is no content available.', 'themeberger-basic' ); ?></p>
-			<p>&nbsp;</p>
-			<p>&nbsp;</p>
-			<div class="background-block full-width-block"></div>
 		</div><!-- .entry-content -->
 
 	</div><!-- .content-card -->

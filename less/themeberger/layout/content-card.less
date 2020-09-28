@@ -27,8 +27,47 @@
 	background-color: var(--card-background-color);
 	//box-shadow: 0px 0px 0px 10px rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.1);
+	&.content-card-row{
+		.flex-display();
+		.flex-direction(column);
+		.m1-md({
+			.flex-direction(row);
+			//margin: 100px 0;
+		});
+		.content-card-col{
+			.flex(1);
+		}
+		.single-pins &{
+			&.type-pin{
+				max-width: 1280px;
+				.content-card-col:first-child{
+					//background-color: #f03;
+					background-color: lightgrey;
+					background-color: var(--article-section-color);
+					.m1-md({
+						.flex(2);
+					});
+				}
+			}
+		}
+	}
 	&:not(.type-article){
 		overflow: hidden;
+	}
+	&.empty-card{
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+	&.content-card-transparent{
+		background-color: transparent;
+		box-shadow: none;
+		.avatar{
+			display: none;
+		}
+		.entry-content{
+			padding-left: 20px;
+			padding-top: 20px;
+		}
 	}
 	&.card-hidden{
 		background-color: transparent;
@@ -405,6 +444,51 @@
 				margin-bottom: 0;
 			}
 		}
+		.comment-list{
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+			li{
+				padding-top: 0 !important;
+				padding-bottom: 0 !important;
+				//overflow: hidden;
+				img{
+					width: 50px;
+					height: 50px;
+					margin-right: 12px;
+					vertical-align: top;
+					/**/
+					-webkit-mask-image: url(../images/avatar.svg);
+					mask-image: url(../images/avatar.svg);
+					-webkit-mask-mode: alpha;
+					mask-mode: alpha;
+					-webkit-mask-repeat: no-repeat;
+					mask-repeat: no-repeat;
+					-webkit-mask-size: 100%;
+					mask-size: 100%;
+					-webkit-mask-position: center;
+					mask-position: center;
+					&.themeberger-comment-avatar{
+						margin-right: 14px;
+					}
+				}
+			}
+			.comment-content{
+				margin-top: 0;
+				padding-bottom: 30px;
+				&.themeberger-comment-content{
+					margin-top: -30px;
+				}
+			}
+			.comment-metadata{
+				padding-left: 65px;
+				margin-top: -25px;
+				font-size: 0.85em;
+			}
+			.comment-meta{
+				padding-bottom: 10px;
+			}
+		}
 		.mention-list{
 			list-style: none;
 			padding-left: 0;
@@ -499,7 +583,7 @@
 		.rotate(-45deg);
 		.drop-shadow();
 		background-color: #000;
-		z-index: 5;
+		z-index: 15;
 	}
 }
 
@@ -517,6 +601,6 @@
 		.rotate(-45deg);
 		.drop-shadow();
 		background-color: #ffd400;
-		z-index: 3;
+		z-index: 13;
 	}
 }

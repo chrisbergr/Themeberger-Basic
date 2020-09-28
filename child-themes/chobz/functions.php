@@ -15,12 +15,15 @@ require_once CHOBZ_INCLUDES . '/chobz-ui.php';
 require_once CHOBZ_INCLUDES . '/footer-navigation.php';
 require_once CHOBZ_INCLUDES . '/footer-info.php';
 require_once CHOBZ_INCLUDES . '/footer-backlink.php';
+require_once CHOBZ_INCLUDES . '/footer-logo.php';
 require_once CHOBZ_INCLUDES . '/footer-solidaritaet.php';
 require_once CHOBZ_INCLUDES . '/footer-journey.php';
+require_once CHOBZ_INCLUDES . '/footer-blm.php';
+require_once CHOBZ_INCLUDES . '/catcher-blm.php';
 require_once CHOBZ_INCLUDES . '/banner-dailybooth.php';
 require_once CHOBZ_INCLUDES . '/card-now.php';
 
-require_once CHOBZ_THIRD_PARTY . '/themeberger-breadcrumbs.php';
+require_once CHOBZ_THIRD_PARTY . '/marlon-breadcrumbs.php';
 require_once CHOBZ_THIRD_PARTY . '/polylang.php';
 require_once CHOBZ_THIRD_PARTY . '/remove-assets.php';
 

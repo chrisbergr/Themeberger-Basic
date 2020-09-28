@@ -5,6 +5,22 @@
  * @package themebergerbasic
  */
 
+if( ! function_exists( 'marlon_framework' ) || ! $utils = marlon_framework()->get_module( 'post_utilities' ) ) {
+	return;
+}
+if( ! function_exists( 'marlon_framework' ) || ! $kicker = marlon_framework()->get_module( 'post_kicker' ) ) {
+	return;
+}
+if( ! function_exists( 'marlon_framework' ) || ! $subtitle = marlon_framework()->get_module( 'post_subtitle' ) ) {
+	return;
+}
+
+$layout = get_post_meta( get_the_id(), 'marlon_post_layout', true );
+if( empty( $layout ) ) {
+	$layout = 'layout-default';
+}
+
+
 if ( ! function_exists( 'header_style' ) ) {
 	/**
 	 * Prints the header image if is set
@@ -25,7 +41,7 @@ if ( ! function_exists( 'header_style' ) ) {
 			<?php do_action( 'themeberger_before_header' ); ?>
 			<header id="masthead" class="site-header<?php echo is_singular() ? ' header-single' : ''; ?>" style="<?php header_style(); ?>">
 
-				<?php do_action( 'chobz_breadcrumb' ); ?>
+				<?php do_action( 'marlon_site_breadcrumbs' ); ?>
 
 				<div class="site-header--inner">
 
@@ -81,14 +97,25 @@ if ( ! function_exists( 'header_style' ) ) {
 							$template = $this_type . '-' . $this_format;
 							?>
 							<?php if ( 'post-standard' === $template ) : ?>
-								<h6 class="entry-category-date page-category-date"><?php the_permalink_date( '', '<br>', false ); ?><?php the_category( ', ' ); ?></h6><h6 class="entry-kicker page-kicker"><?php the_kicker(); ?></h6>
-								<?php the_title( '<h1 class="entry-title page-title">', '</h1>' ); ?>
-								<?php the_subtitle( '<h4 class="entry-subtitle page-subtitle">', '</h4>' ); ?>
+								<div class="site-info">
+									<div class="site-info--left">
+										<?php $kicker->the_kicker( '<h6 class="entry-kicker page-kicker">', '</h6>' ); ?>
+										<?php the_title( '<h1 class="entry-title page-title">', '</h1>' ); ?>
+										<?php $subtitle->the_subtitle( '<h4 class="entry-subtitle page-subtitle">', '</h4>' ); ?>
+									</div><!-- .site-info-left -->
+									<div class="site-info--right">
+										<h6 class="entry-category-date page-category-date"><?php $utils->the_permalink_date( '', '<br>', false ); ?><?php the_category( ', ' ); ?></h6>
+									</div><!-- .site-info-right -->
+								</div><!-- .site-info -->
 							<?php endif; ?>
 						<?php endif; ?>
 
 					</div><!-- .site-branding -->
-				</div><!-- .site-header--inner -->
+				</div><!-- .site-header-inner -->
+
+				<?php if ( has_post_thumbnail() && is_singular() && $layout === 'layout-headercover' ) : ?>
+				<div class="site-header--image"><?php the_post_thumbnail(); ?></div>
+				<?php endif; ?>
 
 				<div class="site-header--background"></div>
 

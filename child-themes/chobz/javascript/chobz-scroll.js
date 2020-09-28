@@ -16,7 +16,7 @@ function chobz_scroll_off() {
 	}
 }
 
-if ( $body.hasClass( chobz_class_home ) ) {
+if ( $body.hasClass( chobz_class_home ) || $body.hasClass( chobz_class_sticky ) ) {
 	$window.scroll( function() {
 		chobz_scroll();
 	} );

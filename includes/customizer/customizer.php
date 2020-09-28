@@ -5,6 +5,7 @@
  * @package themebergerbasic
  */
 
+/*
 function themeberger_customizer_settings( $wp_customize ) {
 
 	$wp_customize->add_section(
@@ -28,8 +29,6 @@ function themeberger_customizer_settings( $wp_customize ) {
 			)
 		)
 	);
-
-	/**/
 
 	$wp_customize->add_section(
 		'themeberger_settings',
@@ -165,3 +164,5 @@ function themeberger_customizer_css() {
 }
 
 add_action( 'wp_head', 'themeberger_customizer_css' );
+
+/**/

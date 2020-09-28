@@ -25,6 +25,20 @@ function marlon_get_template_part( $slug, $name = null ) {
 	return marlon_framework()->get_template_part( $slug, $name );
 }
 
+function the_content_meta() {
+	if ( function_exists( 'marlon_framework' ) && marlon_framework()->has_module( 'post_utilities' ) ) {
+		if( $utils = marlon_framework()->get_module( 'post_utilities' ) ) {
+			$utils->get_marlon_template( 'entry-meta' );
+		}
+	}
+}
+
+function themeberger_marlon_shortlink_classes( $classes ) {
+	$classes[] = 'tb-shortlink';
+	return $classes;
+}
+add_filter( 'marlon_shortlink_classes', 'themeberger_marlon_shortlink_classes' );
+
 function themeberger_marlon_author_vcard_class( $author_class ) {
 	return $author_class . ' ' . 'themeberger-author';
 }
@@ -34,6 +48,11 @@ function themeberger_marlon_permalink_date( $permalink ) {
 	return '<span class="themeberger-date">' . $permalink . '</span>';
 }
 add_filter( 'marlon_permalink_date', 'themeberger_marlon_permalink_date' );
+
+function themeberger_marlon_first_quote_of_post_class( $quote_class ) {
+	return $quote_class . ' ' . 'themeberger-quote';
+}
+add_filter( 'marlon_first_quote_of_post_class', 'themeberger_marlon_first_quote_of_post_class' );
 
 /**
  * Themeberger Basic Setup.
@@ -56,19 +75,9 @@ require_once THEME_INCLUDES . '/customizer/class-wp-customize-range.php';
 require_once THEME_INCLUDES . '/customizer/customizer.php';
 require_once THEME_INCLUDES . '/customizer/customizer-data.php';
 
-/**
- * Themeberger Post Functions Class.
- */
+/*
 require_once THEMEBERGER_DIR . '/class-themeberger-post-functions.php';
-
-/**
- * Themeberger Post Functions.
- */
 require_once THEMEBERGER_DIR . '/themeberger-public-post-functions.php';
-
-/**
- * Themeberger Comment Walker.
- */
 require_once THEMEBERGER_DIR . '/class-themeberger-comment-walker.php';
 
 /**/
@@ -85,6 +94,7 @@ function homepage_content() {
 			'sort_column' => 'menu_order',
 		)
 	);
+	ob_start();
 	?>
 	<div class="homepage-content-container">
 	<?php
@@ -98,7 +108,9 @@ function homepage_content() {
 	?>
 	</div>
 	<?php
+	echo apply_filters( 'themeberger_homepage_content', ob_get_clean() );
 }
+add_filter( 'themeberger_homepage_content', 'do_shortcode' );
 add_action( 'themeberger_homepage', 'homepage_content' );
 
 /**/

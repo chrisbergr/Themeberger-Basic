@@ -21,12 +21,15 @@ if ( has_post_thumbnail() ) {
 	<?php endif; ?>
 
 	<section class="homepage-content-container">
+
 		<header class="homepage-header">
 			<h2 class="homepage-title"><?php the_title(); ?></h2>
 		</header><!-- .entry-header -->
+
 		<div class="homepage-content">
 			<?php the_content(); ?>
 		</div><!-- .entry-content -->
+
 	</section>
 
 	<div class="background-block full-width-block"></div>

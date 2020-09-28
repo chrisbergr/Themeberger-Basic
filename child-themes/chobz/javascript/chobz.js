@@ -40,6 +40,7 @@ var arrows_disabled_class = 'disabled';
 var chobz_scroll_offset = 10;
 var chobz_class_moved   = 'scrolled';
 var chobz_class_home    = 'home';
+var chobz_class_sticky  = 'layout-headercover';
 
 // EVENTS
 var event_scroll    = 'scroll',

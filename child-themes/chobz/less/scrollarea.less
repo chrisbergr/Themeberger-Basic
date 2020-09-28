@@ -10,6 +10,42 @@
     width: 100%;
     height: 32rem;
 }
+
+a.readmore{
+	position: relative;
+	display: inline-block;
+	.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+	color: black;
+	color: var(--global-headline-color);
+	border-bottom: white 2px solid;
+	border-bottom: var(--global-brand-color) 2px solid;
+	text-decoration: none;
+	padding-bottom: 3px;
+	&::after{
+		display: inline-block;
+		content: "\2192";
+		position: absolute;
+		right: 5px;
+		bottom: -12px;
+		.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
+		color: white;
+		color: var(--global-brand-color);
+		opacity: 0;
+		font-weight: bold;
+	}
+	&:hover,
+	&:focus,
+	&:active{
+		color: white;
+		color: var(--global-link-color);
+		border-bottom: transparent 2px solid;
+		&::after{
+			right: -30px;
+			opacity: 1;
+		}
+	}
+}
+
 /*
 .scrollarea{
 	background-color: #036;
@@ -57,11 +93,19 @@
 */
 
 .scrollarea {
+	.recent-post-container + &{
+		margin-top: -300px;
+	}
 	//background-color: white;
-	z-index: 2;
+	z-index: 5;
 	position: relative;
 	overflow: visible;
 	margin: 0 1em;
+	& + p{
+		margin-top: -20px;
+		position: relative;
+		z-index: 7;
+	}
 	.m1-sm({
 		margin: 0 50px;
 	});
@@ -72,6 +116,7 @@
 	.background-block{
 		background-color: var(--global-background-color);
 	}
+	/*
 	& + .subcontent-content{
 		p{
 			margin-top: 0;
@@ -80,41 +125,9 @@
 			font-weight: bold;
 		}
 	}
-	& + .subcontent-content a,
-	a.readmore{
-		position: relative;
-		display: inline-block;
-		.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
-		color: black;
-		color: var(--global-headline-color);
-		border-bottom: white 2px solid;
-		border-bottom: var(--global-brand-color) 2px solid;
-		text-decoration: none;
-		padding-bottom: 3px;
-		&::after{
-			display: inline-block;
-			content: "\2192";
-			position: absolute;
-			right: 5px;
-			bottom: -12px;
-			.transition(all 0.15s cubic-bezier(1, .3, .3, 1));
-			color: white;
-			color: var(--global-brand-color);
-			opacity: 0;
-			font-weight: bold;
-		}
-		&:hover,
-		&:focus,
-		&:active{
-			color: white;
-			color: var(--global-link-color);
-			border-bottom: transparent 2px solid;
-			&::after{
-				right: -30px;
-				opacity: 1;
-			}
-		}
-	}
+	*/
+	//& + .subcontent-content a,
+
 }
 .scrollarea-header {
     display: flex;
@@ -132,37 +145,62 @@
 }
 .scrollarea-arrows {
     align-self: center;
-	.arrow:before {
-	    content: '';
-	    display: inline-block;
-	    vertical-align: middle;
-	    content: "";
-	    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTUgOSI+Cgk8cGF0aCBmaWxsPSIjMzMzMzMzIiBkPSJNNy44NjcgOC41NzRsLTcuMjItNy4yMi43MDctLjcwOEw3Ljg2NyA3LjE2IDE0LjA1Ljk4bC43MDYuNzA3Ii8+Cjwvc3ZnPgo=");
-	    background-size: contain;
-		background-repeat: no-repeat;
-	    -webkit-filter: brightness(1);
-	    filter: brightness(1);
-		:root[theme='dark'] &{
-			-webkit-filter: brightness(100);
-		    filter: brightness(100);
-		}
-	    width: 18px;
-	    height: 12px;
-	    cursor: pointer;
-	}
-	.arrow.disabled:before {
-	    opacity: 0.25;
-	}
-	.arrow.arrow-prev:before {
-	    -webkit-transform: rotate(90deg);
-	    transform: rotate(90deg);
-	    margin-right: 10px;
-	}
-	.arrow.arrow-next:before {
-	    -webkit-transform: rotate(-90deg);
-	    transform: rotate(-90deg);
+	pointer-events: all;
+	font-size: 0;
+	line-height: 0;
+	//.arrow:before { }
+	//.arrow.disabled:before { opacity: 0.25; }
+	//.arrow.arrow-prev:before { }
+	//.arrow.arrow-next:before { }
+	.arrow{
+		display: inline-block;
 		position: relative;
-		top: 1px;
+		z-index: 10;
+		background-color: rgba( 255, 255, 255, 0 );
+		border-radius: 50%;
+		width: 25px;
+		height: 25px;
+		cursor: pointer;
+		overflow: hidden;
+		&::after{
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			line-height: 25px;
+			text-align: center;
+			font-size: 14px;
+			font-weight: bold;
+			color: #fff;
+			.transition(all 0.2s cubic-bezier(1, .3, .3, 1));
+		}
+		.transition(all 0.2s cubic-bezier(1, .3, .3, 1));
+		opacity: 1;
+		.box-shadow( 0 0 0 2px #fff );
+		&:not(.disabled):hover{
+			.box-shadow( 0 0 0 5px #fff );
+			background-color: rgba( 255, 255, 255, 1 );
+			&::after{
+				color: #000;
+			}
+		}
+		&.disabled{
+			opacity: 0.25;
+			cursor: default;
+		}
+		&.arrow-next{
+			&::after{
+				content: "\2192";
+			}
+		}
+		&.arrow-prev{
+			margin-right: 12px;
+			&::after{
+				content: "\2190";
+			}
+		}
 	}
 }
 .slider {

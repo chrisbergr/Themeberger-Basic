@@ -17,8 +17,8 @@ if ( ! function_exists( 'themebergerbasic_widgets' ) ) :
 		);
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Site Info', 'themeberger-basic' ),
-				'id'            => 'site-info',
+				'name'          => esc_html__( 'Footer Left', 'themeberger-basic' ),
+				'id'            => 'footer-left',
 				'description'   => esc_html__( 'Add widgets here.', 'themeberger-basic' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">' . "\n\r",
 				'after_widget'  => '		</section><!-- /widget -->' . "\n\r",
@@ -28,8 +28,8 @@ if ( ! function_exists( 'themebergerbasic_widgets' ) ) :
 		);
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Left', 'themeberger-basic' ),
-				'id'            => 'footer-left',
+				'name'          => esc_html__( 'Footer Center', 'themeberger-basic' ),
+				'id'            => 'footer-center',
 				'description'   => esc_html__( 'Add widgets here.', 'themeberger-basic' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">' . "\n\r",
 				'after_widget'  => '		</section><!-- /widget -->' . "\n\r",
