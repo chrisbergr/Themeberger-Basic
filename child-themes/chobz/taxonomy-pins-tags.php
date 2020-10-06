@@ -24,7 +24,7 @@ get_header(); ?>
 
 				<?php do_action( 'themeberger_before_primary' ); ?>
 				<div id="primary-content" class="content-area">
-					<main id="main" class="site-main<?php echo is_singular() ? ' main-single' : ' hfeed h-feed masonry" itemscope itemtype="http://schema.org/Collection'; ?>">
+					<main id="main" class="site-main<?php echo is_singular() ? ' main-single' : ' hfeed h-feed" itemscope itemtype="http://schema.org/Collection'; ?>">
 					<?php do_action( 'themeberger_before_content' ); ?>
 
 					<?php if ( have_posts() ) : ?>
@@ -39,6 +39,11 @@ get_header(); ?>
 							<?php
 						endif;
 
+						?>
+
+						<div class="masonry">
+
+						<?php
 						while ( have_posts() ) :
 							the_post();
 							$this_type   = get_post_type();
@@ -56,6 +61,12 @@ get_header(); ?>
 							$template = $this_type . '-' . $this_format;
 							marlon_get_template_part( 'template-parts/content', $template );
 						endwhile;
+						?>
+
+						<div class="background-block full-width-block"></div>
+						</div>
+
+						<?php
 
 						the_posts_navigation();
 

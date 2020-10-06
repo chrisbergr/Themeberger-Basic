@@ -22,6 +22,7 @@ $subpage_content = get_the_content();
 	<div class="subcontent-image"><?php the_post_thumbnail(); ?></div>
 	<?php endif; ?>
 
+	<?php /*
 	<div class="scrollarea">
 		<div class="scrollarea-header">
 			<h2 class="scrollarea-title"><?php echo esc_html( get_the_title() ); ?></h2>
@@ -54,6 +55,7 @@ $subpage_content = get_the_content();
 
 		</ul>
 	</div><!-- .scrollarea -->
+	*/ ?>
 
 	<div class="subcontent-content">
 		<?php
