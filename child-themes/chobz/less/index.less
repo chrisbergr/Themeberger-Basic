@@ -13,6 +13,7 @@
 @import "now-card.less";
 @import "scrollarea.less";
 @import "recent-post.less";
+@import "specials.less";
 
 //@import "test.less";
 
@@ -293,6 +294,41 @@
 	fill: #5c6468;
 }
 
+
+
+.elm-divider{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: auto;
+	font-size: 0;
+	//z-index: 1;
+	.translateY(100%);
+
+	.site-header--image ~ &{
+		display: none;
+	}
+
+	svg{
+		width: 100%;
+		height: auto;
+		path{
+			fill: inherit;
+		}
+	}
+
+	&.elm-divider--bottom{
+		bottom: 0;
+		.translateY(70%);
+	}
+	&.elm-divider--top{
+		top: 0;
+		.translateY(-70%);
+		svg{
+			.scale(-1);
+		}
+	}
+}
 
 
 

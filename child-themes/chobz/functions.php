@@ -29,6 +29,23 @@ require_once CHOBZ_THIRD_PARTY . '/remove-assets.php';
 
 /**/
 
+function chobz_tag_classes( $classes ) {
+	if( ! is_singular() ) {
+		return $classes;
+	}
+	$supported_tags = array(
+		"packers",
+		"gb-packers",
+	);
+	foreach( $supported_tags as $tag ) {
+		if( has_tag( $tag ) ) {
+			$classes[] = 'chobz-tag--' . $tag;
+		}
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'chobz_tag_classes' );
+
 function default_post_title( $old_title ) {
 	if ( ! $old_title ) {
 		return __( 'A post by Christian Hockenberger', 'themeberger-basic' );
@@ -67,12 +84,20 @@ add_filter( 'pre_get_posts', 'exclude_activity_from_feed' );
 
 /**/
 
-function photo_posts_per_page( $query ) {
+function gallery_posts_per_page( $query ) {
 	if ( $query->is_main_query() && ( is_category( 'foto' ) || is_category( 'photo' ) ) && ! is_admin() ) {
 		$query->set( 'posts_per_page', '50' );
 	}
 }
-add_action( 'pre_get_posts', 'photo_posts_per_page' );
+add_action( 'pre_get_posts', 'gallery_posts_per_page' );
+
+function pins_posts_per_page( $query ) {
+	//FIX ME: custom post type is not in main query in some circumstances.
+	if ( $query->is_main_query() && ( is_post_type_archive( 'pins' ) || is_tax( 'pins-tags' ) ) && ! is_admin() ) {
+		$query->set( 'posts_per_page', '2' );
+	}
+}
+add_action( 'pre_get_posts', 'pins_posts_per_page' );
 
 /**/
 

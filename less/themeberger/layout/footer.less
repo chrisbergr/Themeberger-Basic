@@ -2,12 +2,15 @@
 	--footer-background-color: var(--header-background-color);
 	background-color: black;
 	background-color: var(--footer-background-color);
+	fill: black;
+	fill: var(--footer-background-color);
 	color: grey;
     color: var(--footer-text-color);
     padding: 50px;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
+	position: relative;
 }
 .site-footer--inner{
 	width: 100%;
@@ -86,11 +89,14 @@
 .footer-navigation-container{
 	background-color: black;
 	background-color: var(--footer-background-color);
+	fill: black;
+	fill: var(--footer-background-color);
 	color: grey;
     color: var(--footer-text-color);
 	padding: 50px;
     padding-top: 1.5em;
     padding-bottom: 1em;
+	position: relative;
 }
 .footer-navigation{
     .wrapper_spacing();
@@ -98,6 +104,7 @@
 	max-width: 980px;
 	padding-left: 0;
 	padding-right: 0;
+	position: relative;
     & ul{
         font-size: 0.8em;
         list-style: none;
@@ -152,12 +159,15 @@
 .footer-infobox{
 	background-color: black;
 	background-color: var(--footer-background-color);
+	fill: black;
+	fill: var(--footer-background-color);
 	color: grey;
     color: var(--footer-text-color);
 	padding: 50px;
     padding-top: 0.5em;
     padding-bottom: 1.5em;
     text-align: center;
+	position: relative;
     .m1-sm({
         text-align: left;
     });
@@ -204,6 +214,7 @@
     padding-bottom:1.5em;
     //margin-top: @default-margin * 1;
     text-align: center;
+	position: relative;
     .m1-sm({
         text-align: left;
     });
