@@ -141,4 +141,13 @@ function add_archive_description() {
 }
 add_action( 'themeberger_after_header', 'add_archive_description', 50 );
 
+function add_featured_image_body_class( $classes ) {
+	global $post;
+    if( isset( $post->ID ) && get_the_post_thumbnail( $post->ID ) ) {
+          $classes[] = 'has-featured-image';
+	}
+    return $classes;
+}
+add_filter( 'body_class', 'add_featured_image_body_class' );
+
 /**/

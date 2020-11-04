@@ -14,11 +14,17 @@ function chobz_footer_info() {
 				<div class="profilegrid vcard hcard h-card" itemscope itemtype="http://schema.org/Person">
 					<div class="profilegrid-left">
 						<p class="hcardname name p-name fn n"><span class="given-name p-given-name" itemprop="givenName">Christian</span> <span class="family-name p-family-name" itemprop="familyName">Hockenberger</span></p>
-						<p class="note p-note"><strong class="highlight">Father</strong>, <strong class="highlight">Husband</strong>, <span class="job-title p-job-title" itemprop="jobTitle">Brand Identity Designer</span> &amp; Soldier</p>
+						<p class="note p-note">
+							<strong class="highlight">Father</strong>,
+							<strong class="highlight">Husband</strong>,
+							<span class="job-title p-job-title" itemprop="jobTitle">Art Director</span>
+							&amp; Soldier<br>
+							<span class="p-pronouns"><span class="p-pronoun-nominative">he</span>/<span class="p-pronoun-oblique">him</span>/<span class="p-pronoun-possessive">his</span></span>
+						</p>
 						<div class="profilegrid-inner">
 							<p class="adr h-adr" itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
 								<span class="street-address p-street-address" itemprop="streetAddress">Robert-Koch-Straße 19</span><br>
-								<span class="country-name p-country-name" itemprop="addressCountry">DE</span>-<span class="postal-code p-postal-code" itemprop="postalCode">67240</span> <span class="locality p-locality" itemprop="addressLocality">Roxheim</span>
+								<span class="country-name p-country-name" itemprop="addressCountry">DE</span>-<span class="postal-code p-postal-code" itemprop="postalCode">67240</span> <span class="locality p-locality" itemprop="addressLocality"><span class="removed">Bobenheim-</span>Roxheim</span>
 							</p>
 						</div>
 						<div class="profilegrid-inner">

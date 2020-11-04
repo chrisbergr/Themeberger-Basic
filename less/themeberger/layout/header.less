@@ -5,22 +5,31 @@
 	fill: black;
 	fill: var(--header-background-color);
 	padding: 1em;
+	min-height: 100px;
+	z-index: 2;
 	.m1-sm({
 		padding: 20px 50px;
 	});
 	.m1-md({
 		padding: 85px 50px;
 	});
+	.post-template-default.has-featured-image &,
+	.page-template-default.has-featured-image &{
+		padding-bottom: 200px;
+	}
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
 	&.header-single{
-		padding-bottom: 150px;
+		//padding-bottom: 150px;
 		.layout-headercover &{
 			height: 100vh;
 		}
 		.elm-divider{
 			z-index: 2;
+		}
+		.home &{
+			display: none;
 		}
 	}
 }

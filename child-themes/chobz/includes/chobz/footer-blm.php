@@ -2,8 +2,15 @@
 
 function chobz_footer_blm() {
 
+	$blm_url = 'https://christian-hockenberger.com/black-lives-matter/';
+
+	if( 'de_DE' === get_locale() ) {
+		$blm_url = 'https://christian-hockenberger.de/blm/';
+	}
+
 	?>
 
+	<a href="<?php echo esc_url( $blm_url ); ?>">
 	<svg version="1.1" id="blm" class="catcher-badges" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		 viewBox="0 0 2435 3000" style="enable-background:new 0 0 2435 3000;" xml:space="preserve">
 		<path class="blm-matter" d="M1447.6,2207.4c9.7,1.4,19.6,2.6,29.4,2.4c21.3-0.5,24.9-5.2,24.8-26c-0.1-26.6,0.4-53.3,1.2-79.9
@@ -156,6 +163,7 @@ function chobz_footer_blm() {
 			c28.9,0.6,57.9,2.3,86.6,0.5c25.3-1.7,31.6-12,33.9-37.1c6.4-69.4-4.1-138.4-5.1-207.6c-0.7-46.4-3.6-92.7-5.5-139.1
 			c-2.1-49.4-4-98.8-6.7-148.1c-0.9-15.9-5.5-31.6-6.1-47.5c-1-26.6-0.3-53.2-0.2-79.9C827.6,1172.6,827,1172.6,826.5,1172.6z"/>
 	</svg>
+	</a>
 
 	<?php
 

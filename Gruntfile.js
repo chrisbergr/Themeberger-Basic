@@ -79,7 +79,7 @@ module.exports = function (grunt) {
 							"advanced": true
 						})
 					],
-					sourceMap: false,
+					sourceMap: true,
 					banner: "/*!\n" +
 						"Theme Name:   chobz\n" +
 						"Theme URI:    cho.bz\n" +

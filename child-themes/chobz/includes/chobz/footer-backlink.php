@@ -5,6 +5,7 @@ function chobz_footer_backlink() {
 	?>
 
 	<div class="footer-backlink">
+		<?php do_action( 'themeberger_footer_backlink' ); ?>
 		<nav class="backlink-nav">
 			<div class="left">
 				<p>
@@ -19,9 +20,11 @@ function chobz_footer_backlink() {
 						<i class="iconberger iconberger-up"></i> Top
 					</a>
 				</p>-->
-				<a href="https://xn--sr8hvo.ws/%E2%9C%92%EF%B8%8F%F0%9F%9A%A4%F0%9F%90%89/previous">←</a>
-				An IndieWeb Webring 🕸💍
-				<a href="https://xn--sr8hvo.ws/%E2%9C%92%EF%B8%8F%F0%9F%9A%A4%F0%9F%90%89/next">→</a>
+				<p>
+					<a href="https://xn--sr8hvo.ws/%E2%9C%92%EF%B8%8F%F0%9F%9A%A4%F0%9F%90%89/previous">←</a>
+					An IndieWeb Webring 🕸💍
+					<a href="https://xn--sr8hvo.ws/%E2%9C%92%EF%B8%8F%F0%9F%9A%A4%F0%9F%90%89/next">→</a>
+				</p>
 			</div>
 		</nav>
 	</div>

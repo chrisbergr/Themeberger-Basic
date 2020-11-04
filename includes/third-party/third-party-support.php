@@ -43,7 +43,7 @@ if ( function_exists( 'get_post_syndication_links' ) ) :
 			echo wp_kses( '<div id="syndication-links">' . get_post_syndication_links() . '</div>', THEMEBERGER_HTML );
 		}
 	}
-	add_action( 'themeberger_entry_footer', 'add_syndication_view', 50 );
+	add_action( 'marlon_entry_footer', 'add_syndication_view', 50 );
 
 	function remove_syndication_style() {
 		wp_dequeue_style( 'syndication-style' );

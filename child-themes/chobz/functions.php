@@ -18,10 +18,11 @@ require_once CHOBZ_INCLUDES . '/footer-backlink.php';
 require_once CHOBZ_INCLUDES . '/footer-logo.php';
 require_once CHOBZ_INCLUDES . '/footer-solidaritaet.php';
 require_once CHOBZ_INCLUDES . '/footer-journey.php';
+require_once CHOBZ_INCLUDES . '/footer-hockenberger.php';
 require_once CHOBZ_INCLUDES . '/footer-blm.php';
 require_once CHOBZ_INCLUDES . '/catcher-blm.php';
 require_once CHOBZ_INCLUDES . '/banner-dailybooth.php';
-require_once CHOBZ_INCLUDES . '/card-now.php';
+//require_once CHOBZ_INCLUDES . '/card-now.php';
 
 require_once CHOBZ_THIRD_PARTY . '/marlon-breadcrumbs.php';
 require_once CHOBZ_THIRD_PARTY . '/polylang.php';

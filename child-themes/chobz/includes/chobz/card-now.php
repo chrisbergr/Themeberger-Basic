@@ -2,7 +2,7 @@
 
 function chobz_card_now() {
 
-	if ( is_front_page() && is_home() ) :
+	if ( is_front_page() && is_home() || 1==1) :
 
 		$url  = 'https://location.cho.bz/api/current-location/';
 		$args = array(
@@ -25,7 +25,23 @@ function chobz_card_now() {
 		$location        = preg_replace( '#(\s*<br\s*/?>)*\s*$#i', '', nl2br( $result_location->current_place_f ) );
 		?>
 
-		<div class="now-card">
+		<div class="now-teaser">
+			<div class="now-teaser-image">
+
+				<?php if ( $current_place->has_image ) : ?>
+				<img src="<?php echo esc_url( $current_place->image ); ?>" class="map-static" alt="Current location map">
+				<img src="<?php echo esc_url( $current_place->image_wide ); ?>" class="map-wide-static" alt="Current location wide map">
+				<?php endif; ?>
+
+			</div>
+			<div class="">
+
+				<p>Go checkout my now-page</p>
+
+			</div>
+		</div>
+
+		<div class="now-card" style="display:none;">
 			<h2>cho.bz/now</h2>
 			<div class="content-card">
 
@@ -64,4 +80,5 @@ function chobz_card_now() {
 	endif;
 
 }
-add_action( 'themeberger_after_header', 'chobz_card_now' );
+//add_action( 'themeberger_after_header', 'chobz_card_now' );
+add_action( 'themeberger_homepage', 'chobz_card_now', 5 );

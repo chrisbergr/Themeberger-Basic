@@ -302,6 +302,14 @@
 		font-size: 0;
 		position: relative;
 		z-index: 10;
+		.post-template-default.has-featured-image &,
+		.page-template-default.has-featured-image &{
+			margin-top: -200px;
+			.m1-md({
+				margin-top: -250px;
+			});
+		}
+
 		img{
 			width: 100%;
 		}
